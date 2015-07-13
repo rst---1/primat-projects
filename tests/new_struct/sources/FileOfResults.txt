@@ -1,0 +1,42 @@
+MeshFileName 	= 1x1_T1.1.msh
+	Number of active cells:       4096
+MaxDiff 	= 0.000000
+MaxDiff_otn 	= 0.000000 %
+
+
+
+MeshFileName 	= 1x1_T1.1.msh
+	Number of active cells:       4096
+MaxDiff 	= 0.000000
+MaxDiff_otn 	= 0.000000 %
+
+
+
+MeshFileName 	= 1x1_T1.2_nestr.msh
+	Number of active cells:       2208
+MaxDiff 	= 0.000433
+MaxDiff_otn 	= 0.523229 %
+
+
+
+MeshFileName 	= 1x1_T1.2_nestr.msh
+	Number of active cells:       2208
+MaxDiff 	= 0.000433
+MaxDiff_otn 	= 0.523229 %
+
+
+
+MeshFileName 	= 1x1_T1.2_nestr.msh
+	Number of active cells:       2208
+MaxDiff 	= 0.000433
+MaxDiff_otn 	= 0.523229 %
+
+
+
+MeshFileName 	= 1x1_T1.2_nestr.msh
+	Number of active cells:       2208
+MaxDiff 	= 0.000433
+MaxDiff_otn 	= 0.523229 %
+
+
+

@@ -1,0 +1,1834 @@
+
+
+================================================================================
+================================================================================
+
+
+Вызов функции main() из файла new_struct_elastic.cpp
+
+	Yung1 	 = 1
+	Yung2 	 = 1
+	Yung3 	 = 1
+	Puasson1  = 0.4
+	Puasson2  = 0.1
+	Puasson3  = 0.4
+	c0 		 = 0.5
+	C0 		 = 0
+	bb 		 = 1
+	mu1 		 = 0.357143
+	mu2		 = 0.454545
+	mu3 		 = 0.357143
+	Yleft 	 = -0.5
+	Yright 	 = 0.5
+	Xup 		 = 1
+	Xdown 	 = 0
+	RefineNum = 3
+	eps		 = 1e-12
+	FileOfGrid = net/1x1_slayer3.msh
+	Number of active cells:       576
+	eps = 1e-12
+
+
+HCPTools::print_elasticity_gradient<2> 
+ => (in beginning) Integral(AU_x) = -0.00253687
+ => Integral(AU_x) = 2.17098e-16
+AddConstant = 0.00253687
+
+ => (in beginning) Integral(U_x) = -0.000832741
+ => Integral(U_x) = 3.998e-19
+AddConstant = 0.000832741
+
+deltMaxABSU_x = 0.0687452
+deltMaxOTNU_x = 4334.57%
+deltMaxABSU_x_gradX = 0.213763
+deltMaxOTNU_x_gradX = 214053%
+deltMaxABSU_x_gradY = 0.286372
+deltMaxOTNU_x_gradY = 100%
+
+deltMaxABSU_y = 0.0719824
+deltMaxOTNU_y = 100%
+deltMaxABSU_y_gradX = 0.433501
+deltMaxOTNU_y_gradX = 100%
+deltMaxABSU_y_gradY = 0.176805
+deltMaxOTNU_y_gradY = 63.8734%
+
+deltMaxABStau_xx = 0.555857
+deltAVEtau_xx = 0.0395442
+deltMaxOTNtau_xx = 100%
+deltMaxABStau_yy = 0.516623
+deltAVEtau_yy = 0.073623
+deltMaxOTNtau_yy = 100%
+deltMaxABStau_xy = 0.0819995
+deltAVEtau_xy = 0.0152309
+deltMaxOTNtau_xy = 100%
+deltMaxABStau_zz = 0.383029
+deltAVEtau_zz = 0.0420672
+deltMaxOTNtau_zz = 27.6949%
+	FileOfGrid			= net/1x1_slayer3.msh_576_elastic
+IntegralOfTau_xx(0.0) = 0.0084927
+IntegralOfTau_xx(0.125) = 0.000424096
+IntegralOfTau_xx(0.25) = 0.00270832
+
+IntegralOfTau_xx(0.475) = -0.000198899
+IntegralOfTau_xx(0.5) = -0.000190671
+
+IntegralOfTau_xy(0.0) = -3.31308e-16
+IntegralOfTau_xy(0.125) = 1.61689e-15
+IntegralOfTau_xy(0.25) = 2.89025e-15
+IntegralOfTau_xy(0.475) = 1.49163e-15
+IntegralOfTau_xy(0.5) = 1.27225e-15
+
+IntegralOfTau_xy(0) = 1.58658e-15
+IntegralOfTau_xy(0.125) = -0.000171415
+IntegralOfTau_xy(0.25) = -0.000389199
+IntegralOfTau_xy(0.375) = -0.000667421
+IntegralOfTau_xy(0.491) = -0.000709139
+
+IntegralOfTau_yy(0) = -0.0103536
+IntegralOfTau_yy(0.125) = -0.0103409
+IntegralOfTau_yy(0.25) = -0.010438
+IntegralOfTau_yy(0.375) = -0.0115403
+IntegralOfTau_yy(0.491) = -0.00439462
+
+EF = 1
+FileOfGrid = net/1x1_slayer3.msh
+Maxsigma_ntau_1x1_slayer3  = 82.8765
+Maxsigma_nn_1x1_slayer3  = 578.382
+sigma_nx = 578.382		sigma_ny = 64.3825		sigma_nn = 1		sigma_ntau = 0.776849
+sigma_nx = 555.857		sigma_ny = 52.3028		sigma_nn = 0.961054		sigma_ntau = 0.631093
+sigma_nx = 525.427		sigma_ny = 64.4835		sigma_nn = 0.908442		sigma_ntau = 0.778067
+sigma_nx = 498.854		sigma_ny = 59.1131		sigma_nn = 0.862498		sigma_ntau = 0.713268
+sigma_nx = 474.27		sigma_ny = 50.9717		sigma_nn = 0.819994		sigma_ntau = 0.615032
+sigma_nx = 453.334		sigma_ny = 42.5163		sigma_nn = 0.783796		sigma_ntau = 0.513009
+sigma_nx = 436.131		sigma_ny = 34.5733		sigma_nn = 0.754053		sigma_ntau = 0.417166
+sigma_nx = 422.402		sigma_ny = 27.3871		sigma_nn = 0.730316		sigma_ntau = 0.330456
+sigma_nx = 411.794		sigma_ny = 20.95		sigma_nn = 0.711975		sigma_ntau = 0.252786
+sigma_nx = 404.003		sigma_ny = 15.1801		sigma_nn = 0.698504		sigma_ntau = 0.183165
+sigma_nx = 398.658		sigma_ny = 9.86962		sigma_nn = 0.689264		sigma_ntau = 0.119088
+sigma_nx = 395.543		sigma_ny = 4.86111		sigma_nn = 0.683878		sigma_ntau = 0.0586549
+sigma_nx = 394.52		sigma_ny = 5.97802e-13		sigma_nn = 0.682109		sigma_ntau = 0
+sigma_nx = 395.543		sigma_ny = -4.86111		sigma_nn = 0.683878		sigma_ntau = 0.0586549
+sigma_nx = 398.658		sigma_ny = -9.86962		sigma_nn = 0.689264		sigma_ntau = 0.119088
+sigma_nx = 404.003		sigma_ny = -15.1801		sigma_nn = 0.698504		sigma_ntau = 0.183165
+sigma_nx = 411.794		sigma_ny = -20.95		sigma_nn = 0.711975		sigma_ntau = 0.252786
+sigma_nx = 422.402		sigma_ny = -27.3871		sigma_nn = 0.730316		sigma_ntau = 0.330456
+sigma_nx = 436.131		sigma_ny = -34.5733		sigma_nn = 0.754053		sigma_ntau = 0.417166
+sigma_nx = 453.334		sigma_ny = -42.5163		sigma_nn = 0.783796		sigma_ntau = 0.513009
+sigma_nx = 474.27		sigma_ny = -50.9717		sigma_nn = 0.819994		sigma_ntau = 0.615032
+sigma_nx = 498.854		sigma_ny = -59.1131		sigma_nn = 0.862498		sigma_ntau = 0.713268
+sigma_nx = 525.427		sigma_ny = -64.4835		sigma_nn = 0.908442		sigma_ntau = 0.778067
+sigma_nx = 555.857		sigma_ny = -52.3028		sigma_nn = 0.961054		sigma_ntau = 0.631093
+sigma_nx = 578.382		sigma_ny = -64.3825		sigma_nn = 1		sigma_ntau = 0.776849
+sigma_nx = -132.758		sigma_ny = -82.8765		sigma_nn = -0.229533		sigma_ntau = 1
+sigma_nx = -145.125		sigma_ny = -66.8768		sigma_nn = -0.250916		sigma_ntau = 0.806945
+sigma_nx = -163.42		sigma_ny = -81.9995		sigma_nn = -0.282546		sigma_ntau = 0.989419
+sigma_nx = -180.622		sigma_ny = -74.9748		sigma_nn = -0.312289		sigma_ntau = 0.904657
+sigma_nx = -195.436		sigma_ny = -64.5809		sigma_nn = -0.3379		sigma_ntau = 0.779243
+sigma_nx = -207.434		sigma_ny = -53.8655		sigma_nn = -0.358645		sigma_ntau = 0.649949
+sigma_nx = -216.736		sigma_ny = -43.8341		sigma_nn = -0.374727		sigma_ntau = 0.528909
+sigma_nx = -223.69		sigma_ny = -34.7684		sigma_nn = -0.386751		sigma_ntau = 0.419521
+sigma_nx = -228.711		sigma_ny = -26.6398		sigma_nn = -0.395432		sigma_ntau = 0.32144
+sigma_nx = -232.166		sigma_ny = -19.3349		sigma_nn = -0.401405		sigma_ntau = 0.233298
+sigma_nx = -234.406		sigma_ny = -12.5889		sigma_nn = -0.405278		sigma_ntau = 0.1519
+sigma_nx = -235.658		sigma_ny = -6.20637		sigma_nn = -0.407443		sigma_ntau = 0.074887
+sigma_nx = -236.06		sigma_ny = -5.10387e-12		sigma_nn = -0.408137		sigma_ntau = 0
+sigma_nx = -235.658		sigma_ny = 6.20637		sigma_nn = -0.407443		sigma_ntau = 0.074887
+sigma_nx = -234.406		sigma_ny = 12.5889		sigma_nn = -0.405278		sigma_ntau = 0.1519
+sigma_nx = -232.166		sigma_ny = 19.3349		sigma_nn = -0.401405		sigma_ntau = 0.233298
+sigma_nx = -228.711		sigma_ny = 26.6398		sigma_nn = -0.395432		sigma_ntau = 0.32144
+sigma_nx = -223.69		sigma_ny = 34.7684		sigma_nn = -0.386751		sigma_ntau = 0.419521
+sigma_nx = -216.736		sigma_ny = 43.8341		sigma_nn = -0.374727		sigma_ntau = 0.528909
+sigma_nx = -207.434		sigma_ny = 53.8655		sigma_nn = -0.358645		sigma_ntau = 0.649949
+sigma_nx = -195.436		sigma_ny = 64.5809		sigma_nn = -0.3379		sigma_ntau = 0.779243
+sigma_nx = -180.622		sigma_ny = 74.9748		sigma_nn = -0.312289		sigma_ntau = 0.904657
+sigma_nx = -163.42		sigma_ny = 81.9995		sigma_nn = -0.282546		sigma_ntau = 0.989419
+sigma_nx = -145.125		sigma_ny = 66.8768		sigma_nn = -0.250916		sigma_ntau = 0.806945
+sigma_nx = -132.758		sigma_ny = 82.8765		sigma_nn = -0.229533		sigma_ntau = 1
+
+
+================================================================================
+================================================================================
+
+
+================================================================================
+================================================================================
+
+
+Вызов функции main() из файла new_struct_elastic.cpp
+
+	Yung1 	 = 1
+	Yung2 	 = 1
+	Yung3 	 = 1
+	Puasson1  = 0.4
+	Puasson2  = 0.1
+	Puasson3  = 0.4
+	c0 		 = 0.5
+	C0 		 = 1.09583
+	bb 		 = 5
+	mu1 		 = 0.357143
+	mu2		 = 0.454545
+	mu3 		 = 0.357143
+	Yleft 	 = -2.5
+	Yright 	 = 2.5
+	Xup 		 = 1
+	Xdown 	 = 0
+	RefineNum = 3
+	eps		 = 1e-12
+	FileOfGrid = net/1x5_slayer3.msh
+	Number of active cells:       2880
+	eps = 1e-12
+
+
+HCPTools::print_elasticity_gradient<2> 
+ => (in beginning) Integral(AU_x) = -0.0126844
+ => Integral(AU_x) = 2.62512e-17
+AddConstant = 0.00253687
+
+ => (in beginning) Integral(U_x) = -0.00464568
+ => Integral(U_x) = -1.463e-17
+AddConstant = 0.000929136
+
+deltMaxABSU_x = 0.076577
+deltMaxOTNU_x = 55149.5%
+deltMaxABSU_x_gradX = 0.193821
+deltMaxOTNU_x_gradX = 1882.39%
+deltMaxABSU_x_gradY = 0.309699
+deltMaxOTNU_x_gradY = 100%
+
+deltMaxABSU_y = 0.491185
+deltMaxOTNU_y = 100%
+deltMaxABSU_y_gradX = 0.464261
+deltMaxOTNU_y_gradX = 100%
+deltMaxABSU_y_gradY = 0.212225
+deltMaxOTNU_y_gradY = 67.9719%
+
+deltMaxABStau_xx = 0.576388
+deltAVEtau_xx = 0.0286677
+deltMaxOTNtau_xx = 100%
+deltMaxABStau_yy = 0.523764
+deltAVEtau_yy = 0.128022
+deltMaxOTNtau_yy = 100%
+deltMaxABStau_xy = 0.0882653
+deltAVEtau_xy = 0.00661635
+deltMaxOTNtau_xy = 100%
+deltMaxABStau_zz = 0.392911
+deltAVEtau_zz = 0.061896
+deltMaxOTNtau_zz = 28.2079%
+	FileOfGrid			= net/1x5_slayer3.msh_2880_elastic
+IntegralOfTau_xx(0.0) = 0.0085385
+IntegralOfTau_xx(0.125) = 0.000310028
+IntegralOfTau_xx(0.25) = 0.00248908
+
+IntegralOfTau_xx(0.475) = 0.000382188
+IntegralOfTau_xx(0.5) = 0.000395594
+
+IntegralOfTau_xy(0.0) = -6.62645e-15
+IntegralOfTau_xy(0.125) = 1.91726e-14
+IntegralOfTau_xy(0.25) = 3.92182e-14
+IntegralOfTau_xy(0.475) = 4.38516e-14
+IntegralOfTau_xy(0.5) = 3.99171e-14
+
+IntegralOfTau_xy(0) = 1.68795e-14
+IntegralOfTau_xy(0.625) = -2.18267e-07
+IntegralOfTau_xy(1.25) = -1.28873e-05
+IntegralOfTau_xy(1.875) = -0.000156677
+IntegralOfTau_xy(2.491) = -0.000735679
+
+IntegralOfTau_yy(0) = -0.0104985
+IntegralOfTau_yy(0.625) = -0.0104978
+IntegralOfTau_yy(1.25) = -0.0104842
+IntegralOfTau_yy(1.875) = -0.0104382
+IntegralOfTau_yy(2.491) = -0.0044438
+
+EF = 5
+FileOfGrid = net/1x5_slayer3.msh
+Maxsigma_ntau_1x5_slayer3  = 17.6531
+Maxsigma_nn_1x5_slayer3  = 120.621
+sigma_nx = 120.621		sigma_ny = 13.311		sigma_nn = 1		sigma_ntau = -0.754036
+sigma_nx = 115.278		sigma_ny = 11.0401		sigma_nn = 0.955702		sigma_ntau = -0.625395
+sigma_nx = 108.658		sigma_ny = 13.857		sigma_nn = 0.900825		sigma_ntau = -0.784965
+sigma_nx = 102.955		sigma_ny = 13.047		sigma_nn = 0.853541		sigma_ntau = -0.73908
+sigma_nx = 97.7505		sigma_ny = 11.6537		sigma_nn = 0.810395		sigma_ntau = -0.66015
+sigma_nx = 93.3578		sigma_ny = 10.1943		sigma_nn = 0.773977		sigma_ntau = -0.577482
+sigma_nx = 89.7729		sigma_ny = 8.84843		sigma_nn = 0.744257		sigma_ntau = -0.501241
+sigma_nx = 86.9217		sigma_ny = 7.67342		sigma_nn = 0.720619		sigma_ntau = -0.43468
+sigma_nx = 84.7088		sigma_ny = 6.6735		sigma_nn = 0.702273		sigma_ntau = -0.378037
+sigma_nx = 83.0388		sigma_ny = 5.83227		sigma_nn = 0.688428		sigma_ntau = -0.330383
+sigma_nx = 81.8127		sigma_ny = 5.11865		sigma_nn = 0.678263		sigma_ntau = -0.289959
+sigma_nx = 80.9462		sigma_ny = 4.50698		sigma_nn = 0.67108		sigma_ntau = -0.255309
+sigma_nx = 80.3654		sigma_ny = 3.97535		sigma_nn = 0.666265		sigma_ntau = 0.225193
+sigma_nx = 80.0067		sigma_ny = 3.507		sigma_nn = 0.663291		sigma_ntau = 0.198662
+sigma_nx = 79.8167		sigma_ny = 3.08987		sigma_nn = 0.661716		sigma_ntau = 0.175033
+sigma_nx = 79.7518		sigma_ny = 2.71564		sigma_nn = 0.661178		sigma_ntau = 0.153834
+sigma_nx = 79.7765		sigma_ny = 2.37867		sigma_nn = 0.661382		sigma_ntau = 0.134746
+sigma_nx = 79.8629		sigma_ny = 2.07511		sigma_nn = 0.662099		sigma_ntau = 0.11755
+sigma_nx = 79.9893		sigma_ny = 1.80218		sigma_nn = 0.663147		sigma_ntau = 0.102089
+sigma_nx = 80.1393		sigma_ny = 1.5577		sigma_nn = 0.66439		sigma_ntau = 0.0882397
+sigma_nx = 80.3005		sigma_ny = 1.33977		sigma_nn = 0.665727		sigma_ntau = 0.0758944
+sigma_nx = 80.464		sigma_ny = 1.14658		sigma_nn = 0.667083		sigma_ntau = 0.0649506
+sigma_nx = 80.6237		sigma_ny = 0.976326		sigma_nn = 0.668406		sigma_ntau = 0.0553064
+sigma_nx = 80.7753		sigma_ny = 0.827195		sigma_nn = 0.669663		sigma_ntau = 0.0468585
+sigma_nx = 80.9161		sigma_ny = 0.697348		sigma_nn = 0.670831		sigma_ntau = 0.039503
+sigma_nx = 81.0456		sigma_ny = 0.58469		sigma_nn = 0.671904		sigma_ntau = 0.0331212
+sigma_nx = 81.162		sigma_ny = 0.487779		sigma_nn = 0.672869		sigma_ntau = 0.0276314
+sigma_nx = 81.2658		sigma_ny = 0.404914		sigma_nn = 0.67373		sigma_ntau = 0.0229373
+sigma_nx = 81.3574		sigma_ny = 0.334445		sigma_nn = 0.674489		sigma_ntau = 0.0189454
+sigma_nx = 81.4374		sigma_ny = 0.27484		sigma_nn = 0.675152		sigma_ntau = 0.015569
+sigma_nx = 81.5069		sigma_ny = 0.22469		sigma_nn = 0.675728		sigma_ntau = 0.0127281
+sigma_nx = 81.5667		sigma_ny = 0.182715		sigma_nn = 0.676224		sigma_ntau = 0.0103503
+sigma_nx = 81.6179		sigma_ny = 0.147758		sigma_nn = 0.676648		sigma_ntau = 0.00837009
+sigma_nx = 81.6613		sigma_ny = 0.118875		sigma_nn = 0.677008		sigma_ntau = 0.00673399
+sigma_nx = 81.698		sigma_ny = 0.0950564		sigma_nn = 0.677313		sigma_ntau = 0.0053847
+sigma_nx = 81.7289		sigma_ny = 0.0755111		sigma_nn = 0.677569		sigma_ntau = 0.00427751
+sigma_nx = 81.7548		sigma_ny = 0.0595579		sigma_nn = 0.677783		sigma_ntau = 0.0033738
+sigma_nx = 81.7763		sigma_ny = 0.0466072		sigma_nn = 0.677962		sigma_ntau = 0.00264018
+sigma_nx = 81.7941		sigma_ny = 0.0361532		sigma_nn = 0.67811		sigma_ntau = 0.00204799
+sigma_nx = 81.8088		sigma_ny = 0.0277647		sigma_nn = 0.678231		sigma_ntau = 0.0015728
+sigma_nx = 81.8209		sigma_ny = 0.0210765		sigma_nn = 0.678331		sigma_ntau = 0.00119393
+sigma_nx = 81.8307		sigma_ny = 0.0157805		sigma_nn = 0.678413		sigma_ntau = 0.000893926
+sigma_nx = 81.8387		sigma_ny = 0.0116187		sigma_nn = 0.678479		sigma_ntau = 0.00065817
+sigma_nx = 81.8451		sigma_ny = 0.00837584		sigma_nn = 0.678532		sigma_ntau = 0.00047447
+sigma_nx = 81.8503		sigma_ny = 0.00587337		sigma_nn = 0.678575		sigma_ntau = 0.000332712
+sigma_nx = 81.8544		sigma_ny = 0.00396402		sigma_nn = 0.678609		sigma_ntau = 0.000224551
+sigma_nx = 81.8577		sigma_ny = 0.00252686		sigma_nn = 0.678636		sigma_ntau = 0.00014314
+sigma_nx = 81.8602		sigma_ny = 0.00146325		sigma_nn = 0.678658		sigma_ntau = 8.28891e-05
+sigma_nx = 81.8622		sigma_ny = 0.000704465		sigma_nn = 0.678674		sigma_ntau = 3.99061e-05
+sigma_nx = 81.8638		sigma_ny = 0.000150208		sigma_nn = 0.678687		sigma_ntau = 8.50895e-06
+sigma_nx = 81.865		sigma_ny = -0.000214864		sigma_nn = 0.678697		sigma_ntau = 1.21715e-05
+sigma_nx = 81.8659		sigma_ny = -0.000443659		sigma_nn = 0.678705		sigma_ntau = 2.51321e-05
+sigma_nx = 81.8666		sigma_ny = -0.000569083		sigma_nn = 0.67871		sigma_ntau = 3.22371e-05
+sigma_nx = 81.8671		sigma_ny = -0.000616906		sigma_nn = 0.678715		sigma_ntau = 3.49461e-05
+sigma_nx = 81.8675		sigma_ny = -0.000607167		sigma_nn = 0.678718		sigma_ntau = 3.43945e-05
+sigma_nx = 81.8677		sigma_ny = -0.000555407		sigma_nn = 0.67872		sigma_ntau = 3.14624e-05
+sigma_nx = 81.8679		sigma_ny = -0.000497127		sigma_nn = 0.678721		sigma_ntau = 2.8161e-05
+sigma_nx = 81.8681		sigma_ny = -0.000370844		sigma_nn = 0.678722		sigma_ntau = 2.10074e-05
+sigma_nx = 81.8681		sigma_ny = -0.000254259		sigma_nn = 0.678723		sigma_ntau = 1.44031e-05
+sigma_nx = 81.8682		sigma_ny = -0.000129157		sigma_nn = 0.678724		sigma_ntau = 7.3165e-06
+sigma_nx = 81.8682		sigma_ny = -4.57825e-12		sigma_nn = 0.678724		sigma_ntau = 0
+sigma_nx = 81.8682		sigma_ny = 0.000129157		sigma_nn = 0.678724		sigma_ntau = 7.3165e-06
+sigma_nx = 81.8681		sigma_ny = 0.000254259		sigma_nn = 0.678723		sigma_ntau = 1.44031e-05
+sigma_nx = 81.8681		sigma_ny = 0.000370844		sigma_nn = 0.678722		sigma_ntau = 2.10074e-05
+sigma_nx = 81.8679		sigma_ny = 0.000497127		sigma_nn = 0.678721		sigma_ntau = 2.8161e-05
+sigma_nx = 81.8677		sigma_ny = 0.000555407		sigma_nn = 0.67872		sigma_ntau = 3.14624e-05
+sigma_nx = 81.8675		sigma_ny = 0.000607167		sigma_nn = 0.678718		sigma_ntau = 3.43945e-05
+sigma_nx = 81.8671		sigma_ny = 0.000616906		sigma_nn = 0.678715		sigma_ntau = 3.49461e-05
+sigma_nx = 81.8666		sigma_ny = 0.000569083		sigma_nn = 0.67871		sigma_ntau = 3.22371e-05
+sigma_nx = 81.8659		sigma_ny = 0.000443659		sigma_nn = 0.678705		sigma_ntau = 2.51321e-05
+sigma_nx = 81.865		sigma_ny = 0.000214864		sigma_nn = 0.678697		sigma_ntau = 1.21715e-05
+sigma_nx = 81.8638		sigma_ny = -0.000150208		sigma_nn = 0.678687		sigma_ntau = 8.50895e-06
+sigma_nx = 81.8622		sigma_ny = -0.000704465		sigma_nn = 0.678674		sigma_ntau = 3.99061e-05
+sigma_nx = 81.8602		sigma_ny = -0.00146325		sigma_nn = 0.678658		sigma_ntau = 8.28891e-05
+sigma_nx = 81.8577		sigma_ny = -0.00252686		sigma_nn = 0.678636		sigma_ntau = 0.00014314
+sigma_nx = 81.8544		sigma_ny = -0.00396402		sigma_nn = 0.678609		sigma_ntau = 0.000224551
+sigma_nx = 81.8503		sigma_ny = -0.00587337		sigma_nn = 0.678575		sigma_ntau = 0.000332712
+sigma_nx = 81.8451		sigma_ny = -0.00837584		sigma_nn = 0.678532		sigma_ntau = 0.00047447
+sigma_nx = 81.8387		sigma_ny = -0.0116187		sigma_nn = 0.678479		sigma_ntau = 0.00065817
+sigma_nx = 81.8307		sigma_ny = -0.0157805		sigma_nn = 0.678413		sigma_ntau = 0.000893926
+sigma_nx = 81.8209		sigma_ny = -0.0210765		sigma_nn = 0.678331		sigma_ntau = 0.00119393
+sigma_nx = 81.8088		sigma_ny = -0.0277647		sigma_nn = 0.678231		sigma_ntau = 0.0015728
+sigma_nx = 81.7941		sigma_ny = -0.0361532		sigma_nn = 0.67811		sigma_ntau = 0.00204799
+sigma_nx = 81.7763		sigma_ny = -0.0466072		sigma_nn = 0.677962		sigma_ntau = 0.00264018
+sigma_nx = 81.7548		sigma_ny = -0.0595579		sigma_nn = 0.677783		sigma_ntau = 0.0033738
+sigma_nx = 81.7289		sigma_ny = -0.0755111		sigma_nn = 0.677569		sigma_ntau = 0.00427751
+sigma_nx = 81.698		sigma_ny = -0.0950564		sigma_nn = 0.677313		sigma_ntau = 0.0053847
+sigma_nx = 81.6613		sigma_ny = -0.118875		sigma_nn = 0.677008		sigma_ntau = 0.00673399
+sigma_nx = 81.6179		sigma_ny = -0.147758		sigma_nn = 0.676648		sigma_ntau = 0.00837009
+sigma_nx = 81.5667		sigma_ny = -0.182715		sigma_nn = 0.676224		sigma_ntau = 0.0103503
+sigma_nx = 81.5069		sigma_ny = -0.22469		sigma_nn = 0.675728		sigma_ntau = 0.0127281
+sigma_nx = 81.4374		sigma_ny = -0.27484		sigma_nn = 0.675152		sigma_ntau = 0.015569
+sigma_nx = 81.3574		sigma_ny = -0.334445		sigma_nn = 0.674489		sigma_ntau = 0.0189454
+sigma_nx = 81.2658		sigma_ny = -0.404914		sigma_nn = 0.67373		sigma_ntau = 0.0229373
+sigma_nx = 81.162		sigma_ny = -0.487779		sigma_nn = 0.672869		sigma_ntau = 0.0276314
+sigma_nx = 81.0456		sigma_ny = -0.58469		sigma_nn = 0.671904		sigma_ntau = 0.0331212
+sigma_nx = 80.9161		sigma_ny = -0.697348		sigma_nn = 0.670831		sigma_ntau = 0.039503
+sigma_nx = 80.7753		sigma_ny = -0.827195		sigma_nn = 0.669663		sigma_ntau = 0.0468585
+sigma_nx = 80.6237		sigma_ny = -0.976326		sigma_nn = 0.668406		sigma_ntau = 0.0553064
+sigma_nx = 80.464		sigma_ny = -1.14658		sigma_nn = 0.667083		sigma_ntau = 0.0649506
+sigma_nx = 80.3005		sigma_ny = -1.33977		sigma_nn = 0.665727		sigma_ntau = 0.0758944
+sigma_nx = 80.1393		sigma_ny = -1.5577		sigma_nn = 0.66439		sigma_ntau = 0.0882397
+sigma_nx = 79.9893		sigma_ny = -1.80218		sigma_nn = 0.663147		sigma_ntau = 0.102089
+sigma_nx = 79.8629		sigma_ny = -2.07511		sigma_nn = 0.662099		sigma_ntau = 0.11755
+sigma_nx = 79.7765		sigma_ny = -2.37867		sigma_nn = 0.661382		sigma_ntau = 0.134746
+sigma_nx = 79.7518		sigma_ny = -2.71564		sigma_nn = 0.661178		sigma_ntau = 0.153834
+sigma_nx = 79.8167		sigma_ny = -3.08987		sigma_nn = 0.661716		sigma_ntau = 0.175033
+sigma_nx = 80.0067		sigma_ny = -3.507		sigma_nn = 0.663291		sigma_ntau = 0.198662
+sigma_nx = 80.3654		sigma_ny = -3.97535		sigma_nn = 0.666265		sigma_ntau = 0.225193
+sigma_nx = 80.9462		sigma_ny = -4.50698		sigma_nn = 0.67108		sigma_ntau = 0.255309
+sigma_nx = 81.8127		sigma_ny = -5.11865		sigma_nn = 0.678263		sigma_ntau = 0.289959
+sigma_nx = 83.0388		sigma_ny = -5.83227		sigma_nn = 0.688428		sigma_ntau = 0.330383
+sigma_nx = 84.7088		sigma_ny = -6.6735		sigma_nn = 0.702273		sigma_ntau = 0.378037
+sigma_nx = 86.9217		sigma_ny = -7.67342		sigma_nn = 0.720619		sigma_ntau = 0.43468
+sigma_nx = 89.7729		sigma_ny = -8.84843		sigma_nn = 0.744257		sigma_ntau = 0.501241
+sigma_nx = 93.3578		sigma_ny = -10.1943		sigma_nn = 0.773977		sigma_ntau = 0.577482
+sigma_nx = 97.7505		sigma_ny = -11.6537		sigma_nn = 0.810395		sigma_ntau = 0.66015
+sigma_nx = 102.955		sigma_ny = -13.047		sigma_nn = 0.853541		sigma_ntau = 0.73908
+sigma_nx = 108.658		sigma_ny = -13.857		sigma_nn = 0.900825		sigma_ntau = 0.784965
+sigma_nx = 115.278		sigma_ny = -11.0401		sigma_nn = 0.955702		sigma_ntau = 0.625395
+sigma_nx = 120.621		sigma_ny = -13.311		sigma_nn = 1		sigma_ntau = 0.754036
+sigma_nx = -23.6552		sigma_ny = -17.1335		sigma_nn = -0.196112		sigma_ntau = -0.970567
+sigma_nx = -26.5127		sigma_ny = -14.1299		sigma_nn = -0.219802		sigma_ntau = -0.800421
+sigma_nx = -30.4032		sigma_ny = -17.6531		sigma_nn = -0.252056		sigma_ntau = -1
+sigma_nx = -33.9664		sigma_ny = -16.5987		sigma_nn = -0.281596		sigma_ntau = -0.940272
+sigma_nx = -36.9572		sigma_ny = -14.8329		sigma_nn = -0.306391		sigma_ntau = -0.840248
+sigma_nx = -39.3012		sigma_ny = -12.9987		sigma_nn = -0.325824		sigma_ntau = -0.736342
+sigma_nx = -41.0325		sigma_ny = -11.3151		sigma_nn = -0.340177		sigma_ntau = -0.640973
+sigma_nx = -42.2322		sigma_ny = -9.84933		sigma_nn = -0.350124		sigma_ntau = -0.557939
+sigma_nx = -42.9962		sigma_ny = -8.60253		sigma_nn = -0.356458		sigma_ntau = -0.487311
+sigma_nx = -43.4164		sigma_ny = -7.55152		sigma_nn = -0.359941		sigma_ntau = -0.427774
+sigma_nx = -43.5778		sigma_ny = -6.6559		sigma_nn = -0.361279		sigma_ntau = -0.37704
+sigma_nx = -43.5491		sigma_ny = -5.88316		sigma_nn = -0.361042		sigma_ntau = -0.333266
+sigma_nx = -43.387		sigma_ny = -5.20626		sigma_nn = -0.359697		sigma_ntau = 0.294921
+sigma_nx = -43.1361		sigma_ny = -4.60507		sigma_nn = -0.357618		sigma_ntau = 0.260865
+sigma_nx = -42.8315		sigma_ny = -4.06553		sigma_nn = -0.355092		sigma_ntau = 0.230302
+sigma_nx = -42.4995		sigma_ny = -3.57826		sigma_nn = -0.352339		sigma_ntau = 0.2027
+sigma_nx = -42.1595		sigma_ny = -3.13716		sigma_nn = -0.349521		sigma_ntau = 0.177712
+sigma_nx = -41.8254		sigma_ny = -2.73816		sigma_nn = -0.346751		sigma_ntau = 0.15511
+sigma_nx = -41.5066		sigma_ny = -2.37835		sigma_nn = -0.344108		sigma_ntau = 0.134728
+sigma_nx = -41.2091		sigma_ny = -2.0554		sigma_nn = -0.341642		sigma_ntau = 0.116433
+sigma_nx = -40.9362		sigma_ny = -1.76716		sigma_nn = -0.339379		sigma_ntau = 0.100105
+sigma_nx = -40.6895		sigma_ny = -1.51149		sigma_nn = -0.337334		sigma_ntau = 0.0856218
+sigma_nx = -40.4691		sigma_ny = -1.28614		sigma_nn = -0.335507		sigma_ntau = 0.0728565
+sigma_nx = -40.2741		sigma_ny = -1.08879		sigma_nn = -0.33389		sigma_ntau = 0.0616771
+sigma_nx = -40.1033		sigma_ny = -0.917009		sigma_nn = -0.332474		sigma_ntau = 0.0519462
+sigma_nx = -39.9543		sigma_ny = -0.768128		sigma_nn = -0.331239		sigma_ntau = 0.0435125
+sigma_nx = -39.8257		sigma_ny = -0.640141		sigma_nn = -0.330173		sigma_ntau = 0.0362623
+sigma_nx = -39.7155		sigma_ny = -0.530806		sigma_nn = -0.329259		sigma_ntau = 0.0300688
+sigma_nx = -39.6216		sigma_ny = -0.437922		sigma_nn = -0.328481		sigma_ntau = 0.0248072
+sigma_nx = -39.542		sigma_ny = -0.359444		sigma_nn = -0.327821		sigma_ntau = 0.0203616
+sigma_nx = -39.475		sigma_ny = -0.293489		sigma_nn = -0.327265		sigma_ntau = 0.0166254
+sigma_nx = -39.4188		sigma_ny = -0.23835		sigma_nn = -0.3268		sigma_ntau = 0.0135019
+sigma_nx = -39.372		sigma_ny = -0.192515		sigma_nn = -0.326411		sigma_ntau = 0.0109055
+sigma_nx = -39.3333		sigma_ny = -0.154636		sigma_nn = -0.32609		sigma_ntau = 0.00875973
+sigma_nx = -39.3013		sigma_ny = -0.123461		sigma_nn = -0.325825		sigma_ntau = 0.00699374
+sigma_nx = -39.275		sigma_ny = -0.0979122		sigma_nn = -0.325607		sigma_ntau = 0.00554648
+sigma_nx = -39.2535		sigma_ny = -0.0770866		sigma_nn = -0.325429		sigma_ntau = 0.00436676
+sigma_nx = -39.2361		sigma_ny = -0.0602035		sigma_nn = -0.325284		sigma_ntau = 0.00341037
+sigma_nx = -39.2219		sigma_ny = -0.0465946		sigma_nn = -0.325167		sigma_ntau = 0.00263946
+sigma_nx = -39.2106		sigma_ny = -0.0356911		sigma_nn = -0.325073		sigma_ntau = 0.00202181
+sigma_nx = -39.2015		sigma_ny = -0.0270115		sigma_nn = -0.324998		sigma_ntau = 0.00153013
+sigma_nx = -39.1943		sigma_ny = -0.0201505		sigma_nn = -0.324938		sigma_ntau = 0.00114148
+sigma_nx = -39.1887		sigma_ny = -0.0147691		sigma_nn = -0.324891		sigma_ntau = 0.000836633
+sigma_nx = -39.1842		sigma_ny = -0.0105848		sigma_nn = -0.324855		sigma_ntau = 0.000599601
+sigma_nx = -39.1808		sigma_ny = -0.00736353		sigma_nn = -0.324826		sigma_ntau = 0.000417125
+sigma_nx = -39.1781		sigma_ny = -0.00491259		sigma_nn = -0.324804		sigma_ntau = 0.000278286
+sigma_nx = -39.1761		sigma_ny = -0.00307397		sigma_nn = -0.324787		sigma_ntau = 0.000174132
+sigma_nx = -39.1746		sigma_ny = -0.00171882		sigma_nn = -0.324775		sigma_ntau = 9.73666e-05
+sigma_nx = -39.1735		sigma_ny = -0.000727073		sigma_nn = -0.324766		sigma_ntau = 4.11868e-05
+sigma_nx = -39.1727		sigma_ny = -6.02557e-05		sigma_nn = -0.324759		sigma_ntau = 3.41331e-06
+sigma_nx = -39.1721		sigma_ny = 0.000393575		sigma_nn = -0.324754		sigma_ntau = 2.2295e-05
+sigma_nx = -39.1717		sigma_ny = 0.00067256		sigma_nn = -0.324751		sigma_ntau = 3.80988e-05
+sigma_nx = -39.1715		sigma_ny = 0.000819248		sigma_nn = -0.324749		sigma_ntau = 4.64083e-05
+sigma_nx = -39.1713		sigma_ny = 0.00086696		sigma_nn = -0.324748		sigma_ntau = 4.9111e-05
+sigma_nx = -39.1712		sigma_ny = 0.000841567		sigma_nn = -0.324747		sigma_ntau = 4.76726e-05
+sigma_nx = -39.1712		sigma_ny = 0.00076292		sigma_nn = -0.324746		sigma_ntau = 4.32174e-05
+sigma_nx = -39.1711		sigma_ny = 0.000615919		sigma_nn = -0.324746		sigma_ntau = 3.48902e-05
+sigma_nx = -39.1711		sigma_ny = 0.00050434		sigma_nn = -0.324746		sigma_ntau = 2.85696e-05
+sigma_nx = -39.1711		sigma_ny = 0.000344993		sigma_nn = -0.324746		sigma_ntau = 1.9543e-05
+sigma_nx = -39.1711		sigma_ny = 0.000174989		sigma_nn = -0.324746		sigma_ntau = 9.91267e-06
+sigma_nx = -39.1711		sigma_ny = -4.63159e-12		sigma_nn = -0.324746		sigma_ntau = 0
+sigma_nx = -39.1711		sigma_ny = -0.000174989		sigma_nn = -0.324746		sigma_ntau = 9.91267e-06
+sigma_nx = -39.1711		sigma_ny = -0.000344993		sigma_nn = -0.324746		sigma_ntau = 1.9543e-05
+sigma_nx = -39.1711		sigma_ny = -0.00050434		sigma_nn = -0.324746		sigma_ntau = 2.85696e-05
+sigma_nx = -39.1711		sigma_ny = -0.000615919		sigma_nn = -0.324746		sigma_ntau = 3.48902e-05
+sigma_nx = -39.1712		sigma_ny = -0.00076292		sigma_nn = -0.324746		sigma_ntau = 4.32174e-05
+sigma_nx = -39.1712		sigma_ny = -0.000841567		sigma_nn = -0.324747		sigma_ntau = 4.76726e-05
+sigma_nx = -39.1713		sigma_ny = -0.00086696		sigma_nn = -0.324748		sigma_ntau = 4.9111e-05
+sigma_nx = -39.1715		sigma_ny = -0.000819248		sigma_nn = -0.324749		sigma_ntau = 4.64083e-05
+sigma_nx = -39.1717		sigma_ny = -0.00067256		sigma_nn = -0.324751		sigma_ntau = 3.80988e-05
+sigma_nx = -39.1721		sigma_ny = -0.000393575		sigma_nn = -0.324754		sigma_ntau = 2.2295e-05
+sigma_nx = -39.1727		sigma_ny = 6.02557e-05		sigma_nn = -0.324759		sigma_ntau = 3.41331e-06
+sigma_nx = -39.1735		sigma_ny = 0.000727073		sigma_nn = -0.324766		sigma_ntau = 4.11868e-05
+sigma_nx = -39.1746		sigma_ny = 0.00171882		sigma_nn = -0.324775		sigma_ntau = 9.73666e-05
+sigma_nx = -39.1761		sigma_ny = 0.00307397		sigma_nn = -0.324787		sigma_ntau = 0.000174132
+sigma_nx = -39.1781		sigma_ny = 0.00491259		sigma_nn = -0.324804		sigma_ntau = 0.000278286
+sigma_nx = -39.1808		sigma_ny = 0.00736353		sigma_nn = -0.324826		sigma_ntau = 0.000417125
+sigma_nx = -39.1842		sigma_ny = 0.0105848		sigma_nn = -0.324855		sigma_ntau = 0.000599601
+sigma_nx = -39.1887		sigma_ny = 0.0147691		sigma_nn = -0.324891		sigma_ntau = 0.000836633
+sigma_nx = -39.1943		sigma_ny = 0.0201505		sigma_nn = -0.324938		sigma_ntau = 0.00114148
+sigma_nx = -39.2015		sigma_ny = 0.0270115		sigma_nn = -0.324998		sigma_ntau = 0.00153013
+sigma_nx = -39.2106		sigma_ny = 0.0356911		sigma_nn = -0.325073		sigma_ntau = 0.00202181
+sigma_nx = -39.2219		sigma_ny = 0.0465946		sigma_nn = -0.325167		sigma_ntau = 0.00263946
+sigma_nx = -39.2361		sigma_ny = 0.0602035		sigma_nn = -0.325284		sigma_ntau = 0.00341037
+sigma_nx = -39.2535		sigma_ny = 0.0770866		sigma_nn = -0.325429		sigma_ntau = 0.00436676
+sigma_nx = -39.275		sigma_ny = 0.0979122		sigma_nn = -0.325607		sigma_ntau = 0.00554648
+sigma_nx = -39.3013		sigma_ny = 0.123461		sigma_nn = -0.325825		sigma_ntau = 0.00699374
+sigma_nx = -39.3333		sigma_ny = 0.154636		sigma_nn = -0.32609		sigma_ntau = 0.00875973
+sigma_nx = -39.372		sigma_ny = 0.192515		sigma_nn = -0.326411		sigma_ntau = 0.0109055
+sigma_nx = -39.4188		sigma_ny = 0.23835		sigma_nn = -0.3268		sigma_ntau = 0.0135019
+sigma_nx = -39.475		sigma_ny = 0.293489		sigma_nn = -0.327265		sigma_ntau = 0.0166254
+sigma_nx = -39.542		sigma_ny = 0.359444		sigma_nn = -0.327821		sigma_ntau = 0.0203616
+sigma_nx = -39.6216		sigma_ny = 0.437922		sigma_nn = -0.328481		sigma_ntau = 0.0248072
+sigma_nx = -39.7155		sigma_ny = 0.530806		sigma_nn = -0.329259		sigma_ntau = 0.0300688
+sigma_nx = -39.8257		sigma_ny = 0.640141		sigma_nn = -0.330173		sigma_ntau = 0.0362623
+sigma_nx = -39.9543		sigma_ny = 0.768128		sigma_nn = -0.331239		sigma_ntau = 0.0435125
+sigma_nx = -40.1033		sigma_ny = 0.917009		sigma_nn = -0.332474		sigma_ntau = 0.0519462
+sigma_nx = -40.2741		sigma_ny = 1.08879		sigma_nn = -0.33389		sigma_ntau = 0.0616771
+sigma_nx = -40.4691		sigma_ny = 1.28614		sigma_nn = -0.335507		sigma_ntau = 0.0728565
+sigma_nx = -40.6895		sigma_ny = 1.51149		sigma_nn = -0.337334		sigma_ntau = 0.0856218
+sigma_nx = -40.9362		sigma_ny = 1.76716		sigma_nn = -0.339379		sigma_ntau = 0.100105
+sigma_nx = -41.2091		sigma_ny = 2.0554		sigma_nn = -0.341642		sigma_ntau = 0.116433
+sigma_nx = -41.5066		sigma_ny = 2.37835		sigma_nn = -0.344108		sigma_ntau = 0.134728
+sigma_nx = -41.8254		sigma_ny = 2.73816		sigma_nn = -0.346751		sigma_ntau = 0.15511
+sigma_nx = -42.1595		sigma_ny = 3.13716		sigma_nn = -0.349521		sigma_ntau = 0.177712
+sigma_nx = -42.4995		sigma_ny = 3.57826		sigma_nn = -0.352339		sigma_ntau = 0.2027
+sigma_nx = -42.8315		sigma_ny = 4.06553		sigma_nn = -0.355092		sigma_ntau = 0.230302
+sigma_nx = -43.1361		sigma_ny = 4.60507		sigma_nn = -0.357618		sigma_ntau = 0.260865
+sigma_nx = -43.387		sigma_ny = 5.20626		sigma_nn = -0.359697		sigma_ntau = 0.294921
+sigma_nx = -43.5491		sigma_ny = 5.88316		sigma_nn = -0.361042		sigma_ntau = 0.333266
+sigma_nx = -43.5778		sigma_ny = 6.6559		sigma_nn = -0.361279		sigma_ntau = 0.37704
+sigma_nx = -43.4164		sigma_ny = 7.55152		sigma_nn = -0.359941		sigma_ntau = 0.427774
+sigma_nx = -42.9962		sigma_ny = 8.60253		sigma_nn = -0.356458		sigma_ntau = 0.487311
+sigma_nx = -42.2322		sigma_ny = 9.84933		sigma_nn = -0.350124		sigma_ntau = 0.557939
+sigma_nx = -41.0325		sigma_ny = 11.3151		sigma_nn = -0.340177		sigma_ntau = 0.640973
+sigma_nx = -39.3012		sigma_ny = 12.9987		sigma_nn = -0.325824		sigma_ntau = 0.736342
+sigma_nx = -36.9572		sigma_ny = 14.8329		sigma_nn = -0.306391		sigma_ntau = 0.840248
+sigma_nx = -33.9664		sigma_ny = 16.5987		sigma_nn = -0.281596		sigma_ntau = 0.940272
+sigma_nx = -30.4032		sigma_ny = 17.6531		sigma_nn = -0.252056		sigma_ntau = 1
+sigma_nx = -26.5127		sigma_ny = 14.1299		sigma_nn = -0.219802		sigma_ntau = 0.800421
+sigma_nx = -23.6552		sigma_ny = 17.1335		sigma_nn = -0.196112		sigma_ntau = 0.970567
+
+
+================================================================================
+================================================================================
+
+
+================================================================================
+================================================================================
+
+
+Вызов функции main() из файла new_struct_elastic.cpp
+
+	Yung1 	 = 1
+	Yung2 	 = 1
+	Yung3 	 = 1
+	Puasson1  = 0.4
+	Puasson2  = 0.1
+	Puasson3  = 0.4
+	c0 		 = 0.5
+	C0 		 = 4.325
+	bb 		 = 10
+	mu1 		 = 0.357143
+	mu2		 = 0.454545
+	mu3 		 = 0.357143
+	Yleft 	 = -5
+	Yright 	 = 5
+	Xup 		 = 1
+	Xdown 	 = 0
+	RefineNum = 3
+	eps		 = 1e-05
+	FileOfGrid = net/1x10_slayer3.msh
+	Number of active cells:       5760
+	eps = 1e-05
+
+
+HCPTools::print_elasticity_gradient<2> 
+ => (in beginning) Integral(AU_x) = -0.0253688
+ => Integral(AU_x) = 5.51226e-15
+AddConstant = 0.00253688
+
+ => (in beginning) Integral(U_x) = -0.00983434
+ => Integral(U_x) = 2.40557e-17
+AddConstant = 0.000983434
+
+deltMaxABSU_x = 0.109087
+deltMaxOTNU_x = 114403%
+deltMaxABSU_x_gradX = 0.193801
+deltMaxOTNU_x_gradX = 1560.7%
+deltMaxABSU_x_gradY = 0.319957
+deltMaxOTNU_x_gradY = 100%
+
+deltMaxABSU_y = 1.01773
+deltMaxOTNU_y = 100%
+deltMaxABSU_y_gradX = 0.47518
+deltMaxOTNU_y_gradX = 100%
+deltMaxABSU_y_gradY = 0.212227
+deltMaxOTNU_y_gradY = 67.9721%
+
+deltMaxABStau_xx = 0.575932
+deltAVEtau_xx = 0.0264281
+deltMaxOTNtau_xx = 100%
+deltMaxABStau_yy = 0.52369
+deltAVEtau_yy = 0.13568
+deltMaxOTNtau_yy = 100%
+deltMaxABStau_xy = 0.0880795
+deltAVEtau_xy = 0.00330305
+deltMaxOTNtau_xy = 100%
+deltMaxABStau_zz = 0.392722
+deltAVEtau_zz = 0.0646181
+deltMaxOTNtau_zz = 28.1982%
+	FileOfGrid			= net/1x10_slayer3.msh_5760_elastic
+IntegralOfTau_xx(0.0) = 0.00777735
+IntegralOfTau_xx(0.125) = -0.000342531
+IntegralOfTau_xx(0.25) = -0.00223986
+
+IntegralOfTau_xx(0.475) = 0.00192849
+IntegralOfTau_xx(0.5) = 0.00182827
+
+IntegralOfTau_xy(0.0) = 3.4339e-10
+IntegralOfTau_xy(0.125) = -4.54277e-10
+IntegralOfTau_xy(0.25) = 3.48803e-10
+IntegralOfTau_xy(0.475) = -1.35225e-12
+IntegralOfTau_xy(0.5) = 1.41561e-12
+
+IntegralOfTau_xy(0) = -2.79068e-10
+IntegralOfTau_xy(1.25) = 1.37153e-06
+IntegralOfTau_xy(2.5) = -1.11919e-06
+IntegralOfTau_xy(3.75) = -1.10631e-05
+IntegralOfTau_xy(4.991) = -0.000743784
+
+IntegralOfTau_yy(0) = -0.0104979
+IntegralOfTau_yy(1.25) = -0.0104986
+IntegralOfTau_yy(2.5) = -0.0104987
+IntegralOfTau_yy(3.75) = -0.0104869
+IntegralOfTau_yy(4.991) = -0.00434505
+
+EF = 10
+FileOfGrid = net/1x10_slayer3.msh
+Maxsigma_ntau_1x10_slayer3  = 8.80795
+Maxsigma_nn_1x10_slayer3  = 60.3215
+sigma_nx = 60.3215		sigma_ny = 6.74455		sigma_nn = 1		sigma_ntau = -0.765735
+sigma_nx = 57.5932		sigma_ny = 5.54366		sigma_nn = 0.954771		sigma_ntau = -0.629393
+sigma_nx = 54.2198		sigma_ny = 6.91503		sigma_nn = 0.898848		sigma_ntau = -0.78509
+sigma_nx = 51.3238		sigma_ny = 6.48292		sigma_nn = 0.850837		sigma_ntau = -0.736031
+sigma_nx = 48.6986		sigma_ny = 5.76986		sigma_nn = 0.807318		sigma_ntau = -0.655074
+sigma_nx = 46.4971		sigma_ny = 5.03119		sigma_nn = 0.770821		sigma_ntau = -0.57121
+sigma_nx = 44.7118		sigma_ny = 4.3549		sigma_nn = 0.741226		sigma_ntau = -0.494428
+sigma_nx = 43.3018		sigma_ny = 3.76793		sigma_nn = 0.717851		sigma_ntau = -0.427788
+sigma_nx = 42.2184		sigma_ny = 3.27003		sigma_nn = 0.699889		sigma_ntau = -0.371259
+sigma_nx = 41.4235		sigma_ny = 2.86474		sigma_nn = 0.686713		sigma_ntau = -0.325245
+sigma_nx = 40.842		sigma_ny = 2.51833		sigma_nn = 0.677072		sigma_ntau = -0.285916
+sigma_nx = 40.4319		sigma_ny = 2.2206		sigma_nn = 0.670273		sigma_ntau = -0.252113
+sigma_nx = 40.1581		sigma_ny = 1.96119		sigma_nn = 0.665735		sigma_ntau = -0.222661
+sigma_nx = 39.9905		sigma_ny = 1.73204		sigma_nn = 0.662955		sigma_ntau = -0.196645
+sigma_nx = 39.9032		sigma_ny = 1.52745		sigma_nn = 0.661509		sigma_ntau = -0.173417
+sigma_nx = 39.8756		sigma_ny = 1.34365		sigma_nn = 0.661052		sigma_ntau = -0.15255
+sigma_nx = 39.8907		sigma_ny = 1.17799		sigma_nn = 0.661302		sigma_ntau = -0.133742
+sigma_nx = 39.9352		sigma_ny = 1.0287		sigma_nn = 0.662039		sigma_ntau = -0.116792
+sigma_nx = 39.9988		sigma_ny = 0.894325		sigma_nn = 0.663094		sigma_ntau = -0.101536
+sigma_nx = 40.0736		sigma_ny = 0.773738		sigma_nn = 0.664335		sigma_ntau = -0.0878454
+sigma_nx = 40.1538		sigma_ny = 0.666238		sigma_nn = 0.665663		sigma_ntau = -0.0756405
+sigma_nx = 40.2345		sigma_ny = 0.570918		sigma_nn = 0.667002		sigma_ntau = -0.0648185
+sigma_nx = 40.3135		sigma_ny = 0.486846		sigma_nn = 0.668311		sigma_ntau = -0.0552735
+sigma_nx = 40.3887		sigma_ny = 0.413025		sigma_nn = 0.669557		sigma_ntau = -0.0468923
+sigma_nx = 40.4579		sigma_ny = 0.348463		sigma_nn = 0.670704		sigma_ntau = -0.0395623
+sigma_nx = 40.5246		sigma_ny = 0.291045		sigma_nn = 0.67181		sigma_ntau = -0.0330435
+sigma_nx = 40.5832		sigma_ny = 0.241916		sigma_nn = 0.672782		sigma_ntau = -0.0274657
+sigma_nx = 40.6356		sigma_ny = 0.200211		sigma_nn = 0.673651		sigma_ntau = -0.0227307
+sigma_nx = 40.682		sigma_ny = 0.164877		sigma_nn = 0.67442		sigma_ntau = -0.0187191
+sigma_nx = 40.7224		sigma_ny = 0.13505		sigma_nn = 0.67509		sigma_ntau = -0.0153328
+sigma_nx = 40.7571		sigma_ny = 0.109916		sigma_nn = 0.675665		sigma_ntau = -0.0124792
+sigma_nx = 40.787		sigma_ny = 0.0889768		sigma_nn = 0.676161		sigma_ntau = -0.0101019
+sigma_nx = 40.8128		sigma_ny = 0.0716393		sigma_nn = 0.676588		sigma_ntau = -0.00813349
+sigma_nx = 40.8336		sigma_ny = 0.0576894		sigma_nn = 0.676933		sigma_ntau = -0.0065497
+sigma_nx = 40.8516		sigma_ny = 0.0460912		sigma_nn = 0.677232		sigma_ntau = -0.00523291
+sigma_nx = 40.8665		sigma_ny = 0.0366054		sigma_nn = 0.677479		sigma_ntau = -0.00415595
+sigma_nx = 40.8789		sigma_ny = 0.0288567		sigma_nn = 0.677685		sigma_ntau = -0.00327621
+sigma_nx = 40.8893		sigma_ny = 0.0224316		sigma_nn = 0.677857		sigma_ntau = -0.00254674
+sigma_nx = 40.8978		sigma_ny = 0.0172735		sigma_nn = 0.677998		sigma_ntau = -0.00196113
+sigma_nx = 40.9049		sigma_ny = 0.0132266		sigma_nn = 0.678116		sigma_ntau = -0.00150166
+sigma_nx = 40.9107		sigma_ny = 0.00995123		sigma_nn = 0.678211		sigma_ntau = -0.0011298
+sigma_nx = 40.9155		sigma_ny = 0.00741236		sigma_nn = 0.67829		sigma_ntau = -0.000841553
+sigma_nx = 40.9196		sigma_ny = 0.00541175		sigma_nn = 0.678358		sigma_ntau = -0.000614417
+sigma_nx = 40.9229		sigma_ny = 0.0038409		sigma_nn = 0.678413		sigma_ntau = -0.000436072
+sigma_nx = 40.9254		sigma_ny = 0.00265633		sigma_nn = 0.678455		sigma_ntau = -0.000301583
+sigma_nx = 40.9274		sigma_ny = 0.00175992		sigma_nn = 0.678488		sigma_ntau = -0.00019981
+sigma_nx = 40.929		sigma_ny = 0.00104345		sigma_nn = 0.678514		sigma_ntau = -0.000118466
+sigma_nx = 40.93		sigma_ny = 0.000488561		sigma_nn = 0.678532		sigma_ntau = -5.54682e-05
+sigma_nx = 40.9311		sigma_ny = 0.000157445		sigma_nn = 0.678549		sigma_ntau = -1.78753e-05
+sigma_nx = 40.932		sigma_ny = -0.000267682		sigma_nn = 0.678564		sigma_ntau = -3.0391e-05
+sigma_nx = 40.9328		sigma_ny = -0.000560506		sigma_nn = 0.678577		sigma_ntau = -6.36364e-05
+sigma_nx = 40.9333		sigma_ny = -0.000756399		sigma_nn = 0.678586		sigma_ntau = -8.58768e-05
+sigma_nx = 40.9335		sigma_ny = -0.000818741		sigma_nn = 0.678589		sigma_ntau = -9.29548e-05
+sigma_nx = 40.9334		sigma_ny = -0.00086682		sigma_nn = 0.678588		sigma_ntau = -9.84134e-05
+sigma_nx = 40.9333		sigma_ny = -0.000932133		sigma_nn = 0.678586		sigma_ntau = -0.000105829
+sigma_nx = 40.9335		sigma_ny = -0.000861772		sigma_nn = 0.678589		sigma_ntau = -9.78403e-05
+sigma_nx = 40.9335		sigma_ny = -0.000839885		sigma_nn = 0.678589		sigma_ntau = -9.53554e-05
+sigma_nx = 40.9334		sigma_ny = -0.00074554		sigma_nn = 0.678587		sigma_ntau = -8.46441e-05
+sigma_nx = 40.9337		sigma_ny = -0.000722007		sigma_nn = 0.678593		sigma_ntau = -8.19722e-05
+sigma_nx = 40.9338		sigma_ny = -0.000609396		sigma_nn = 0.678594		sigma_ntau = -6.91871e-05
+sigma_nx = 40.9336		sigma_ny = -0.00052901		sigma_nn = 0.678591		sigma_ntau = -6.00606e-05
+sigma_nx = 40.9334		sigma_ny = -0.000444885		sigma_nn = 0.678587		sigma_ntau = -5.05095e-05
+sigma_nx = 40.9333		sigma_ny = -0.00032788		sigma_nn = 0.678585		sigma_ntau = -3.72255e-05
+sigma_nx = 40.9337		sigma_ny = -0.00028982		sigma_nn = 0.678592		sigma_ntau = -3.29043e-05
+sigma_nx = 40.9338		sigma_ny = -0.000317817		sigma_nn = 0.678594		sigma_ntau = -3.60829e-05
+sigma_nx = 40.9337		sigma_ny = -0.000340146		sigma_nn = 0.678593		sigma_ntau = -3.8618e-05
+sigma_nx = 40.9337		sigma_ny = -0.000282784		sigma_nn = 0.678593		sigma_ntau = -3.21056e-05
+sigma_nx = 40.9337		sigma_ny = -0.000260436		sigma_nn = 0.678592		sigma_ntau = -2.95683e-05
+sigma_nx = 40.9338		sigma_ny = -0.000312721		sigma_nn = 0.678594		sigma_ntau = -3.55044e-05
+sigma_nx = 40.934		sigma_ny = -0.000391096		sigma_nn = 0.678597		sigma_ntau = -4.44026e-05
+sigma_nx = 40.9339		sigma_ny = -0.000430291		sigma_nn = 0.678595		sigma_ntau = -4.88526e-05
+sigma_nx = 40.9337		sigma_ny = -0.000464916		sigma_nn = 0.678592		sigma_ntau = -5.27837e-05
+sigma_nx = 40.9336		sigma_ny = -0.000469151		sigma_nn = 0.67859		sigma_ntau = -5.32645e-05
+sigma_nx = 40.9333		sigma_ny = -0.000489815		sigma_nn = 0.678586		sigma_ntau = 5.56105e-05
+sigma_nx = 40.9331		sigma_ny = -0.000482648		sigma_nn = 0.678583		sigma_ntau = 5.47969e-05
+sigma_nx = 40.9331		sigma_ny = -0.000495894		sigma_nn = 0.678582		sigma_ntau = 5.63007e-05
+sigma_nx = 40.9331		sigma_ny = -0.000514803		sigma_nn = 0.678583		sigma_ntau = 5.84475e-05
+sigma_nx = 40.9335		sigma_ny = -0.000560001		sigma_nn = 0.67859		sigma_ntau = 6.35791e-05
+sigma_nx = 40.9339		sigma_ny = -0.000487056		sigma_nn = 0.678595		sigma_ntau = 5.52973e-05
+sigma_nx = 40.9339		sigma_ny = -0.000362979		sigma_nn = 0.678595		sigma_ntau = 4.12104e-05
+sigma_nx = 40.9338		sigma_ny = -0.000394162		sigma_nn = 0.678594		sigma_ntau = 4.47508e-05
+sigma_nx = 40.9337		sigma_ny = -0.000393077		sigma_nn = 0.678593		sigma_ntau = 4.46275e-05
+sigma_nx = 40.9338		sigma_ny = -0.000471492		sigma_nn = 0.678595		sigma_ntau = 5.35303e-05
+sigma_nx = 40.9339		sigma_ny = -0.00048365		sigma_nn = 0.678595		sigma_ntau = 5.49106e-05
+sigma_nx = 40.9338		sigma_ny = -0.000463792		sigma_nn = 0.678595		sigma_ntau = 5.26561e-05
+sigma_nx = 40.9338		sigma_ny = -0.000454466		sigma_nn = 0.678593		sigma_ntau = 5.15973e-05
+sigma_nx = 40.9334		sigma_ny = -0.000390119		sigma_nn = 0.678588		sigma_ntau = 4.42917e-05
+sigma_nx = 40.9333		sigma_ny = -0.000305713		sigma_nn = 0.678586		sigma_ntau = 3.47088e-05
+sigma_nx = 40.9334		sigma_ny = -0.000153011		sigma_nn = 0.678588		sigma_ntau = 1.7372e-05
+sigma_nx = 40.9335		sigma_ny = -1.66037e-05		sigma_nn = 0.678589		sigma_ntau = 1.88472e-06
+sigma_nx = 40.9336		sigma_ny = 6.61208e-05		sigma_nn = 0.67859		sigma_ntau = 7.50693e-06
+sigma_nx = 40.9334		sigma_ny = 0.000139624		sigma_nn = 0.678588		sigma_ntau = 1.5852e-05
+sigma_nx = 40.9334		sigma_ny = 0.000200606		sigma_nn = 0.678588		sigma_ntau = 2.27755e-05
+sigma_nx = 40.9335		sigma_ny = 0.000164222		sigma_nn = 0.678589		sigma_ntau = 1.86447e-05
+sigma_nx = 40.9333		sigma_ny = 0.000169678		sigma_nn = 0.678586		sigma_ntau = 1.92642e-05
+sigma_nx = 40.9332		sigma_ny = 0.0002925		sigma_nn = 0.678583		sigma_ntau = 3.32087e-05
+sigma_nx = 40.9332		sigma_ny = 0.000400478		sigma_nn = 0.678585		sigma_ntau = 4.54678e-05
+sigma_nx = 40.9334		sigma_ny = 0.000237034		sigma_nn = 0.678587		sigma_ntau = 2.69113e-05
+sigma_nx = 40.9334		sigma_ny = 0.00020048		sigma_nn = 0.678587		sigma_ntau = 2.27613e-05
+sigma_nx = 40.9334		sigma_ny = 0.000241483		sigma_nn = 0.678588		sigma_ntau = 2.74165e-05
+sigma_nx = 40.9336		sigma_ny = 0.00025574		sigma_nn = 0.67859		sigma_ntau = 2.90352e-05
+sigma_nx = 40.9336		sigma_ny = 0.000236122		sigma_nn = 0.678591		sigma_ntau = 2.68078e-05
+sigma_nx = 40.9337		sigma_ny = 0.000124848		sigma_nn = 0.678593		sigma_ntau = 1.41745e-05
+sigma_nx = 40.9339		sigma_ny = -1.15446e-05		sigma_nn = 0.678595		sigma_ntau = 1.31052e-06
+sigma_nx = 40.9339		sigma_ny = -0.000122453		sigma_nn = 0.678595		sigma_ntau = 1.39025e-05
+sigma_nx = 40.9339		sigma_ny = -0.00012622		sigma_nn = 0.678595		sigma_ntau = 1.43303e-05
+sigma_nx = 40.9338		sigma_ny = -0.000214467		sigma_nn = 0.678593		sigma_ntau = 2.43493e-05
+sigma_nx = 40.9337		sigma_ny = -0.000274555		sigma_nn = 0.678592		sigma_ntau = 3.11712e-05
+sigma_nx = 40.9339		sigma_ny = -0.000305703		sigma_nn = 0.678595		sigma_ntau = 3.47077e-05
+sigma_nx = 40.9339		sigma_ny = -0.00036358		sigma_nn = 0.678595		sigma_ntau = 4.12786e-05
+sigma_nx = 40.9337		sigma_ny = -0.000431142		sigma_nn = 0.678593		sigma_ntau = 4.89492e-05
+sigma_nx = 40.9334		sigma_ny = -0.000431191		sigma_nn = 0.678588		sigma_ntau = 4.89548e-05
+sigma_nx = 40.9332		sigma_ny = -0.000430622		sigma_nn = 0.678584		sigma_ntau = 4.88902e-05
+sigma_nx = 40.9331		sigma_ny = -0.000402648		sigma_nn = 0.678582		sigma_ntau = 4.57142e-05
+sigma_nx = 40.9328		sigma_ny = -0.00031643		sigma_nn = 0.678578		sigma_ntau = 3.59255e-05
+sigma_nx = 40.9327		sigma_ny = -0.000234334		sigma_nn = 0.678575		sigma_ntau = 2.66049e-05
+sigma_nx = 40.9327		sigma_ny = -0.000187238		sigma_nn = 0.678576		sigma_ntau = 2.12579e-05
+sigma_nx = 40.9328		sigma_ny = -0.000148335		sigma_nn = 0.678578		sigma_ntau = 1.6841e-05
+sigma_nx = 40.933		sigma_ny = -8.16892e-05		sigma_nn = 0.67858		sigma_ntau = 9.27453e-06
+sigma_nx = 40.9328		sigma_ny = -2.09276e-05		sigma_nn = 0.678578		sigma_ntau = 2.37587e-06
+sigma_nx = 40.9326		sigma_ny = 1.05555e-06		sigma_nn = 0.678575		sigma_ntau = 1.21054e-07
+sigma_nx = 40.9328		sigma_ny = 1.89834e-05		sigma_nn = 0.678578		sigma_ntau = 2.15531e-06
+sigma_nx = 40.933		sigma_ny = 8.31591e-05		sigma_nn = 0.67858		sigma_ntau = 9.44131e-06
+sigma_nx = 40.9328		sigma_ny = 0.00014757		sigma_nn = 0.678578		sigma_ntau = 1.67542e-05
+sigma_nx = 40.9327		sigma_ny = 0.000187179		sigma_nn = 0.678576		sigma_ntau = 2.12512e-05
+sigma_nx = 40.9327		sigma_ny = 0.000235204		sigma_nn = 0.678575		sigma_ntau = 2.67036e-05
+sigma_nx = 40.9328		sigma_ny = 0.000314892		sigma_nn = 0.678578		sigma_ntau = 3.57509e-05
+sigma_nx = 40.9331		sigma_ny = 0.000404604		sigma_nn = 0.678582		sigma_ntau = 4.59363e-05
+sigma_nx = 40.9332		sigma_ny = 0.000428563		sigma_nn = 0.678584		sigma_ntau = 4.86564e-05
+sigma_nx = 40.9334		sigma_ny = 0.000433023		sigma_nn = 0.678588		sigma_ntau = 4.91628e-05
+sigma_nx = 40.9337		sigma_ny = 0.000429831		sigma_nn = 0.678593		sigma_ntau = 4.88004e-05
+sigma_nx = 40.9339		sigma_ny = 0.00036416		sigma_nn = 0.678595		sigma_ntau = 4.13445e-05
+sigma_nx = 40.9339		sigma_ny = 0.000305946		sigma_nn = 0.678595		sigma_ntau = 3.47352e-05
+sigma_nx = 40.9337		sigma_ny = 0.00027353		sigma_nn = 0.678592		sigma_ntau = 3.10549e-05
+sigma_nx = 40.9338		sigma_ny = 0.000216111		sigma_nn = 0.678593		sigma_ntau = 2.4536e-05
+sigma_nx = 40.9339		sigma_ny = 0.000124229		sigma_nn = 0.678595		sigma_ntau = 1.41043e-05
+sigma_nx = 40.9339		sigma_ny = 0.000124456		sigma_nn = 0.678595		sigma_ntau = 1.413e-05
+sigma_nx = 40.9339		sigma_ny = 9.72767e-06		sigma_nn = 0.678595		sigma_ntau = 1.10419e-06
+sigma_nx = 40.9337		sigma_ny = -0.000123265		sigma_nn = 0.678593		sigma_ntau = 1.39947e-05
+sigma_nx = 40.9336		sigma_ny = -0.000237428		sigma_nn = 0.678591		sigma_ntau = 2.69562e-05
+sigma_nx = 40.9336		sigma_ny = -0.000254751		sigma_nn = 0.67859		sigma_ntau = 2.89228e-05
+sigma_nx = 40.9334		sigma_ny = -0.000242133		sigma_nn = 0.678588		sigma_ntau = 2.74903e-05
+sigma_nx = 40.9334		sigma_ny = -0.000200175		sigma_nn = 0.678587		sigma_ntau = 2.27266e-05
+sigma_nx = 40.9334		sigma_ny = -0.000237005		sigma_nn = 0.678587		sigma_ntau = 2.69081e-05
+sigma_nx = 40.9332		sigma_ny = -0.000400812		sigma_nn = 0.678585		sigma_ntau = 4.55057e-05
+sigma_nx = 40.9332		sigma_ny = -0.000291933		sigma_nn = 0.678583		sigma_ntau = 3.31442e-05
+sigma_nx = 40.9333		sigma_ny = -0.000170343		sigma_nn = 0.678586		sigma_ntau = 1.93397e-05
+sigma_nx = 40.9335		sigma_ny = -0.000163613		sigma_nn = 0.678589		sigma_ntau = 1.85756e-05
+sigma_nx = 40.9334		sigma_ny = -0.000201017		sigma_nn = 0.678588		sigma_ntau = 2.28222e-05
+sigma_nx = 40.9335		sigma_ny = -0.000139521		sigma_nn = 0.678588		sigma_ntau = 1.58403e-05
+sigma_nx = 40.9336		sigma_ny = -6.58605e-05		sigma_nn = 0.67859		sigma_ntau = 7.4774e-06
+sigma_nx = 40.9335		sigma_ny = 1.59844e-05		sigma_nn = 0.678589		sigma_ntau = 1.81501e-06
+sigma_nx = 40.9334		sigma_ny = 0.000153925		sigma_nn = 0.678588		sigma_ntau = 1.74757e-05
+sigma_nx = 40.9333		sigma_ny = 0.000304617		sigma_nn = 0.678586		sigma_ntau = 3.45844e-05
+sigma_nx = 40.9334		sigma_ny = 0.000391256		sigma_nn = 0.678588		sigma_ntau = 4.44207e-05
+sigma_nx = 40.9338		sigma_ny = 0.000453434		sigma_nn = 0.678593		sigma_ntau = 5.14801e-05
+sigma_nx = 40.9338		sigma_ny = 0.000464595		sigma_nn = 0.678595		sigma_ntau = 5.27472e-05
+sigma_nx = 40.9339		sigma_ny = 0.00048316		sigma_nn = 0.678595		sigma_ntau = 5.4855e-05
+sigma_nx = 40.9338		sigma_ny = 0.000471636		sigma_nn = 0.678595		sigma_ntau = 5.35467e-05
+sigma_nx = 40.9337		sigma_ny = 0.00039325		sigma_nn = 0.678593		sigma_ntau = 4.46472e-05
+sigma_nx = 40.9338		sigma_ny = 0.000393749		sigma_nn = 0.678594		sigma_ntau = 4.47038e-05
+sigma_nx = 40.9339		sigma_ny = 0.000363549		sigma_nn = 0.678595		sigma_ntau = 4.12751e-05
+sigma_nx = 40.9339		sigma_ny = 0.000486384		sigma_nn = 0.678595		sigma_ntau = 5.5221e-05
+sigma_nx = 40.9335		sigma_ny = 0.000560718		sigma_nn = 0.67859		sigma_ntau = 6.36605e-05
+sigma_nx = 40.9331		sigma_ny = 0.000514097		sigma_nn = 0.678583		sigma_ntau = 5.83674e-05
+sigma_nx = 40.9331		sigma_ny = 0.000496537		sigma_nn = 0.678582		sigma_ntau = 5.63738e-05
+sigma_nx = 40.9331		sigma_ny = 0.000482115		sigma_nn = 0.678583		sigma_ntau = 5.47364e-05
+sigma_nx = 40.9333		sigma_ny = 0.000490198		sigma_nn = 0.678586		sigma_ntau = 5.5654e-05
+sigma_nx = 40.9336		sigma_ny = 0.00046895		sigma_nn = 0.67859		sigma_ntau = 5.32417e-05
+sigma_nx = 40.9337		sigma_ny = 0.000464894		sigma_nn = 0.678592		sigma_ntau = 5.27812e-05
+sigma_nx = 40.9339		sigma_ny = 0.000430555		sigma_nn = 0.678595		sigma_ntau = 4.88826e-05
+sigma_nx = 40.934		sigma_ny = 0.000390608		sigma_nn = 0.678597		sigma_ntau = 4.43472e-05
+sigma_nx = 40.9338		sigma_ny = 0.000313377		sigma_nn = 0.678594		sigma_ntau = 3.55789e-05
+sigma_nx = 40.9337		sigma_ny = 0.00025969		sigma_nn = 0.678592		sigma_ntau = 2.94836e-05
+sigma_nx = 40.9337		sigma_ny = 0.00028353		sigma_nn = 0.678593		sigma_ntau = 3.21903e-05
+sigma_nx = 40.9337		sigma_ny = 0.000339486		sigma_nn = 0.678593		sigma_ntau = 3.85431e-05
+sigma_nx = 40.9338		sigma_ny = 0.000318322		sigma_nn = 0.678595		sigma_ntau = 3.61403e-05
+sigma_nx = 40.9337		sigma_ny = 0.000289508		sigma_nn = 0.678592		sigma_ntau = 3.28689e-05
+sigma_nx = 40.9333		sigma_ny = 0.000327992		sigma_nn = 0.678585		sigma_ntau = 3.72382e-05
+sigma_nx = 40.9334		sigma_ny = 0.000444945		sigma_nn = 0.678587		sigma_ntau = 5.05163e-05
+sigma_nx = 40.9336		sigma_ny = 0.000528833		sigma_nn = 0.678591		sigma_ntau = 6.00405e-05
+sigma_nx = 40.9338		sigma_ny = 0.000609619		sigma_nn = 0.678594		sigma_ntau = 6.92124e-05
+sigma_nx = 40.9337		sigma_ny = 0.000721812		sigma_nn = 0.678593		sigma_ntau = 8.19501e-05
+sigma_nx = 40.9334		sigma_ny = 0.000745644		sigma_nn = 0.678587		sigma_ntau = 8.46559e-05
+sigma_nx = 40.9335		sigma_ny = 0.000839912		sigma_nn = 0.678589		sigma_ntau = 9.53584e-05
+sigma_nx = 40.9335		sigma_ny = 0.000861602		sigma_nn = 0.678589		sigma_ntau = 9.7821e-05
+sigma_nx = 40.9333		sigma_ny = 0.000932446		sigma_nn = 0.678586		sigma_ntau = 0.000105864
+sigma_nx = 40.9334		sigma_ny = 0.000866377		sigma_nn = 0.678588		sigma_ntau = 9.83631e-05
+sigma_nx = 40.9335		sigma_ny = 0.00081929		sigma_nn = 0.678589		sigma_ntau = 9.30172e-05
+sigma_nx = 40.9333		sigma_ny = 0.000755777		sigma_nn = 0.678586		sigma_ntau = 8.58062e-05
+sigma_nx = 40.9328		sigma_ny = 0.000561161		sigma_nn = 0.678577		sigma_ntau = 6.37107e-05
+sigma_nx = 40.932		sigma_ny = 0.000267037		sigma_nn = 0.678564		sigma_ntau = 3.03177e-05
+sigma_nx = 40.9311		sigma_ny = -0.000156851		sigma_nn = 0.678549		sigma_ntau = 1.78079e-05
+sigma_nx = 40.93		sigma_ny = -0.00048902		sigma_nn = 0.678532		sigma_ntau = 5.55203e-05
+sigma_nx = 40.929		sigma_ny = -0.00104322		sigma_nn = 0.678514		sigma_ntau = 0.000118441
+sigma_nx = 40.9274		sigma_ny = -0.00175984		sigma_nn = 0.678488		sigma_ntau = 0.000199802
+sigma_nx = 40.9254		sigma_ny = -0.0026567		sigma_nn = 0.678455		sigma_ntau = 0.000301626
+sigma_nx = 40.9229		sigma_ny = -0.00384027		sigma_nn = 0.678413		sigma_ntau = 0.000436001
+sigma_nx = 40.9196		sigma_ny = -0.00541253		sigma_nn = 0.678358		sigma_ntau = 0.000614505
+sigma_nx = 40.9155		sigma_ny = -0.00741155		sigma_nn = 0.67829		sigma_ntau = 0.000841462
+sigma_nx = 40.9107		sigma_ny = -0.00995193		sigma_nn = 0.678211		sigma_ntau = 0.00112988
+sigma_nx = 40.9049		sigma_ny = -0.0132261		sigma_nn = 0.678116		sigma_ntau = 0.00150161
+sigma_nx = 40.8978		sigma_ny = -0.0172737		sigma_nn = 0.677998		sigma_ntau = 0.00196115
+sigma_nx = 40.8893		sigma_ny = -0.0224317		sigma_nn = 0.677857		sigma_ntau = 0.00254676
+sigma_nx = 40.8789		sigma_ny = -0.0288563		sigma_nn = 0.677685		sigma_ntau = 0.00327616
+sigma_nx = 40.8665		sigma_ny = -0.0366061		sigma_nn = 0.677479		sigma_ntau = 0.00415603
+sigma_nx = 40.8516		sigma_ny = -0.0460904		sigma_nn = 0.677232		sigma_ntau = 0.00523282
+sigma_nx = 40.8336		sigma_ny = -0.0576901		sigma_nn = 0.676933		sigma_ntau = 0.00654978
+sigma_nx = 40.8128		sigma_ny = -0.0716389		sigma_nn = 0.676588		sigma_ntau = 0.00813343
+sigma_nx = 40.787		sigma_ny = -0.088977		sigma_nn = 0.676161		sigma_ntau = 0.0101019
+sigma_nx = 40.7571		sigma_ny = -0.109917		sigma_nn = 0.675665		sigma_ntau = 0.0124792
+sigma_nx = 40.7224		sigma_ny = -0.13505		sigma_nn = 0.67509		sigma_ntau = 0.0153327
+sigma_nx = 40.682		sigma_ny = -0.164878		sigma_nn = 0.67442		sigma_ntau = 0.0187192
+sigma_nx = 40.6356		sigma_ny = -0.20021		sigma_nn = 0.673651		sigma_ntau = 0.0227306
+sigma_nx = 40.5832		sigma_ny = -0.241918		sigma_nn = 0.672782		sigma_ntau = 0.0274658
+sigma_nx = 40.5246		sigma_ny = -0.291044		sigma_nn = 0.67181		sigma_ntau = 0.0330433
+sigma_nx = 40.4579		sigma_ny = -0.348465		sigma_nn = 0.670704		sigma_ntau = 0.0395626
+sigma_nx = 40.3887		sigma_ny = -0.413023		sigma_nn = 0.669557		sigma_ntau = 0.0468921
+sigma_nx = 40.3135		sigma_ny = -0.486848		sigma_nn = 0.668311		sigma_ntau = 0.0552737
+sigma_nx = 40.2345		sigma_ny = -0.570916		sigma_nn = 0.667002		sigma_ntau = 0.0648183
+sigma_nx = 40.1538		sigma_ny = -0.666238		sigma_nn = 0.665663		sigma_ntau = 0.0756406
+sigma_nx = 40.0736		sigma_ny = -0.773738		sigma_nn = 0.664335		sigma_ntau = 0.0878454
+sigma_nx = 39.9988		sigma_ny = -0.894324		sigma_nn = 0.663094		sigma_ntau = 0.101536
+sigma_nx = 39.9352		sigma_ny = -1.0287		sigma_nn = 0.662039		sigma_ntau = 0.116792
+sigma_nx = 39.8907		sigma_ny = -1.17799		sigma_nn = 0.661302		sigma_ntau = 0.133742
+sigma_nx = 39.8756		sigma_ny = -1.34365		sigma_nn = 0.661052		sigma_ntau = 0.15255
+sigma_nx = 39.9032		sigma_ny = -1.52745		sigma_nn = 0.661509		sigma_ntau = 0.173417
+sigma_nx = 39.9905		sigma_ny = -1.73204		sigma_nn = 0.662955		sigma_ntau = 0.196645
+sigma_nx = 40.1581		sigma_ny = -1.96119		sigma_nn = 0.665735		sigma_ntau = 0.222661
+sigma_nx = 40.4319		sigma_ny = -2.2206		sigma_nn = 0.670273		sigma_ntau = 0.252113
+sigma_nx = 40.842		sigma_ny = -2.51833		sigma_nn = 0.677072		sigma_ntau = 0.285916
+sigma_nx = 41.4235		sigma_ny = -2.86474		sigma_nn = 0.686713		sigma_ntau = 0.325245
+sigma_nx = 42.2184		sigma_ny = -3.27003		sigma_nn = 0.699889		sigma_ntau = 0.371259
+sigma_nx = 43.3018		sigma_ny = -3.76793		sigma_nn = 0.717851		sigma_ntau = 0.427788
+sigma_nx = 44.7118		sigma_ny = -4.3549		sigma_nn = 0.741226		sigma_ntau = 0.494428
+sigma_nx = 46.4971		sigma_ny = -5.03118		sigma_nn = 0.770821		sigma_ntau = 0.57121
+sigma_nx = 48.6986		sigma_ny = -5.76986		sigma_nn = 0.807318		sigma_ntau = 0.655075
+sigma_nx = 51.3238		sigma_ny = -6.48292		sigma_nn = 0.850837		sigma_ntau = 0.736031
+sigma_nx = 54.2198		sigma_ny = -6.91503		sigma_nn = 0.898848		sigma_ntau = 0.78509
+sigma_nx = 57.5932		sigma_ny = -5.54366		sigma_nn = 0.954771		sigma_ntau = 0.629393
+sigma_nx = 60.3215		sigma_ny = -6.74455		sigma_nn = 1		sigma_ntau = 0.765735
+sigma_nx = -11.8298		sigma_ny = -8.68001		sigma_nn = -0.196112		sigma_ntau = -0.985475
+sigma_nx = -13.2894		sigma_ny = -7.09375		sigma_nn = -0.22031		sigma_ntau = -0.805381
+sigma_nx = -15.2696		sigma_ny = -8.80795		sigma_nn = -0.253137		sigma_ntau = -1
+sigma_nx = -17.0724		sigma_ny = -8.24686		sigma_nn = -0.283023		sigma_ntau = -0.936298
+sigma_nx = -18.5745		sigma_ny = -7.34379		sigma_nn = -0.307925		sigma_ntau = -0.833769
+sigma_nx = -19.7414		sigma_ny = -6.41568		sigma_nn = -0.32727		sigma_ntau = -0.728397
+sigma_nx = -20.5939		sigma_ny = -5.56984		sigma_nn = -0.341403		sigma_ntau = -0.632365
+sigma_nx = -21.1763		sigma_ny = -4.83774		sigma_nn = -0.351057		sigma_ntau = -0.549248
+sigma_nx = -21.5392		sigma_ny = -4.21699		sigma_nn = -0.357074		sigma_ntau = -0.478771
+sigma_nx = -21.7266		sigma_ny = -3.71068		sigma_nn = -0.36018		sigma_ntau = -0.421288
+sigma_nx = -21.7921		sigma_ny = -3.27566		sigma_nn = -0.361266		sigma_ntau = -0.371898
+sigma_nx = -21.7684		sigma_ny = -2.89916		sigma_nn = -0.360873		sigma_ntau = -0.329152
+sigma_nx = -21.6819		sigma_ny = -2.56846		sigma_nn = -0.359438		sigma_ntau = -0.291607
+sigma_nx = -21.5538		sigma_ny = -2.274		sigma_nn = -0.357316		sigma_ntau = -0.258176
+sigma_nx = -21.401		sigma_ny = -2.00925		sigma_nn = -0.354783		sigma_ntau = -0.228118
+sigma_nx = -21.2357		sigma_ny = -1.7698		sigma_nn = -0.352042		sigma_ntau = -0.200933
+sigma_nx = -21.0672		sigma_ny = -1.55281		sigma_nn = -0.349248		sigma_ntau = -0.176297
+sigma_nx = -20.902		sigma_ny = -1.35636		sigma_nn = -0.346511		sigma_ntau = -0.153993
+sigma_nx = -20.7447		sigma_ny = -1.17906		sigma_nn = -0.343902		sigma_ntau = -0.133863
+sigma_nx = -20.5979		sigma_ny = -1.01993		sigma_nn = -0.341469		sigma_ntau = -0.115796
+sigma_nx = -20.4633		sigma_ny = -0.877923		sigma_nn = -0.339237		sigma_ntau = -0.099674
+sigma_nx = -20.3415		sigma_ny = -0.75191		sigma_nn = -0.337218		sigma_ntau = -0.0853673
+sigma_nx = -20.2326		sigma_ny = -0.640667		sigma_nn = -0.335412		sigma_ntau = -0.0727373
+sigma_nx = -20.1361		sigma_ny = -0.543093		sigma_nn = -0.333813		sigma_ntau = -0.0616594
+sigma_nx = -20.0515		sigma_ny = -0.457881		sigma_nn = -0.332411		sigma_ntau = -0.0519849
+sigma_nx = -19.9757		sigma_ny = -0.382413		sigma_nn = -0.331155		sigma_ntau = -0.0434168
+sigma_nx = -19.9105		sigma_ny = -0.317557		sigma_nn = -0.330074		sigma_ntau = -0.0360535
+sigma_nx = -19.8549		sigma_ny = -0.262362		sigma_nn = -0.329151		sigma_ntau = -0.0297869
+sigma_nx = -19.8076		sigma_ny = -0.215599		sigma_nn = -0.328368		sigma_ntau = -0.0244778
+sigma_nx = -19.7679		sigma_ny = -0.176167		sigma_nn = -0.327709		sigma_ntau = -0.0200009
+sigma_nx = -19.7346		sigma_ny = -0.143105		sigma_nn = -0.327157		sigma_ntau = -0.0162472
+sigma_nx = -19.7067		sigma_ny = -0.115666		sigma_nn = -0.326694		sigma_ntau = -0.013132
+sigma_nx = -19.6834		sigma_ny = -0.0932047		sigma_nn = -0.326308		sigma_ntau = -0.0105819
+sigma_nx = -19.6645		sigma_ny = -0.0749189		sigma_nn = -0.325996		sigma_ntau = -0.00850583
+sigma_nx = -19.6489		sigma_ny = -0.0599466		sigma_nn = -0.325736		sigma_ntau = -0.00680597
+sigma_nx = -19.6361		sigma_ny = -0.0477283		sigma_nn = -0.325524		sigma_ntau = -0.00541877
+sigma_nx = -19.6259		sigma_ny = -0.0376321		sigma_nn = -0.325354		sigma_ntau = -0.00427251
+sigma_nx = -19.6176		sigma_ny = -0.0293664		sigma_nn = -0.325217		sigma_ntau = -0.00333408
+sigma_nx = -19.6107		sigma_ny = -0.022823		sigma_nn = -0.325104		sigma_ntau = -0.00259118
+sigma_nx = -19.6052		sigma_ny = -0.0175957		sigma_nn = -0.325012		sigma_ntau = -0.00199771
+sigma_nx = -19.6007		sigma_ny = -0.0133519		sigma_nn = -0.324937		sigma_ntau = -0.00151589
+sigma_nx = -19.5971		sigma_ny = -0.00997163		sigma_nn = -0.324877		sigma_ntau = -0.00113212
+sigma_nx = -19.5944		sigma_ny = -0.00736562		sigma_nn = -0.324833		sigma_ntau = -0.000836247
+sigma_nx = -19.5923		sigma_ny = -0.00531988		sigma_nn = -0.324797		sigma_ntau = -0.000603987
+sigma_nx = -19.5905		sigma_ny = -0.00366255		sigma_nn = -0.324767		sigma_ntau = -0.000415823
+sigma_nx = -19.589		sigma_ny = -0.00234862		sigma_nn = -0.324744		sigma_ntau = -0.000266647
+sigma_nx = -19.5881		sigma_ny = -0.00138866		sigma_nn = -0.324728		sigma_ntau = -0.00015766
+sigma_nx = -19.5875		sigma_ny = -0.000765784		sigma_nn = -0.324719		sigma_ntau = -8.69424e-05
+sigma_nx = -19.587		sigma_ny = -0.00028374		sigma_nn = -0.32471		sigma_ntau = -3.22141e-05
+sigma_nx = -19.5866		sigma_ny = -0.000126488		sigma_nn = -0.324703		sigma_ntau = -1.43607e-05
+sigma_nx = -19.5862		sigma_ny = 5.33933e-05		sigma_nn = -0.324696		sigma_ntau = -6.06197e-06
+sigma_nx = -19.5858		sigma_ny = 0.000184327		sigma_nn = -0.32469		sigma_ntau = -2.09274e-05
+sigma_nx = -19.5856		sigma_ny = 0.000318465		sigma_nn = -0.324686		sigma_ntau = -3.61565e-05
+sigma_nx = -19.5857		sigma_ny = 0.000551458		sigma_nn = -0.324688		sigma_ntau = -6.26092e-05
+sigma_nx = -19.5859		sigma_ny = 0.000679495		sigma_nn = -0.324691		sigma_ntau = -7.71457e-05
+sigma_nx = -19.5858		sigma_ny = 0.000601909		sigma_nn = -0.32469		sigma_ntau = -6.8337e-05
+sigma_nx = -19.586		sigma_ny = 0.000517794		sigma_nn = -0.324693		sigma_ntau = -5.87871e-05
+sigma_nx = -19.5861		sigma_ny = 0.000577826		sigma_nn = -0.324696		sigma_ntau = -6.56028e-05
+sigma_nx = -19.5861		sigma_ny = 0.0005501		sigma_nn = -0.324695		sigma_ntau = -6.2455e-05
+sigma_nx = -19.5861		sigma_ny = 0.00044397		sigma_nn = -0.324695		sigma_ntau = -5.04056e-05
+sigma_nx = -19.5862		sigma_ny = 0.000359658		sigma_nn = -0.324696		sigma_ntau = -4.08334e-05
+sigma_nx = -19.5863		sigma_ny = 0.000307968		sigma_nn = -0.324698		sigma_ntau = -3.49648e-05
+sigma_nx = -19.5863		sigma_ny = 0.000190538		sigma_nn = -0.324698		sigma_ntau = -2.16326e-05
+sigma_nx = -19.5862		sigma_ny = 0.000102601		sigma_nn = -0.324697		sigma_ntau = -1.16487e-05
+sigma_nx = -19.5861		sigma_ny = 9.32754e-05		sigma_nn = -0.324696		sigma_ntau = -1.05899e-05
+sigma_nx = -19.5861		sigma_ny = 8.34283e-05		sigma_nn = -0.324695		sigma_ntau = -9.47195e-06
+sigma_nx = -19.586		sigma_ny = -6.63777e-05		sigma_nn = -0.324694		sigma_ntau = -7.53611e-06
+sigma_nx = -19.586		sigma_ny = -0.00013179		sigma_nn = -0.324694		sigma_ntau = -1.49627e-05
+sigma_nx = -19.586		sigma_ny = 1.59558e-05		sigma_nn = -0.324693		sigma_ntau = -1.81157e-06
+sigma_nx = -19.586		sigma_ny = 9.506e-05		sigma_nn = -0.324693		sigma_ntau = -1.07925e-05
+sigma_nx = -19.5861		sigma_ny = 0.000113768		sigma_nn = -0.324695		sigma_ntau = -1.29165e-05
+sigma_nx = -19.5862		sigma_ny = 4.0398e-05		sigma_nn = -0.324697		sigma_ntau = -4.58651e-06
+sigma_nx = -19.5863		sigma_ny = 4.91126e-05		sigma_nn = -0.324699		sigma_ntau = -5.57593e-06
+sigma_nx = -19.5865		sigma_ny = -3.25936e-05		sigma_nn = -0.324702		sigma_ntau = 3.70048e-06
+sigma_nx = -19.5866		sigma_ny = -0.000172022		sigma_nn = -0.324703		sigma_ntau = 1.95303e-05
+sigma_nx = -19.5866		sigma_ny = -0.000318474		sigma_nn = -0.324704		sigma_ntau = 3.61575e-05
+sigma_nx = -19.5867		sigma_ny = -0.000369558		sigma_nn = -0.324704		sigma_ntau = 4.19573e-05
+sigma_nx = -19.5866		sigma_ny = -0.000512328		sigma_nn = -0.324703		sigma_ntau = 5.81666e-05
+sigma_nx = -19.5864		sigma_ny = -0.000721117		sigma_nn = -0.324701		sigma_ntau = 8.18712e-05
+sigma_nx = -19.5864		sigma_ny = -0.000722703		sigma_nn = -0.3247		sigma_ntau = 8.20513e-05
+sigma_nx = -19.5862		sigma_ny = -0.000748144		sigma_nn = -0.324698		sigma_ntau = 8.49397e-05
+sigma_nx = -19.5862		sigma_ny = -0.000598903		sigma_nn = -0.324697		sigma_ntau = 6.79957e-05
+sigma_nx = -19.5862		sigma_ny = -0.000405476		sigma_nn = -0.324697		sigma_ntau = 4.60353e-05
+sigma_nx = -19.5861		sigma_ny = -0.000251157		sigma_nn = -0.324695		sigma_ntau = 2.85148e-05
+sigma_nx = -19.586		sigma_ny = -0.000186052		sigma_nn = -0.324694		sigma_ntau = 2.11232e-05
+sigma_nx = -19.5861		sigma_ny = -0.000117274		sigma_nn = -0.324695		sigma_ntau = 1.33146e-05
+sigma_nx = -19.5861		sigma_ny = -7.52609e-05		sigma_nn = -0.324695		sigma_ntau = 8.54467e-06
+sigma_nx = -19.586		sigma_ny = -4.08964e-05		sigma_nn = -0.324694		sigma_ntau = 4.64311e-06
+sigma_nx = -19.586		sigma_ny = 5.28564e-06		sigma_nn = -0.324693		sigma_ntau = 5.998e-07
+sigma_nx = -19.586		sigma_ny = 0.000160663		sigma_nn = -0.324693		sigma_ntau = 1.82406e-05
+sigma_nx = -19.5861		sigma_ny = 0.000294476		sigma_nn = -0.324695		sigma_ntau = 3.3433e-05
+sigma_nx = -19.5862		sigma_ny = 0.00033249		sigma_nn = -0.324696		sigma_ntau = 3.77489e-05
+sigma_nx = -19.5862		sigma_ny = 0.000402938		sigma_nn = -0.324698		sigma_ntau = 4.57471e-05
+sigma_nx = -19.5863		sigma_ny = 0.000507018		sigma_nn = -0.324698		sigma_ntau = 5.75637e-05
+sigma_nx = -19.5864		sigma_ny = 0.000557343		sigma_nn = -0.3247		sigma_ntau = 6.32773e-05
+sigma_nx = -19.5865		sigma_ny = 0.000521903		sigma_nn = -0.324702		sigma_ntau = 5.92536e-05
+sigma_nx = -19.5866		sigma_ny = 0.000496456		sigma_nn = -0.324703		sigma_ntau = 5.63646e-05
+sigma_nx = -19.5865		sigma_ny = 0.000298842		sigma_nn = -0.324702		sigma_ntau = 3.39287e-05
+sigma_nx = -19.5864		sigma_ny = 0.000148717		sigma_nn = -0.3247		sigma_ntau = 1.68845e-05
+sigma_nx = -19.5864		sigma_ny = 0.000125931		sigma_nn = -0.324699		sigma_ntau = 1.42974e-05
+sigma_nx = -19.5863		sigma_ny = 0.000135153		sigma_nn = -0.324698		sigma_ntau = 1.53445e-05
+sigma_nx = -19.5862		sigma_ny = 5.90361e-05		sigma_nn = -0.324697		sigma_ntau = 6.70257e-06
+sigma_nx = -19.5861		sigma_ny = 1.82862e-05		sigma_nn = -0.324695		sigma_ntau = 2.07618e-06
+sigma_nx = -19.586		sigma_ny = 5.99923e-05		sigma_nn = -0.324694		sigma_ntau = 6.81118e-06
+sigma_nx = -19.5861		sigma_ny = -6.23277e-05		sigma_nn = -0.324695		sigma_ntau = 7.0763e-06
+sigma_nx = -19.5861		sigma_ny = -6.59732e-05		sigma_nn = -0.324695		sigma_ntau = 7.49017e-06
+sigma_nx = -19.5859		sigma_ny = -0.000108366		sigma_nn = -0.324692		sigma_ntau = 1.23033e-05
+sigma_nx = -19.5858		sigma_ny = -0.000141748		sigma_nn = -0.32469		sigma_ntau = 1.60932e-05
+sigma_nx = -19.5858		sigma_ny = -0.000160774		sigma_nn = -0.324689		sigma_ntau = 1.82532e-05
+sigma_nx = -19.5858		sigma_ny = -0.000144038		sigma_nn = -0.32469		sigma_ntau = 1.63532e-05
+sigma_nx = -19.586		sigma_ny = -0.000166702		sigma_nn = -0.324693		sigma_ntau = 1.89263e-05
+sigma_nx = -19.5861		sigma_ny = -0.000226913		sigma_nn = -0.324695		sigma_ntau = 2.57623e-05
+sigma_nx = -19.5861		sigma_ny = -0.00018931		sigma_nn = -0.324696		sigma_ntau = 2.14931e-05
+sigma_nx = -19.5862		sigma_ny = -0.000129562		sigma_nn = -0.324697		sigma_ntau = 1.47097e-05
+sigma_nx = -19.5863		sigma_ny = -0.000122961		sigma_nn = -0.324698		sigma_ntau = 1.39602e-05
+sigma_nx = -19.5863		sigma_ny = -9.24068e-05		sigma_nn = -0.324699		sigma_ntau = 1.04913e-05
+sigma_nx = -19.5863		sigma_ny = -3.38665e-05		sigma_nn = -0.324699		sigma_ntau = 3.84498e-06
+sigma_nx = -19.5863		sigma_ny = -8.52199e-06		sigma_nn = -0.324699		sigma_ntau = 9.67678e-07
+sigma_nx = -19.5863		sigma_ny = 6.83264e-06		sigma_nn = -0.324699		sigma_ntau = 7.75599e-07
+sigma_nx = -19.5865		sigma_ny = 1.57857e-05		sigma_nn = -0.324702		sigma_ntau = 1.79226e-06
+sigma_nx = -19.5866		sigma_ny = 1.20324e-07		sigma_nn = -0.324703		sigma_ntau = 0
+sigma_nx = -19.5865		sigma_ny = -1.61408e-05		sigma_nn = -0.324702		sigma_ntau = 1.83248e-06
+sigma_nx = -19.5863		sigma_ny = -6.60399e-06		sigma_nn = -0.324699		sigma_ntau = 7.49658e-07
+sigma_nx = -19.5863		sigma_ny = 8.19455e-06		sigma_nn = -0.324699		sigma_ntau = 9.3023e-07
+sigma_nx = -19.5863		sigma_ny = 3.40603e-05		sigma_nn = -0.324699		sigma_ntau = 3.86702e-06
+sigma_nx = -19.5863		sigma_ny = 9.21322e-05		sigma_nn = -0.324699		sigma_ntau = 1.04601e-05
+sigma_nx = -19.5863		sigma_ny = 0.000123101		sigma_nn = -0.324698		sigma_ntau = 1.39761e-05
+sigma_nx = -19.5862		sigma_ny = 0.000129361		sigma_nn = -0.324697		sigma_ntau = 1.46868e-05
+sigma_nx = -19.5861		sigma_ny = 0.000189381		sigma_nn = -0.324696		sigma_ntau = 2.15012e-05
+sigma_nx = -19.5861		sigma_ny = 0.000226798		sigma_nn = -0.324695		sigma_ntau = 2.57492e-05
+sigma_nx = -19.586		sigma_ny = 0.000166696		sigma_nn = -0.324693		sigma_ntau = 1.89256e-05
+sigma_nx = -19.5858		sigma_ny = 0.000144016		sigma_nn = -0.32469		sigma_ntau = 1.63507e-05
+sigma_nx = -19.5858		sigma_ny = 0.000160689		sigma_nn = -0.324689		sigma_ntau = 1.82436e-05
+sigma_nx = -19.5858		sigma_ny = 0.000141815		sigma_nn = -0.32469		sigma_ntau = 1.61008e-05
+sigma_nx = -19.5859		sigma_ny = 0.000108207		sigma_nn = -0.324692		sigma_ntau = 1.22852e-05
+sigma_nx = -19.5861		sigma_ny = 6.61174e-05		sigma_nn = -0.324695		sigma_ntau = 7.50654e-06
+sigma_nx = -19.5861		sigma_ny = 6.21418e-05		sigma_nn = -0.324695		sigma_ntau = 7.05519e-06
+sigma_nx = -19.586		sigma_ny = -5.96583e-05		sigma_nn = -0.324694		sigma_ntau = 6.77326e-06
+sigma_nx = -19.5861		sigma_ny = -1.8378e-05		sigma_nn = -0.324695		sigma_ntau = 2.08656e-06
+sigma_nx = -19.5862		sigma_ny = -5.83889e-05		sigma_nn = -0.324697		sigma_ntau = 6.62909e-06
+sigma_nx = -19.5863		sigma_ny = -0.000135408		sigma_nn = -0.324698		sigma_ntau = 1.53734e-05
+sigma_nx = -19.5864		sigma_ny = -0.000125012		sigma_nn = -0.324699		sigma_ntau = 1.4193e-05
+sigma_nx = -19.5864		sigma_ny = -0.000149563		sigma_nn = -0.3247		sigma_ntau = 1.69805e-05
+sigma_nx = -19.5865		sigma_ny = -0.000297503		sigma_nn = -0.324702		sigma_ntau = 3.37767e-05
+sigma_nx = -19.5866		sigma_ny = -0.000498411		sigma_nn = -0.324703		sigma_ntau = 5.65865e-05
+sigma_nx = -19.5865		sigma_ny = -0.000519563		sigma_nn = -0.324702		sigma_ntau = 5.8988e-05
+sigma_nx = -19.5864		sigma_ny = -0.000560481		sigma_nn = -0.3247		sigma_ntau = 6.36336e-05
+sigma_nx = -19.5863		sigma_ny = -0.000503689		sigma_nn = -0.324698		sigma_ntau = 5.71857e-05
+sigma_nx = -19.5862		sigma_ny = -0.000406934		sigma_nn = -0.324698		sigma_ntau = 4.62008e-05
+sigma_nx = -19.5862		sigma_ny = -0.000328456		sigma_nn = -0.324696		sigma_ntau = 3.72909e-05
+sigma_nx = -19.5861		sigma_ny = -0.000299004		sigma_nn = -0.324695		sigma_ntau = 3.3947e-05
+sigma_nx = -19.586		sigma_ny = -0.000156261		sigma_nn = -0.324693		sigma_ntau = 1.77409e-05
+sigma_nx = -19.586		sigma_ny = -9.97611e-06		sigma_nn = -0.324693		sigma_ntau = 1.13268e-06
+sigma_nx = -19.586		sigma_ny = 4.52976e-05		sigma_nn = -0.324694		sigma_ntau = 5.14282e-06
+sigma_nx = -19.5861		sigma_ny = 7.07885e-05		sigma_nn = -0.324695		sigma_ntau = 8.03691e-06
+sigma_nx = -19.5861		sigma_ny = 0.000121307		sigma_nn = -0.324695		sigma_ntau = 1.37724e-05
+sigma_nx = -19.586		sigma_ny = 0.000182161		sigma_nn = -0.324694		sigma_ntau = 2.06814e-05
+sigma_nx = -19.5861		sigma_ny = 0.000254483		sigma_nn = -0.324695		sigma_ntau = 2.88925e-05
+sigma_nx = -19.5862		sigma_ny = 0.000402481		sigma_nn = -0.324697		sigma_ntau = 4.56953e-05
+sigma_nx = -19.5862		sigma_ny = 0.000601239		sigma_nn = -0.324697		sigma_ntau = 6.82609e-05
+sigma_nx = -19.5863		sigma_ny = 0.000746388		sigma_nn = -0.324698		sigma_ntau = 8.47403e-05
+sigma_nx = -19.5864		sigma_ny = 0.000724148		sigma_nn = -0.3247		sigma_ntau = 8.22153e-05
+sigma_nx = -19.5864		sigma_ny = 0.000720656		sigma_nn = -0.324701		sigma_ntau = 8.18188e-05
+sigma_nx = -19.5866		sigma_ny = 0.000513406		sigma_nn = -0.324703		sigma_ntau = 5.8289e-05
+sigma_nx = -19.5867		sigma_ny = 0.000369739		sigma_nn = -0.324704		sigma_ntau = 4.19778e-05
+sigma_nx = -19.5866		sigma_ny = 0.000319042		sigma_nn = -0.324704		sigma_ntau = 3.62221e-05
+sigma_nx = -19.5866		sigma_ny = 0.000172292		sigma_nn = -0.324703		sigma_ntau = 1.95609e-05
+sigma_nx = -19.5865		sigma_ny = 3.2386e-05		sigma_nn = -0.324702		sigma_ntau = 3.67694e-06
+sigma_nx = -19.5863		sigma_ny = -4.88678e-05		sigma_nn = -0.324699		sigma_ntau = 5.54813e-06
+sigma_nx = -19.5862		sigma_ny = -4.12916e-05		sigma_nn = -0.324697		sigma_ntau = 4.68802e-06
+sigma_nx = -19.5861		sigma_ny = -0.000113158		sigma_nn = -0.324695		sigma_ntau = 1.28473e-05
+sigma_nx = -19.586		sigma_ny = -9.63379e-05		sigma_nn = -0.324693		sigma_ntau = 1.09376e-05
+sigma_nx = -19.586		sigma_ny = -1.49877e-05		sigma_nn = -0.324693		sigma_ntau = 1.70166e-06
+sigma_nx = -19.586		sigma_ny = 0.000130242		sigma_nn = -0.324694		sigma_ntau = 1.47868e-05
+sigma_nx = -19.586		sigma_ny = 6.76086e-05		sigma_nn = -0.324694		sigma_ntau = 7.67584e-06
+sigma_nx = -19.5861		sigma_ny = -8.51104e-05		sigma_nn = -0.324695		sigma_ntau = 9.66291e-06
+sigma_nx = -19.5861		sigma_ny = -9.18971e-05		sigma_nn = -0.324696		sigma_ntau = 1.04334e-05
+sigma_nx = -19.5862		sigma_ny = -0.000104263		sigma_nn = -0.324697		sigma_ntau = 1.18374e-05
+sigma_nx = -19.5863		sigma_ny = -0.000189136		sigma_nn = -0.324699		sigma_ntau = 2.14734e-05
+sigma_nx = -19.5863		sigma_ny = -0.000309455		sigma_nn = -0.324698		sigma_ntau = 3.51336e-05
+sigma_nx = -19.5862		sigma_ny = -0.000358352		sigma_nn = -0.324696		sigma_ntau = 4.06851e-05
+sigma_nx = -19.5861		sigma_ny = -0.000445134		sigma_nn = -0.324695		sigma_ntau = 5.05378e-05
+sigma_nx = -19.5861		sigma_ny = -0.000548992		sigma_nn = -0.324695		sigma_ntau = 6.23291e-05
+sigma_nx = -19.5861		sigma_ny = -0.000578535		sigma_nn = -0.324696		sigma_ntau = 6.56833e-05
+sigma_nx = -19.586		sigma_ny = -0.00051694		sigma_nn = -0.324693		sigma_ntau = 5.86902e-05
+sigma_nx = -19.5858		sigma_ny = -0.000602007		sigma_nn = -0.32469		sigma_ntau = 6.83482e-05
+sigma_nx = -19.5859		sigma_ny = -0.000678752		sigma_nn = -0.324691		sigma_ntau = 7.70613e-05
+sigma_nx = -19.5857		sigma_ny = -0.000551241		sigma_nn = -0.324688		sigma_ntau = 6.25845e-05
+sigma_nx = -19.5856		sigma_ny = -0.000318029		sigma_nn = -0.324686		sigma_ntau = 3.6107e-05
+sigma_nx = -19.5858		sigma_ny = -0.000184282		sigma_nn = -0.32469		sigma_ntau = 2.09223e-05
+sigma_nx = -19.5862		sigma_ny = -5.35299e-05		sigma_nn = -0.324696		sigma_ntau = 6.07748e-06
+sigma_nx = -19.5866		sigma_ny = 0.000126177		sigma_nn = -0.324703		sigma_ntau = 1.43253e-05
+sigma_nx = -19.587		sigma_ny = 0.000283074		sigma_nn = -0.32471		sigma_ntau = 3.21385e-05
+sigma_nx = -19.5875		sigma_ny = 0.000765354		sigma_nn = -0.324719		sigma_ntau = 8.68936e-05
+sigma_nx = -19.5881		sigma_ny = 0.00138773		sigma_nn = -0.324728		sigma_ntau = 0.000157554
+sigma_nx = -19.5891		sigma_ny = 0.00234822		sigma_nn = -0.324744		sigma_ntau = 0.000266602
+sigma_nx = -19.5905		sigma_ny = 0.00366142		sigma_nn = -0.324767		sigma_ntau = 0.000415695
+sigma_nx = -19.5923		sigma_ny = 0.0053195		sigma_nn = -0.324797		sigma_ntau = 0.000603943
+sigma_nx = -19.5944		sigma_ny = 0.00736435		sigma_nn = -0.324833		sigma_ntau = 0.000836102
+sigma_nx = -19.5971		sigma_ny = 0.00997123		sigma_nn = -0.324877		sigma_ntau = 0.00113207
+sigma_nx = -19.6007		sigma_ny = 0.0133505		sigma_nn = -0.324937		sigma_ntau = 0.00151574
+sigma_nx = -19.6052		sigma_ny = 0.0175952		sigma_nn = -0.325012		sigma_ntau = 0.00199765
+sigma_nx = -19.6108		sigma_ny = 0.0228216		sigma_nn = -0.325104		sigma_ntau = 0.00259102
+sigma_nx = -19.6176		sigma_ny = 0.0293658		sigma_nn = -0.325218		sigma_ntau = 0.00333401
+sigma_nx = -19.6259		sigma_ny = 0.0376306		sigma_nn = -0.325355		sigma_ntau = 0.00427235
+sigma_nx = -19.6361		sigma_ny = 0.0477275		sigma_nn = -0.325525		sigma_ntau = 0.00541868
+sigma_nx = -19.6489		sigma_ny = 0.0599452		sigma_nn = -0.325736		sigma_ntau = 0.00680581
+sigma_nx = -19.6646		sigma_ny = 0.0749179		sigma_nn = -0.325996		sigma_ntau = 0.00850572
+sigma_nx = -19.6834		sigma_ny = 0.0932041		sigma_nn = -0.326308		sigma_ntau = 0.0105818
+sigma_nx = -19.7067		sigma_ny = 0.115667		sigma_nn = -0.326695		sigma_ntau = 0.0131322
+sigma_nx = -19.7346		sigma_ny = 0.143109		sigma_nn = -0.327158		sigma_ntau = 0.0162477
+sigma_nx = -19.7679		sigma_ny = 0.176172		sigma_nn = -0.327709		sigma_ntau = 0.0200015
+sigma_nx = -19.8076		sigma_ny = 0.215605		sigma_nn = -0.328368		sigma_ntau = 0.0244785
+sigma_nx = -19.8549		sigma_ny = 0.262367		sigma_nn = -0.329151		sigma_ntau = 0.0297875
+sigma_nx = -19.9105		sigma_ny = 0.317561		sigma_nn = -0.330073		sigma_ntau = 0.0360539
+sigma_nx = -19.9757		sigma_ny = 0.382414		sigma_nn = -0.331154		sigma_ntau = 0.0434169
+sigma_nx = -20.0515		sigma_ny = 0.457881		sigma_nn = -0.33241		sigma_ntau = 0.0519849
+sigma_nx = -20.1361		sigma_ny = 0.543091		sigma_nn = -0.333813		sigma_ntau = 0.0616592
+sigma_nx = -20.2325		sigma_ny = 0.640667		sigma_nn = -0.335412		sigma_ntau = 0.0727373
+sigma_nx = -20.3415		sigma_ny = 0.751908		sigma_nn = -0.337218		sigma_ntau = 0.085367
+sigma_nx = -20.4633		sigma_ny = 0.877924		sigma_nn = -0.339237		sigma_ntau = 0.099674
+sigma_nx = -20.5979		sigma_ny = 1.01992		sigma_nn = -0.341469		sigma_ntau = 0.115796
+sigma_nx = -20.7447		sigma_ny = 1.17906		sigma_nn = -0.343902		sigma_ntau = 0.133863
+sigma_nx = -20.902		sigma_ny = 1.35636		sigma_nn = -0.34651		sigma_ntau = 0.153992
+sigma_nx = -21.0672		sigma_ny = 1.55282		sigma_nn = -0.349248		sigma_ntau = 0.176297
+sigma_nx = -21.2357		sigma_ny = 1.7698		sigma_nn = -0.352042		sigma_ntau = 0.200932
+sigma_nx = -21.401		sigma_ny = 2.00925		sigma_nn = -0.354783		sigma_ntau = 0.228118
+sigma_nx = -21.5538		sigma_ny = 2.27399		sigma_nn = -0.357316		sigma_ntau = 0.258175
+sigma_nx = -21.6818		sigma_ny = 2.56846		sigma_nn = -0.359438		sigma_ntau = 0.291607
+sigma_nx = -21.7684		sigma_ny = 2.89916		sigma_nn = -0.360873		sigma_ntau = 0.329152
+sigma_nx = -21.7921		sigma_ny = 3.27566		sigma_nn = -0.361266		sigma_ntau = 0.371898
+sigma_nx = -21.7266		sigma_ny = 3.71068		sigma_nn = -0.36018		sigma_ntau = 0.421287
+sigma_nx = -21.5392		sigma_ny = 4.21699		sigma_nn = -0.357074		sigma_ntau = 0.478771
+sigma_nx = -21.1763		sigma_ny = 4.83774		sigma_nn = -0.351057		sigma_ntau = 0.549248
+sigma_nx = -20.5939		sigma_ny = 5.56984		sigma_nn = -0.341403		sigma_ntau = 0.632365
+sigma_nx = -19.7414		sigma_ny = 6.41568		sigma_nn = -0.32727		sigma_ntau = 0.728397
+sigma_nx = -18.5745		sigma_ny = 7.34379		sigma_nn = -0.307925		sigma_ntau = 0.833769
+sigma_nx = -17.0724		sigma_ny = 8.24686		sigma_nn = -0.283024		sigma_ntau = 0.936298
+sigma_nx = -15.2696		sigma_ny = 8.80795		sigma_nn = -0.253137		sigma_ntau = 1
+sigma_nx = -13.2894		sigma_ny = 7.09375		sigma_nn = -0.22031		sigma_ntau = 0.805381
+sigma_nx = -11.8298		sigma_ny = 8.68001		sigma_nn = -0.196112		sigma_ntau = 0.985475
+
+
+================================================================================
+================================================================================
+
+
+================================================================================
+================================================================================
+
+
+Вызов функции main() из файла new_struct_elastic.cpp
+
+	Yung1 	 = 1
+	Yung2 	 = 1
+	Yung3 	 = 1
+	Puasson1  = 0.4
+	Puasson2  = 0.1
+	Puasson3  = 0.4
+	c0 		 = 0.5
+	C0 		 = 0
+	bb 		 = 1
+	mu1 		 = 0.357143
+	mu2		 = 0.454545
+	mu3 		 = 0.357143
+	Yleft 	 = -0.5
+	Yright 	 = 0.5
+	Xup 		 = 1
+	Xdown 	 = 0
+	RefineNum = 0
+	eps		 = 1e-12
+	FileOfGrid = net/1x1_slayer3_curve_A0.1_T1___.msh
+	Number of active cells:       2118
+	eps = 1e-12
+
+
+HCPTools::print_elasticity_gradient<2> 
+ => (in beginning) Integral(AU_x) = -0.000706597
+ => Integral(AU_x) = -9.35802e-18
+AddConstant = 0.000706597
+
+ => (in beginning) Integral(U_x) = -0.000103328
+ => Integral(U_x) = -7.21672e-19
+AddConstant = 0.000103328
+
+deltMaxABSU_x = 0.0899362
+deltMaxOTNU_x = 2.5439e+06%
+deltMaxABSU_x_gradX = 0.478251
+deltMaxOTNU_x_gradX = 263806%
+deltMaxABSU_x_gradY = 0.428913
+deltMaxOTNU_x_gradY = 100%
+
+deltMaxABSU_y = 0.0909532
+deltMaxOTNU_y = 2390.1%
+deltMaxABSU_y_gradX = 0.426122
+deltMaxOTNU_y_gradX = 100%
+deltMaxABSU_y_gradY = 0.262099
+deltMaxOTNU_y_gradY = 532.68%
+
+deltMaxABStau_xx = 1.11103
+deltAVEtau_xx = 0.328768
+deltMaxOTNtau_xx = 100%
+deltMaxABStau_yy = 0.88558
+deltAVEtau_yy = 0.349976
+deltMaxOTNtau_yy = 100%
+deltMaxABStau_xy = 0.0911117
+deltAVEtau_xy = 0.0292694
+deltMaxOTNtau_xy = 100%
+deltMaxABStau_zz = 0.686981
+deltAVEtau_zz = 0.234717
+deltMaxOTNtau_zz = 40.7225%
+	FileOfGrid			= net/1x1_slayer3_curve_A0.1_T1___.msh_2118_elastic
+IntegralOfTau_xx(0.0) = 0.00961124
+IntegralOfTau_xx(0.125) = -nan
+IntegralOfTau_xx(0.25) = -0.191994
+
+IntegralOfTau_xx(0.475) = -0.0109679
+IntegralOfTau_xx(0.5) = -0.00524955
+
+IntegralOfTau_xy(0.0) = 0.000332643
+IntegralOfTau_xy(0.125) = -nan
+IntegralOfTau_xy(0.25) = -0.000677603
+IntegralOfTau_xy(0.475) = -0.000305309
+IntegralOfTau_xy(0.5) = 8.66822e-05
+
+IntegralOfTau_xy(0) = 7.80593e-06
+IntegralOfTau_xy(0.125) = -nan
+IntegralOfTau_xy(0.25) = -0.00288484
+IntegralOfTau_xy(0.375) = -nan
+IntegralOfTau_xy(0.491) = -nan
+
+IntegralOfTau_yy(0) = -0.109607
+IntegralOfTau_yy(0.125) = -nan
+IntegralOfTau_yy(0.25) = -0.105447
+IntegralOfTau_yy(0.375) = -nan
+IntegralOfTau_yy(0.491) = -nan
+
+EF = 1
+FileOfGrid = net/1x1_slayer3_curve_A0.1_T1___.msh
+Maxsigma_ntau  = 60.714
+Maxsigma_nn  = 696.342
+sigma_nx = 446.47		sigma_ny = -83.0151		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 439.728		sigma_ny = -80.3113		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 454.596		sigma_ny = -85.6911		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 463.59		sigma_ny = 87.686		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 472.974		sigma_ny = 90.5059		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 455.148		sigma_ny = 85.1369		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 480.968		sigma_ny = -93.9312		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 473.415		sigma_ny = -91.4916		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 493.523		sigma_ny = -97.1309		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 498.217		sigma_ny = 120.576		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = -23.0628		sigma_ny = -70.885		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = 534.011		sigma_ny = 113.579		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 516.98		sigma_ny = -123.735		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 542.882		sigma_ny = -115.407		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = -57.7096		sigma_ny = 71.0597		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = 521.007		sigma_ny = 103.79		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 534.14		sigma_ny = 107.485		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 513.995		sigma_ny = 101.554		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 523.464		sigma_ny = -106.151		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 515.06		sigma_ny = -103.521		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 535.837		sigma_ny = -110.082		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 421.563		sigma_ny = 70.3947		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 416.712		sigma_ny = 67.4379		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 426.561		sigma_ny = 73.1856		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 412.279		sigma_ny = -65.0696		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 408.739		sigma_ny = -62.0775		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 416.207		sigma_ny = -67.9251		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 405.329		sigma_ny = 58.9747		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 408.861		sigma_ny = 61.7511		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 402.017		sigma_ny = 55.8028		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 399.631		sigma_ny = -53.4461		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 402.033		sigma_ny = -56.2202		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 396.456		sigma_ny = -50.0396		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 395.574		sigma_ny = 46.87		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 396.738		sigma_ny = 49.7177		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 392.577		sigma_ny = 43.5002		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 387.308		sigma_ny = 9.07073		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 385.764		sigma_ny = 12.14		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 385.978		sigma_ny = 5.98988		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 391.979		sigma_ny = -40.8862		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 389.785		sigma_ny = -37.5865		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 392.465		sigma_ny = -43.8452		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 426.556		sigma_ny = -74.2195		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 432.146		sigma_ny = -77.3741		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 389.807		sigma_ny = 34.2951		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 390.089		sigma_ny = 37.2365		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 388.273		sigma_ny = 31.0771		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 387.283		sigma_ny = -2.99566		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 385.883		sigma_ny = -0.0135917		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 385.462		sigma_ny = -6.03011		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 387.929		sigma_ny = 21.8199		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 386.776		sigma_ny = 24.8242		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 386.027		sigma_ny = 18.5274		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 388.34		sigma_ny = -28.3813		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 386.593		sigma_ny = -25.0334		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 387.937		sigma_ny = -31.3892		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 386.888		sigma_ny = -15.6353		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 385.642		sigma_ny = -12.3906		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 385.857		sigma_ny = -18.7715		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 482.142		sigma_ny = 93.0231		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 492.911		sigma_ny = 95.8537		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 446.07		sigma_ny = 82.1157		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 439.061		sigma_ny = 79.2179		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 462.729		sigma_ny = -88.5832		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 531.754		sigma_ny = -111.091		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 529.929		sigma_ny = 108.231		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 503.692		sigma_ny = -100.022		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 501.419		sigma_ny = 98.1135		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 420.422		sigma_ny = -71.076		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 412.834		sigma_ny = 64.7013		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 432.325		sigma_ny = 76.3006		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 404.887		sigma_ny = -59.2573		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 399.625		sigma_ny = 53.0158		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 395.226		sigma_ny = -47.1826		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 392.172		sigma_ny = 40.4807		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 389.622		sigma_ny = -34.666		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 387.081		sigma_ny = 15.4222		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 387.024		sigma_ny = 2.99384		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 388.452		sigma_ny = 28.1739		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 386.323		sigma_ny = -9.26774		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 387.204		sigma_ny = -22.0471		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 405.397		sigma_ny = -58.6217		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 409.034		sigma_ny = -61.2757		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 402.322		sigma_ny = -55.6231		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 480.398		sigma_ny = 92.7739		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 473.239		sigma_ny = 90.6218		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 493.01		sigma_ny = 95.9014		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 405.39		sigma_ny = 58.9548		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 402.166		sigma_ny = 55.9122		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 408.835		sigma_ny = 61.8541		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 421.031		sigma_ny = 70.5939		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 416.767		sigma_ny = 67.6582		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 426.916		sigma_ny = 73.4485		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 444.954		sigma_ny = 81.9769		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 439.084		sigma_ny = 79.334		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 455.339		sigma_ny = 85.1381		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 387.009		sigma_ny = 9.26392		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 385.682		sigma_ny = 6.10939		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 385.852		sigma_ny = 12.4181		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 389.777		sigma_ny = -34.328		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 390.411		sigma_ny = -37.2053		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 388.326		sigma_ny = -31.1907		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 518.723		sigma_ny = 125.425		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 540.897		sigma_ny = 115.123		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 593.721		sigma_ny = 145.547		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 387.244		sigma_ny = -3.12131		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 385.863		sigma_ny = -6.19201		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 385.597		sigma_ny = -0.00327387		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 388.507		sigma_ny = 28.3253		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 387.08		sigma_ny = 25.113		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 388.303		sigma_ny = 31.2411		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 392.064		sigma_ny = 40.7436		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 390.002		sigma_ny = 37.4206		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 392.713		sigma_ny = 43.6899		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 529.316		sigma_ny = -108.299		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 531.566		sigma_ny = -113.941		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 533.835		sigma_ny = -107.638		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 387.45		sigma_ny = -15.509		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 385.972		sigma_ny = -18.5592		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 385.893		sigma_ny = -12.3113		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 396.723		sigma_ny = 49.9042		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 399.765		sigma_ny = 53.1985		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 400.032		sigma_ny = -52.9108		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 396.788		sigma_ny = -49.5215		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 501.091		sigma_ny = -97.594		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 513.275		sigma_ny = -101.076		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 492.094		sigma_ny = -95.163		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 502.387		sigma_ny = 98.7661		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 514.494		sigma_ny = 102.57		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 432.755		sigma_ny = -76.0703		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 439.77		sigma_ny = -78.8226		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 426.702		sigma_ny = -72.9858		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 416.608		sigma_ny = -66.9422		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 413.266		sigma_ny = -64.2018		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 463.295		sigma_ny = -86.8237		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 472.243		sigma_ny = -89.5607		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 454.857		sigma_ny = -84.1202		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 412.507		sigma_ny = 64.944		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 463.13		sigma_ny = 87.731		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 432.158		sigma_ny = 76.4765		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 387.006		sigma_ny = 15.6458		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 386.058		sigma_ny = 18.8098		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 388.583		sigma_ny = -28.34		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 386.605		sigma_ny = -24.9311		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 392.894		sigma_ny = -43.3227		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 392.711		sigma_ny = -40.3745		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 534.596		sigma_ny = 109.694		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 530.654		sigma_ny = 110.34		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 387.096		sigma_ny = 3.05287		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 390.145		sigma_ny = 34.486		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 387.083		sigma_ny = -9.28719		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 395.465		sigma_ny = 47.0154		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 388.021		sigma_ny = 22.1517		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 678.425		sigma_ny = -163.84		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 501.374		sigma_ny = -122.306		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 520.347		sigma_ny = -103.577		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 421.601		sigma_ny = -70.087		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 387.492		sigma_ny = -21.8743		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 481.295		sigma_ny = -92.3295		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 447.619		sigma_ny = -81.6561		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 395.699		sigma_ny = -46.6719		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 522.451		sigma_ny = 105.475		sigma_nn = inf		sigma_ntau = inf
+
+
+================================================================================
+================================================================================
+
+
+================================================================================
+================================================================================
+
+
+Вызов функции main() из файла new_struct_elastic.cpp
+
+	Yung1 	 = 1
+	Yung2 	 = 1
+	Yung3 	 = 1
+	Puasson1  = 0.4
+	Puasson2  = 0.1
+	Puasson3  = 0.4
+	c0 		 = 0.5
+	C0 		 = 0
+	bb 		 = 1
+	mu1 		 = 0.357143
+	mu2		 = 0.454545
+	mu3 		 = 0.357143
+	Yleft 	 = -0.5
+	Yright 	 = 0.5
+	Xup 		 = 1
+	Xdown 	 = 0
+	RefineNum = 0
+	eps		 = 0.001
+	FileOfGrid = net/1x1_slayer3_curve_A0.1_T2___.msh
+	Number of active cells:       2550
+	eps = 0.001
+
+
+HCPTools::print_elasticity_gradient<2> 
+ => (in beginning) Integral(AU_x) = -0.000422681
+ => Integral(AU_x) = -2.24421e-18
+AddConstant = 0.000422681
+
+ => (in beginning) Integral(U_x) = -0.000675257
+ => Integral(U_x) = 3.27039e-18
+AddConstant = 0.000675257
+
+deltMaxABSU_x = 0.0615924
+deltMaxOTNU_x = 49609.1%
+deltMaxABSU_x_gradX = 0.346591
+deltMaxOTNU_x_gradX = 11896.1%
+deltMaxABSU_x_gradY = 0.385126
+deltMaxOTNU_x_gradY = 100%
+
+deltMaxABSU_y = 0.089494
+deltMaxOTNU_y = 6187.6%
+deltMaxABSU_y_gradX = 0.510497
+deltMaxOTNU_y_gradX = 100%
+deltMaxABSU_y_gradY = 0.388411
+deltMaxOTNU_y_gradY = 202.115%
+
+deltMaxABStau_xx = 0.829348
+deltAVEtau_xx = 0.196407
+deltMaxOTNtau_xx = 100%
+deltMaxABStau_yy = 0.780218
+deltAVEtau_yy = 0.236503
+deltMaxOTNtau_yy = 100%
+deltMaxABStau_xy = 0.143052
+deltAVEtau_xy = 0.0445446
+deltMaxOTNtau_xy = 100%
+deltMaxABStau_zz = 0.574845
+deltAVEtau_zz = 0.157553
+deltMaxOTNtau_zz = 44.5458%
+	FileOfGrid			= net/1x1_slayer3_curve_A0.1_T2___.msh_2550_elastic
+IntegralOfTau_xx(0.0) = 0.00159715
+IntegralOfTau_xx(0.125) = -nan
+IntegralOfTau_xx(0.25) = -0.121858
+
+IntegralOfTau_xx(0.475) = -nan
+IntegralOfTau_xx(0.5) = -0.00139066
+
+IntegralOfTau_xy(0.0) = -0.000143808
+IntegralOfTau_xy(0.125) = -nan
+IntegralOfTau_xy(0.25) = 0.00312411
+IntegralOfTau_xy(0.475) = -nan
+IntegralOfTau_xy(0.5) = 6.86394e-05
+
+IntegralOfTau_xy(0) = 4.49572e-05
+IntegralOfTau_xy(0.125) = 0.0020404
+IntegralOfTau_xy(0.25) = -0.000582015
+IntegralOfTau_xy(0.375) = -0.0036618
+IntegralOfTau_xy(0.491) = -nan
+
+IntegralOfTau_yy(0) = -0.138069
+IntegralOfTau_yy(0.125) = -0.100749
+IntegralOfTau_yy(0.25) = -0.00270556
+IntegralOfTau_yy(0.375) = 0.0530869
+IntegralOfTau_yy(0.491) = -nan
+
+EF = 1
+FileOfGrid = net/1x1_slayer3_curve_A0.1_T2___.msh
+Maxsigma_ntau  = 112.14
+Maxsigma_nn  = 386.38
+sigma_nx = -121.312		sigma_ny = 146.76		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -104.602		sigma_ny = 141.473		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -131.794		sigma_ny = 150.287		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -119.961		sigma_ny = -145.552		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -102.738		sigma_ny = -139.896		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -131.197		sigma_ny = -149.22		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = 337.395		sigma_ny = 113.029		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 330.09		sigma_ny = 123.309		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 335.742		sigma_ny = 98.0395		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 324.089		sigma_ny = 168.467		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 320.436		sigma_ny = 172.233		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 322.466		sigma_ny = 160.419		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 343.23		sigma_ny = -84.8785		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 334.252		sigma_ny = -97.5395		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 339.083		sigma_ny = -68.4213		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 330.622		sigma_ny = -135.13		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 325.208		sigma_ny = -143.149		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 328.843		sigma_ny = -122.827		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 324.218		sigma_ny = -168.177		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 320.41		sigma_ny = -172.141		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 323.54		sigma_ny = -160.83		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = -158.826		sigma_ny = 157.272		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -163.846		sigma_ny = 158.51		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -150.978		sigma_ny = 154.949		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -160.1		sigma_ny = -156.529		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -164.799		sigma_ny = -158.185		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -151.911		sigma_ny = -153.913		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -182.584		sigma_ny = 161.499		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -176.383		sigma_ny = 160.473		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -186.903		sigma_ny = 161.816		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -182.912		sigma_ny = -161.926		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -176.634		sigma_ny = -160.997		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -187.086		sigma_ny = -162.334		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = 326.028		sigma_ny = 185.883		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 322.025		sigma_ny = 181.268		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 328.41		sigma_ny = 187.023		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 323.975		sigma_ny = -184.301		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 327.545		sigma_ny = -186.365		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 322.229		sigma_ny = -180.87		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 343.102		sigma_ny = 85.2568		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 337.579		sigma_ny = 68.2512		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = -0.42678		sigma_ny = 41.772		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = 10.0534		sigma_ny = 23.2563		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = -21.2435		sigma_ny = 96.2602		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = 4.06319		sigma_ny = -42.4289		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = -17.9988		sigma_ny = -95.2189		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = 13.35		sigma_ny = -13.2642		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 327.005		sigma_ny = 154.144		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 324.275		sigma_ny = 143.752		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 347.191		sigma_ny = -52.8345		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 342.904		sigma_ny = -34.4713		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = -200.887		sigma_ny = -161.139		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -206.085		sigma_ny = -159.89		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -196.218		sigma_ny = -161.622		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -201.388		sigma_ny = 160.821		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -206.451		sigma_ny = 159.795		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -196.484		sigma_ny = 161.636		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = 335.718		sigma_ny = -111.889		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 328.007		sigma_ny = -154.373		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 344.136		sigma_ny = 52.0786		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 341.692		sigma_ny = 34.7778		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 330.731		sigma_ny = 135.779		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 321.977		sigma_ny = 177.94		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 321.887		sigma_ny = -177.572		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 349.868		sigma_ny = 18.1381		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 343.827		sigma_ny = 0.0811307		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 350.338		sigma_ny = -17.8468		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = -192.173		sigma_ny = 162.071		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -191.832		sigma_ny = -161.598		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -71.5069		sigma_ny = 128.119		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -91.2231		sigma_ny = 137.045		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -70.0361		sigma_ny = -125.198		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -89.3296		sigma_ny = -134.182		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -171.484		sigma_ny = 159.958		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -171.761		sigma_ny = -160.131		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -144.936		sigma_ny = 153.442		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -144.568		sigma_ny = -152.272		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = 330.954		sigma_ny = -187.415		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 333.747		sigma_ny = 189.19		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = -52.5359		sigma_ny = 113.916		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -50.9524		sigma_ny = -112.753		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = 329.145		sigma_ny = 134.965		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 329.068		sigma_ny = 122.817		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 324.362		sigma_ny = 144.046		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = -48.4963		sigma_ny = 113.099		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -15.2399		sigma_ny = 95.9402		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -69.1667		sigma_ny = 125.017		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -48.857		sigma_ny = -112.924		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -68.7024		sigma_ny = -125.359		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -16.4197		sigma_ny = -95.5913		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = 335.137		sigma_ny = -111.374		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 329.187		sigma_ny = -122.855		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 333.734		sigma_ny = -96.559		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = -144.307		sigma_ny = 151.831		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -151.091		sigma_ny = 153.392		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -131.252		sigma_ny = 148.66		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -145.52		sigma_ny = -151.606		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -151.741		sigma_ny = -153.374		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -132.329		sigma_ny = -148.548		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = 331.455		sigma_ny = -187.535		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 328.851		sigma_ny = -187.273		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 337.922		sigma_ny = -188.434		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 332.6		sigma_ny = 188.735		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 337.711		sigma_ny = 188.668		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 327.857		sigma_ny = 187.161		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 348.575		sigma_ny = 18.3684		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 342.636		sigma_ny = 0.483706		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 341.201		sigma_ny = 35.0754		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 324.106		sigma_ny = -168.556		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 322.053		sigma_ny = -160.33		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 320.491		sigma_ny = -172.464		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 323.438		sigma_ny = 168.831		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 321.705		sigma_ny = 161.16		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 320.333		sigma_ny = 172.659		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = -183.063		sigma_ny = 162.141		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -187.022		sigma_ny = 162.045		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -176.575		sigma_ny = 160.866		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -182.861		sigma_ny = -161.447		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -187.06		sigma_ny = -161.69		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -176.791		sigma_ny = -160.363		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = 4.3271		sigma_ny = 42.4492		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 9.84945		sigma_ny = 19.2554		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 4.15835		sigma_ny = -40.7989		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 9.42246		sigma_ny = -18.1217		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 341.387		sigma_ny = -83.7396		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 337.174		sigma_ny = -67.3669		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 330.738		sigma_ny = -135.485		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 324.37		sigma_ny = -143.664		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 325.097		sigma_ny = -185.355		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 322.542		sigma_ny = -181.728		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = -159.442		sigma_ny = 155.652		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -164.381		sigma_ny = 157.299		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -165.084		sigma_ny = -157.571		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -160.056		sigma_ny = -156.158		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = 325.16		sigma_ny = 185.188		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 322.345		sigma_ny = 181.198		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = -202.233		sigma_ny = 161.156		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -196.898		sigma_ny = 161.197		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -202.734		sigma_ny = -161.33		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -197.011		sigma_ny = -161.588		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = 327.393		sigma_ny = 155.38		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 346.178		sigma_ny = 53.4216		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 337.11		sigma_ny = 69.0568		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 340.774		sigma_ny = -33.8465		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 349.082		sigma_ny = -17.2591		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 326.479		sigma_ny = -154.142		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 322.191		sigma_ny = -178.434		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 321.864		sigma_ny = 178.04		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 345.201		sigma_ny = -51.2725		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = -192.5		sigma_ny = 161.664		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -192.699		sigma_ny = -161.862		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = 334.882		sigma_ny = 112.21		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 332.455		sigma_ny = 97.1379		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = -172.036		sigma_ny = 159.456		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -172.295		sigma_ny = -159.262		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = 340.847		sigma_ny = 84.8683		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = -89.7407		sigma_ny = 133.096		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -102.732		sigma_ny = 138.874		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -88.9508		sigma_ny = -133.34		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -103.05		sigma_ny = -139.327		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -119.379		sigma_ny = 144.334		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -120.161		sigma_ny = -144.695		sigma_nn = -inf		sigma_ntau = inf
+
+
+================================================================================
+================================================================================
+
+
+================================================================================
+================================================================================
+
+
+Вызов функции main() из файла new_struct_elastic.cpp
+
+	Yung1 	 = 1
+	Yung2 	 = 1
+	Yung3 	 = 1
+	Puasson1  = 0.4
+	Puasson2  = 0.1
+	Puasson3  = 0.4
+	c0 		 = 0.5
+	C0 		 = 0
+	bb 		 = 1
+	mu1 		 = 0.357143
+	mu2		 = 0.454545
+	mu3 		 = 0.357143
+	Yleft 	 = -0.5
+	Yright 	 = 0.5
+	Xup 		 = 1
+	Xdown 	 = 0
+	RefineNum = 0
+	eps		 = 1e-12
+	FileOfGrid = net/1x1_slayer3_curve_A0.1_T3___.msh
+	Number of active cells:       2418
+	eps = 1e-12
+
+
+HCPTools::print_elasticity_gradient<2> 
+ => (in beginning) Integral(AU_x) = -0.000545288
+ => Integral(AU_x) = -5.10253e-18
+AddConstant = 0.000545288
+
+ => (in beginning) Integral(U_x) = 0.000140246
+ => Integral(U_x) = -1.0842e-18
+AddConstant = -0.000140246
+
+deltMaxABSU_x = 0.0541616
+deltMaxOTNU_x = 20099.8%
+deltMaxABSU_x_gradX = 0.334046
+deltMaxOTNU_x_gradX = 5622.86%
+deltMaxABSU_x_gradY = 0.600214
+deltMaxOTNU_x_gradY = 100%
+
+deltMaxABSU_y = 0.0995281
+deltMaxOTNU_y = 399.08%
+deltMaxABSU_y_gradX = 0.451163
+deltMaxOTNU_y_gradX = 100%
+deltMaxABSU_y_gradY = 0.29372
+deltMaxOTNU_y_gradY = 259.406%
+
+deltMaxABStau_xx = 0.779514
+deltAVEtau_xx = 0.171622
+deltMaxOTNtau_xx = 100%
+deltMaxABStau_yy = 0.786851
+deltAVEtau_yy = 0.206951
+deltMaxOTNtau_yy = 100%
+deltMaxABStau_xy = 0.145383
+deltAVEtau_xy = 0.043865
+deltMaxOTNtau_xy = 100%
+deltMaxABStau_zz = 0.559416
+deltAVEtau_zz = 0.144187
+deltMaxOTNtau_zz = 43.4522%
+	FileOfGrid			= net/1x1_slayer3_curve_A0.1_T3___.msh_2418_elastic
+IntegralOfTau_xx(0.0) = 0.00219314
+IntegralOfTau_xx(0.125) = -0.00195464
+IntegralOfTau_xx(0.25) = -0.0546778
+
+IntegralOfTau_xx(0.475) = -0.00374737
+IntegralOfTau_xx(0.5) = -0.00198111
+
+IntegralOfTau_xy(0.0) = -0.000144625
+IntegralOfTau_xy(0.125) = -0.00147899
+IntegralOfTau_xy(0.25) = -0.00601759
+IntegralOfTau_xy(0.475) = -0.000610696
+IntegralOfTau_xy(0.5) = -0.00160049
+
+IntegralOfTau_xy(0) = 3.41567e-05
+IntegralOfTau_xy(0.125) = -0.0010514
+IntegralOfTau_xy(0.25) = 0.000837999
+IntegralOfTau_xy(0.375) = 0.00145586
+IntegralOfTau_xy(0.491) = -0.000314498
+
+IntegralOfTau_yy(0) = -0.133332
+IntegralOfTau_yy(0.125) = -0.0417559
+IntegralOfTau_yy(0.25) = 0.0559142
+IntegralOfTau_yy(0.375) = 0.0599288
+IntegralOfTau_yy(0.491) = -0.00299521
+
+EF = 1
+FileOfGrid = net/1x1_slayer3_curve_A0.1_T3___.msh
+Maxsigma_ntau  = 54.6179
+Maxsigma_nn  = 377.149
+sigma_nx = 259.62		sigma_ny = 258.778		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 261.901		sigma_ny = 262.017		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 255.569		sigma_ny = 249.761		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = -108.146		sigma_ny = 69.668		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -98.1387		sigma_ny = 47.7727		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -112.456		sigma_ny = 89.6391		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -107.98		sigma_ny = -69.2796		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -98.4978		sigma_ny = -47.5321		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -112.044		sigma_ny = -88.8474		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = 313.927		sigma_ny = 42.6601		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 212.513		sigma_ny = 0.555574		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 296.391		sigma_ny = 79.6519		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = -140.32		sigma_ny = -113.319		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -185.215		sigma_ny = -135.729		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -156.231		sigma_ny = -124.432		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -138.022		sigma_ny = 113.245		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -185.503		sigma_ny = 137.45		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -155.864		sigma_ny = 122.435		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = 299.508		sigma_ny = -118.849		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 295.95		sigma_ny = -79.7818		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 281.196		sigma_ny = -146.183		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = -179.745		sigma_ny = -166.058		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -172.049		sigma_ny = -163.586		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -187.177		sigma_ny = -167.394		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -179.579		sigma_ny = 166.036		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -171.828		sigma_ny = 163.602		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -187.043		sigma_ny = 167.116		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = 281.43		sigma_ny = 176.93		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 266.24		sigma_ny = 194.597		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 281.037		sigma_ny = 146.325		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 265.944		sigma_ny = -216.922		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 256.37		sigma_ny = -227.612		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 265.051		sigma_ny = -194.606		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 258.248		sigma_ny = 242.472		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 256.965		sigma_ny = 228.081		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = -151.952		sigma_ny = 150.564		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -157.747		sigma_ny = 155.726		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -143.603		sigma_ny = 142.077		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -152.055		sigma_ny = -150.313		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -157.884		sigma_ny = -155.535		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -143.865		sigma_ny = -141.907		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -84.6856		sigma_ny = -63.4347		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -93.5123		sigma_ny = -73.2007		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -77.2479		sigma_ny = -53.1037		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -84.4914		sigma_ny = 61.1032		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -77.8893		sigma_ny = 51.3729		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -92.4967		sigma_ny = 71.0658		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = 255.118		sigma_ny = -249.19		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 258.386		sigma_ny = -242.808		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 267.635		sigma_ny = 265.212		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 267.59		sigma_ny = -265.207		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 261.033		sigma_ny = -261.738		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 297.175		sigma_ny = 117.963		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = -82.7226		sigma_ny = -32.999		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -82.6718		sigma_ny = -22.4551		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -76.303		sigma_ny = -37.9958		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -83.4679		sigma_ny = 32.4602		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -77.3561		sigma_ny = 37.5407		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -83.4122		sigma_ny = 22.2151		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = 310.844		sigma_ny = -42.0411		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = -165.999		sigma_ny = 161.182		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -166.125		sigma_ny = -161.016		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -123.35		sigma_ny = 107.093		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -128.472		sigma_ny = 121.093		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -123.382		sigma_ny = -106.697		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -128.739		sigma_ny = -120.789		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -111.109		sigma_ny = -86.1515		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -110.18		sigma_ny = 83.7932		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -138.856		sigma_ny = 134.117		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -138.992		sigma_ny = -133.813		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -77.3955		sigma_ny = -46.7962		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -78.4304		sigma_ny = 45.7289		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -87.946		sigma_ny = 7.81791		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -96.3745		sigma_ny = 26.8851		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -88.4685		sigma_ny = -7.68723		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -97.1184		sigma_ny = -26.699		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = 279.517		sigma_ny = -176.352		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 257.625		sigma_ny = -257.355		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 265.128		sigma_ny = 216.297		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = -87.8489		sigma_ny = -9.45301		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -88.5034		sigma_ny = 9.49337		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = 298.548		sigma_ny = -118.454		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 281.265		sigma_ny = -146.21		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 296.33		sigma_ny = -79.715		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = -82.5953		sigma_ny = -30.6209		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -82.1635		sigma_ny = -20.1029		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -76.9507		sigma_ny = -36.3469		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -83.8538		sigma_ny = 29.2758		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -83.2439		sigma_ny = 19.2664		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -78.1535		sigma_ny = 34.3261		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = 314.228		sigma_ny = 42.6764		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 212.529		sigma_ny = 0.695612		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 296.045		sigma_ny = 79.6793		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 310.634		sigma_ny = -41.853		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = -138.681		sigma_ny = -133.271		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -128.494		sigma_ny = -120.237		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -143.622		sigma_ny = -141.426		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -138.981		sigma_ny = 133.752		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -128.58		sigma_ny = 120.546		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -143.714		sigma_ny = 141.751		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = 297.665		sigma_ny = 118.221		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 280.637		sigma_ny = 146.292		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 259.499		sigma_ny = 258.721		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 255.444		sigma_ny = 249.722		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 261.878		sigma_ny = 262.051		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = -96.8154		sigma_ny = 26.6697		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -88.2835		sigma_ny = 8.02212		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -98.1301		sigma_ny = 47.4925		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -97.7205		sigma_ny = -26.64		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -99.0124		sigma_ny = -47.4359		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -89.0107		sigma_ny = -8.04389		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -166.359		sigma_ny = -161.022		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -172.146		sigma_ny = -163.495		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -158.032		sigma_ny = -155.478		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -166.044		sigma_ny = 160.96		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -171.885		sigma_ny = 163.486		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -157.805		sigma_ny = 155.471		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = 267.114		sigma_ny = -264.819		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = -187.15		sigma_ny = 167.159		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = 261.036		sigma_ny = -261.765		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 258.313		sigma_ny = -242.799		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 256.501		sigma_ny = -227.732		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 255.024		sigma_ny = -249.186		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = -123.513		sigma_ny = -106.595		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -112.253		sigma_ny = -88.8594		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -123.587		sigma_ny = 106.687		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -112.117		sigma_ny = 88.9715		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -107.312		sigma_ny = 81.7209		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -90.6716		sigma_ny = 67.7649		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -152.681		sigma_ny = 122.073		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -110.745		sigma_ny = -85.8399		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -155.779		sigma_ny = -124.297		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = -92.7469		sigma_ny = -72.5531		sigma_nn = -inf		sigma_ntau = -inf
+sigma_nx = 256.729		sigma_ny = 228.022		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 258.216		sigma_ny = 242.538		sigma_nn = inf		sigma_ntau = inf
+sigma_nx = 265.647		sigma_ny = -216.772		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = 265.789		sigma_ny = -195.044		sigma_nn = inf		sigma_ntau = -inf
+sigma_nx = -78.506		sigma_ny = 42.3626		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -77.0078		sigma_ny = 47.9358		sigma_nn = -inf		sigma_ntau = inf
+sigma_nx = -

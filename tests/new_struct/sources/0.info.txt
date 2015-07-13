@@ -1,0 +1,273 @@
+void DoFAccessor<DH, spacedim, lda>::get_dof_indices (std::vector<types::global_dof_index> &dof_indices,
+const unsigned int fe_index = DH::default_fe_index ) const
+
+Возвращает глобальные индексы of the DoF расположенные в данном объекте in the standard 
+ordering defined by the КЭ (т.е., dofs на вершине 0, dofs на вершине 1, и т.д., dofs на 
+линии 0, dofs на линии 1, etc, dofs on quad 0, etc.) Эта функция доступна только на 
+активных объектах (see this glossary entry).
+
+Ячейки должны быть an active cell (and not artificial in a parallel distributed 
+computation).
+
+Вектор должен иметь the right size до передачи to this function.
+
+Последний аргумент означает индекс КЭ-та. Для стандартного класса DoFHandler, this 
+value must be equal to its default value since that class only supports the same 
+finite element on all cells anyway.
+
+However, для объектов hp (т.е. класс hp::DoFHandler), различные finite element 
+объекты могут быть использованы на различных ячейках. On faces between two cells, 
+такие как vertices, there may поэтому be two sets of DoF, каждый из КЭ-ов used в 
+смежных ячейках. Для того, чтобы to specify which set of DoF to work on, полседний 
+аргумент используется чтобы разрешить неоднозначность. Наконец, если эта функция 
+is called for a cell object, there can only be a single set of DoF, and fe_index 
+has to match the result of active_fe_index().
+
+Для ячеек, there is only a single possible finite element index (namely the one 
+for that cell, returned by cell->active_fe_index. Consequently, the производный 
+класс DoFCellAccessor содержит перегруженую версию этой функции that calls the 
+present function with cell->active_fe_index as last argument.
+
+Definition at line 1889 of file dof_accessor.templates.h.
+
+
+
+===================================================================================================
+
+
+
+template<int dim, int spacedim>
+class DoFHandler< dim, spacedim >
+
+Управляет распределением и нумерацией DoF для non-multigrid алгоритмов. Цель этого класса обсуждалась в step-2 tutorial program.
+
+Для каждой вершины, линии, quad, и т.д., мы храним список индексов of DoF living on данного объекта. These indices refer to the unconstrained degrees of freedom, i.e. constrained degrees of freedom are numbered in the same way as unconstrained ones, and are only later eliminated. This leads to the fact that indices in global vectors and matrices also refer to all degrees of freedom and some kind of condensation is needed to restrict the systems of equations to the unconstrained degrees of freedom only. The actual layout of storage of the indices is described in the internal::DoFHandler::DoFLevel class documentation.
+
+The class offers iterators to traverse all cells, in much the same way as the Triangulation class does. Using the begin() and end() functions (and companions, like begin_active()), one can obtain iterators to walk over cells, and query the degree of freedom structures as well as the triangulation data. These iterators are built on top of those of the Triangulation class, but offer the additional information on degrees of freedom functionality compared to pure triangulation iterators. The order in which dof iterators are presented by the ++ and – operators is the same as that for the corresponding iterators traversing the triangulation on which this DoFHandler is constructed.
+
+The spacedim parameter has to be used if one wants to solve problems on surfaces. If not specified, this parameter takes the default value =dim implying that we want to solve problems in a domain whose dimension equals the dimension of the space in which it is embedded.
+
+
+
+===================================================================================================
+
+
+
+virtual const std::vector<Patch>& DataOut_DoFData< DH, patch_dim, patch_space_dim >::get_patches ( ) const
+
+Функция by which the base class's functions возвращает знание о том, какие патчи они запишут в файл.
+
+Implements DataOutInterface< patch_dim, patch_space_dim >.
+
+
+
+===================================================================================================
+
+
+
+virtual void DataOut< dim, DH >::build_patches	(	const unsigned int 	n_subdivisions = 0	)	
+
+Это центральная функция этого класса так как она строит list of patches to be written by the низкоуровневых функций 
+базового класса. Смотри общую документацию этого класса для большей информации.
+
+The default value 0 of n_subdivisions indicates that the value stored in DataOutInterface::default_subdivisions is to be used.
+
+
+
+===================================================================================================
+
+
+template<int dim, class DH = DoFHandler<dim>>
+class DataOut< dim, DH >
+
+Этот класс - главный класс для обеспечения output of data описанный by КЭ-fields defined on a собрании ячеек.
+
+This class is an actual implementation of the functionality proposed by the DataOut_DoFData class. Он предлагает функцию 
+build_patches(), которая генерирует патчи to be written in some graphics format from the data stored in the base class. 
+Most of the interface and an example of its use is described in the documentation of the base class.
+
+Только одна вещь, которую предлагает this class - это функция build_patches(), которая пробегает по всем ячейкам (cells) of the triangulation stored 
+by the attach_dof_handler() function of the base class (with the exception of cells of parallel::distributed::Triangulation 
+objects that are not owned by the current processor) and converts the data on these to actual patches which are the objects 
+that are later output by the functions of the base classes. Вы можете give параметр to the function которая определяет как 
+много subdivisions в каждом координатном направлении are to be performed, т.е. of как много subcells каждый патч shall содержит. 
+Обычно это 1, но вы можете захотеть выбрать большее число для higher order elements, например 2 для quadratic elements, 
+3 для cubic elements three, и т.д. Цель этого параметра это because most graphics programs do not allow to 
+specify higher order polynomial functions in the file formats: only data at vertices can be plotted and is then shown as a 
+bilinear interpolation within the interior of cells. Этого может быть недостаточно, если вы have higher order КЭ, и 
+the only way достигнуть better output is to subdivide каждую ячейку сетки на несколько cells for graphical output. Конечно, 
+то, что вы увидите is still a bilinear interpolation на каждой ячейке of the output (where these cells are not subdivisions of 
+the cells of the triangulation in use) due to the same limitations in output formats, but at least a bilinear interpolation 
+of a higher order polynomial on a finer mesh.
+
+Note that after having called build_patches() once, you can call one or more of the write() functions of DataOutInterface. 
+You can therefore output the same data in more than one format without having to rebuild the patches.
+
+
+
+===================================================================================================
+
+
+
+types::global_dof_index DoFAccessor< DH, spacedim, lda >::vertex_dof_index	(	const unsigned int 	vertex,
+			const unsigned int 	i,
+			const unsigned int 	fe_index = DH::default_fe_index 
+			)		 const
+
+Глобальный DoF-индекс of the i degree связанный с vertex-ной вершиной данной ячейки.
+
+Последний аргумент обозначает КЭ-тный index. Для обычного класса DoFHandler, 
+это значение должно быть равно его обычному (default) значению так как этот класс только поддерживает same 
+КЭ on all cells anyway.
+
+Однако, для объектов hp (т.е. the hp::DoFHandler class), different КЭ объекты 
+могут быть использованы на разных ячейках. On faces между двумя ячейками, as well as vertices, there may 
+therefore be two sets of degrees of freedom, one for each of the finite elements used on the 
+смежные ячейки. Для того, чтобы указать which set of DoF to work on, the last 
+argument is used to disambiguate. Finally, if this function is called for a cell object, 
+there can only be a single set of DoF, and fe_index has to match the result 
+of active_fe_index().
+
+
+===================================================================================================
+
+
+
+const Tensor<1,spacedim>& FEValuesBase< int, int >::shape_grad	(	const unsigned int 	function_no,
+													const unsigned int 	quadrature_point )		 const
+
+Вычисляет градиент of the function_no-ой shape-функции at the quadrature_point-ой квадратурной точке 
+по отношению к real cell-координатам. Если вы хотите to get производную в одном из координатных направлений, 
+используйте соответствующую функцию класса Tensor to extract one component of the Tensor 
+возвращаемый этой функцией. Так как только ссылка к градиентному значению возвращаема, there should 
+be no major performance недостаток.
+
+Если shape-функция - векторная, тогда это возвращает только ненулевой компонент. Если shape-функция
+имеет более, чем один ненулевой компонент (т.е. it is not primitive), тогда it will throw an 
+exception of type ExcShapeFunctionNotPrimitive. В этом случае, используется функция shape_grad_component().
+
+The same holds для аргументов этой функции as для функции shape_value().
+
+
+
+===================================================================================================
+
+
+
+const Point<spacedim>& FEValuesBase< int, int >::quadrature_point	(	const unsigned int 	i	)	 const
+
+Положение i-той квадратурной точки в настоящем пространстве.
+
+
+
+===================================================================================================
+
+
+
+void hp::FEValues< dim, spacedim >::reinit	(	const TriaIterator< DoFCellAccessor< DH, lda > > 	cell,
+												const unsigned int 	q_index = numbers::invalid_unsigned_int,
+												const unsigned int 	mapping_index = numbers::invalid_unsigned_int,
+												const unsigned int 	fe_index = numbers::invalid_unsigned_int 
+											)
+
+Reinitialize the object for the given cell.
+
+After the call, you can get an FEValues object using the get_present_fe_values() function 
+that corresponds to the present cell. For this FEValues object, we use the additional 
+arguments described below to determine which finite element, mapping, and quadrature 
+formula to use. They are order in such a way that the arguments one may want to change 
+most frequently come first. The rules for these arguments are as follows:
+
+If the fe_index argument to this function is left at its default value, then we use 
+that finite element within the hp::FECollection passed to the constructor of this 
+class with index given by cell->active_fe_index(). Consequently, the hp::FECollection 
+argument given to this object should really be the same as that used in the construction 
+of the hp::DofHandler associated with the present cell. On the other hand, if a value 
+is given for this argument, it overrides the choice of cell->active_fe_index().
+
+If the q_index argument is left at its default value, then we use that quadrature 
+formula within the hp::QCollection passed to the constructor of this class with index 
+given by cell->active_fe_index(), i.e. the same index as that of the finite element. 
+In this case, there should be a corresponding quadrature formula for each finite 
+element in the hp::FECollection. As a special case, if the quadrature collection 
+contains only a single element (a frequent case if one wants to use the same quadrature 
+object for all finite elements in an hp discretization, even if that may not be the 
+most efficient), then this single quadrature is used unless a different value for 
+this argument is specified. On the other hand, if a value is given for this argument, 
+it overrides the choice of cell->active_fe_index() or the choice for the single quadrature.
+
+If the mapping_index argument is left at its default value, then we use that mapping 
+object within the hp::MappingCollection passed to the constructor of this class with 
+index given by cell->active_fe_index(), i.e. the same index as that of the finite 
+element. As above, if the mapping collection contains only a single element (a frequent 
+case if one wants to use a MappingQ1 object for all finite elements in an hp 
+discretization), then this single mapping is used unless a different value for this 
+argument is specified.
+
+
+
+===================================================================================================
+
+
+
+double FEValuesBase< int, int >::JxW	(	const unsigned int 	quadrature_point	)	 const
+
+Mapped quadrature weight. If this object refers to a volume evaluation (i.e. the 
+derived class is of type FEValues), then this is the Jacobi determinant times the 
+weight of the *ith unit quadrature point.
+
+For surface evaluations (i.e. classes FEFaceValues or FESubfaceValues), it is the 
+mapped surface element times the weight of the quadrature point.
+
+You can think of the quantity returned by this function as the volume or surface 
+element dx,ds in the integral that we implement here by quadrature.
+
+
+===================================================================================================
+
+
+active_cell_iterator DoFHandler< dim, spacedim >::begin_active	(	const unsigned int 	level = 0	)	 const
+
+Iterator to the first active cell on level level. If the given level does not 
+contain any active cells (i.e., all cells on this level are further refined, 
+then this function returns end_active(level) so that loops of the kind
+
+for (cell=dof_handler.begin_active(level); cell!=dof_handler.end_active(cell); ++level)
+  ...
+ 
+have zero iterations, as may be expected if there are no active cells on this level.
+
+
+===================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
