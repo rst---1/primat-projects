@@ -70,6 +70,7 @@ int main1(	int RefineNum, const string Task, const double bb, const double Yleft
 	std::cout << "\n\n================================================================================\n";
 	std::cout << "================================================================================\n";
 
+std::cout << "\t\t\t\t CONTROL 0 \n";
 //		const double Puasson1	= 0.4;		//nu									//INPUT
 //		const double Puasson2	= 0.1;		//nu									//INPUT
 //		const double Puasson3	= 0.4;		//nu									//INPUT
@@ -82,6 +83,7 @@ int main1(	int RefineNum, const string Task, const double bb, const double Yleft
 		double IntegralCoefficient = 0.0;										//На сколько приподнять функцию U_z
 
 
+std::cout << "\t\t\t\t CONTROL 1 \n";
 
 		char* FILENAME = new char[150];				//содержит начальное имя файла
 		strcpy(FILENAME, FILEBEGIN);
@@ -140,6 +142,7 @@ int main1(	int RefineNum, const string Task, const double bb, const double Yleft
 						FAtau_xx, FAtau_yy, FAtau_xy, FAtau_zz, FAtau_zx, FAtau_zy, Fvtk, Fsigma, Fcsv};
 
 
+std::cout << "\t\t\t\t CONTROL 2 \n";
 
 //TEMPERATURE BLOCK
 	if (Task == "T1.1")									//INPUT
@@ -148,7 +151,6 @@ int main1(	int RefineNum, const string Task, const double bb, const double Yleft
 //		NEW_STRUCT_TEMPERATURE_T1_1::main(Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, bb, mu1, mu2, mu3, h, FileOfGrid, Yleft, Yright, Xup, Xdown, RefineNum, IntegralCoefficient, eps, FILES);
 	}
 //end of TEMPERATURE BLOCK
-
 
 
 //TEMPERATURE BLOCK
@@ -160,14 +162,14 @@ int main1(	int RefineNum, const string Task, const double bb, const double Yleft
 //end of TEMPERATURE BLOCK
 
 
-
-
-
+	if ((Task == "T1.1")or(Task == "T1.2"))									//INPUT
+	{
 //Нужно закрыть следующие файлы, чтобы можно было корректно из них читать данные
 			fclose(FU_z);
 			fclose(Ftau_zx);
 			fclose(Ftau_zy);
-
+        }
+                        
 
 
 
@@ -179,7 +181,7 @@ int main1(	int RefineNum, const string Task, const double bb, const double Yleft
 	}
 //end of ELASTIC BLOCK
 
-
+                        
 
 //ELASTIC BLOCK
 	if (Task == "T2.2")									//INPUT
@@ -188,6 +190,8 @@ int main1(	int RefineNum, const string Task, const double bb, const double Yleft
 	}
 //end of ELASTIC BLOCK
 
+                        
+std::cout << "\t\t\t\t CONTROL 6 \n";
 
 			fclose(FU_x);
 			fclose(FU_y);
@@ -253,6 +257,7 @@ void main2( double Yung1,  double Yung2,  double Yung3)
 
 
 
+std::cout << "\t\t\t CONTROL 1 \n";
 
 					STRBEGIN1 = "out/";
 					STRBEGIN2 = "T2.2/";							//INPUT
@@ -266,6 +271,7 @@ void main2( double Yung1,  double Yung2,  double Yung3)
 					bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;
 					main1( 3, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
+std::cout << "\t\t\t CONTROL 2 \n";
 
 					STRBEGIN1 = "out/";
 					STRBEGIN2 = "T2.2/";							//INPUT
@@ -279,6 +285,7 @@ void main2( double Yung1,  double Yung2,  double Yung3)
 					bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
 					main1( 3, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
+std::cout << "\t\t\t CONTROL 3 \n";
 
 					STRBEGIN1 = "out/";
 					STRBEGIN2 = "T2.2/";							//INPUT
@@ -295,7 +302,7 @@ void main2( double Yung1,  double Yung2,  double Yung3)
 
 
 
-
+/*
 	STRBEGIN1 = "out/";
 	STRBEGIN2 = "T2.2/";							//INPUT
 	STRBEGIN3 = "1x1_slayer3_curve_A0.1_T1/";
@@ -418,7 +425,7 @@ void main2( double Yung1,  double Yung2,  double Yung3)
 	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_curve_A0.1_T3___.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-5;							//INPUT
 	main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
-
+*/
 
 
 
@@ -1130,6 +1137,8 @@ int main()
 	double Yung2		= 0.0;
 	double Yung3		= 0.0;
 
+std::cout << "\t\t\t CONTROL 0 \n";
+
 
 /*
 	Yung1		= 12.2;							//INPUT
@@ -1158,6 +1167,7 @@ int main()
 	Yung3		= 1.0;							//INPUT
 	main2(Yung1, Yung2, Yung3);
 
+std::cout << "\t\t\t CONTROL END \n";
 
 
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="95">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
-    <df root="../../../deal.II/include/deal.II" name="1">
+    <df root="../../../deal.II/include/deal.II" name="0">
       <df name="algorithms">
         <in>newton.h</in>
         <in>newton.templates.h</in>
@@ -7621,7 +7621,7 @@
         <in>vector_tools.templates.h</in>
       </df>
     </df>
-    <df root="." name="0">
+    <df root="." name="1">
       <df name="obj">
       </df>
       <df name="release">
@@ -7646,6 +7646,10 @@
           </df>
         </df>
         <df name="plots2">
+          <df name="Sections">
+          </df>
+        </df>
+        <df name="plotsTest">
           <df name="Sections">
           </df>
         </df>
@@ -7706,6 +7710,8 @@
         <gdb_interceptlist>
           <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
         </gdb_interceptlist>
+        <gdb_signals>
+        </gdb_signals>
         <gdb_options>
           <DebugOptions>
           </DebugOptions>
