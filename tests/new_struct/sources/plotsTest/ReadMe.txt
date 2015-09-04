@@ -31,7 +31,7 @@ FU_x_grad, FAU_x_grad, FU_y_grad, FAU_y_grad,
 
 
 
-1 - закинуть файлы данных в формате *.gpl
+1 - закинуть файлы данных (в формате *.gpl) в папку
 2 - вызвать 1.py для конвертирования
 3 - включить ParaView. Вызвать скрипты из ParaView (1_pvpython_*.py, ...) в меню Tools -> Python Shell -> Run Script
 4 - вызов 1_.sh

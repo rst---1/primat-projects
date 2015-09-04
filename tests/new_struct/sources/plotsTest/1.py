@@ -15,6 +15,8 @@ with open (DIRECTORY + "/Sections/0SETTINGS.txt") as fd:		#open file
 			print NEWDIRECTORY
 
 #---------------------------------------------------------
+print "\n\n\n ======================================== \n\n\n"
+#---------------------------------------------------------
 
 os.chdir(NEWDIRECTORY)
 print os.getcwd()
@@ -23,6 +25,8 @@ for filename in os.listdir('.'):					#view each file in directory
 		os.system(DIRECTORY + "/deleter_of_strings.py " + filename)
 		print filename
 
+#---------------------------------------------------------
+print "\n\n\n ======================================== \n\n\n"
 #---------------------------------------------------------
 
 os.chdir(NEWDIRECTORY)

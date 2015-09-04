@@ -276,7 +276,7 @@ namespace NEW_STRUCT_ELASTIC_T2_2
 
 
 
-	int main(		const double &Yung1,
+	int main(                       const double &Yung1,
 					const double &Yung2,
 					const double &Yung3,
 					const double &Puasson1,

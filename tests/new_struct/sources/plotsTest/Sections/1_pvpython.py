@@ -62,32 +62,3 @@ Delaunay2D_1.ProjectionPlaneMode = "Best-Fitting Plane"
 sliceFilter_1 = Slice()
 Show(sliceFilter_1)
 #Render()
-
-#---------------------------------------------------------
-for i_Files in range(len(Slice_x_)):
-	sliceFilter_1.SliceType.Origin = [float(Slice_x_[i_Files]),0.0,0.0]
-	sliceFilter_1.SliceType.Normal = [1.0,0.0,0.0]
-#	Render()
-	writer = CreateWriter(DIRECTORY_OF_OUT + "/" + CSV_FILENAME_1 + " tau_xx when x("+str(Slice_x_[i_Files])+").csv")
-	writer.WriteAllTimeSteps = 1
-	writer.FieldAssociation = "Points"
-	writer.UpdatePipeline()
-#---------------------------------------------------------
-for i_Files in range(len(Slice_y_)):
-	sliceFilter_1.SliceType.Origin = [0.0,float(Slice_y_[i_Files]),0.0]
-	sliceFilter_1.SliceType.Normal = [0.0,1.0,0.0]
-	Render()
-	writer = CreateWriter(DIRECTORY_OF_OUT + "/" + CSV_FILENAME_1 + " tau_xx when y("+str(Slice_y_[i_Files])+").csv")
-	writer.WriteAllTimeSteps = 1
-	writer.FieldAssociation = "Points"
-	writer.UpdatePipeline()
-#---------------------------------------------------------
-#Delete filters1
-Delete(sliceFilter_1)
-#Delete(ClipFilter_1)
-Delete(Delaunay2D_1)
-Delete(TableToPoints_1)
-Delete(reader_1)
-
-
-

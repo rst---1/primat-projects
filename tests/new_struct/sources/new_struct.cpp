@@ -70,7 +70,6 @@ int main1(	int RefineNum, const string Task, const double bb, const double Yleft
 	std::cout << "\n\n================================================================================\n";
 	std::cout << "================================================================================\n";
 
-std::cout << "\t\t\t\t CONTROL 0 \n";
 //		const double Puasson1	= 0.4;		//nu									//INPUT
 //		const double Puasson2	= 0.1;		//nu									//INPUT
 //		const double Puasson3	= 0.4;		//nu									//INPUT
@@ -83,7 +82,6 @@ std::cout << "\t\t\t\t CONTROL 0 \n";
 		double IntegralCoefficient = 0.0;										//На сколько приподнять функцию U_z
 
 
-std::cout << "\t\t\t\t CONTROL 1 \n";
 
 		char* FILENAME = new char[150];				//содержит начальное имя файла
 		strcpy(FILENAME, FILEBEGIN);
@@ -142,7 +140,6 @@ std::cout << "\t\t\t\t CONTROL 1 \n";
 						FAtau_xx, FAtau_yy, FAtau_xy, FAtau_zz, FAtau_zx, FAtau_zy, Fvtk, Fsigma, Fcsv};
 
 
-std::cout << "\t\t\t\t CONTROL 2 \n";
 
 //TEMPERATURE BLOCK
 	if (Task == "T1.1")									//INPUT
@@ -191,7 +188,6 @@ std::cout << "\t\t\t\t CONTROL 2 \n";
 //end of ELASTIC BLOCK
 
                         
-std::cout << "\t\t\t\t CONTROL 6 \n";
 
 			fclose(FU_x);
 			fclose(FU_y);
@@ -249,16 +245,6 @@ void main2( double Yung1,  double Yung2,  double Yung3)
 		double Puasson3	= 0.0;
 
 
-
-
-
-
-
-
-
-
-std::cout << "\t\t\t CONTROL 1 \n";
-
 					STRBEGIN1 = "out/";
 					STRBEGIN2 = "T2.2/";							//INPUT
 					STRBEGIN3 = "1x1/";
@@ -271,7 +257,6 @@ std::cout << "\t\t\t CONTROL 1 \n";
 					bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;
 					main1( 3, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
-std::cout << "\t\t\t CONTROL 2 \n";
 
 					STRBEGIN1 = "out/";
 					STRBEGIN2 = "T2.2/";							//INPUT
@@ -285,7 +270,6 @@ std::cout << "\t\t\t CONTROL 2 \n";
 					bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
 					main1( 3, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
-std::cout << "\t\t\t CONTROL 3 \n";
 
 					STRBEGIN1 = "out/";
 					STRBEGIN2 = "T2.2/";							//INPUT
@@ -1137,8 +1121,6 @@ int main()
 	double Yung2		= 0.0;
 	double Yung3		= 0.0;
 
-std::cout << "\t\t\t CONTROL 0 \n";
-
 
 /*
 	Yung1		= 12.2;							//INPUT
@@ -1166,8 +1148,6 @@ std::cout << "\t\t\t CONTROL 0 \n";
 	Yung2		= 1.0;							//INPUT
 	Yung3		= 1.0;							//INPUT
 	main2(Yung1, Yung2, Yung3);
-
-std::cout << "\t\t\t CONTROL END \n";
 
 
 }
