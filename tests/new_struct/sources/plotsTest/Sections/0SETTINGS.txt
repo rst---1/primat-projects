@@ -136,29 +136,6 @@ CSV_FILENAME_2=Grid_Analyic
 
 #------------------------------------------------------------------------------------------
 
-#показывает путь, куда поместить файлы сечений
-6_pvpython.py_DIRECTORY_OF_OUT=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1
-
-#показывает точность построениея триангуляции
-6_pvpython.py_TOLERANCE_OF_DELAUNAY2D=0.0
-
-#Путь к исходному CSV-файлу поверхности, из которой нужно сделать графики сечений (числ)
-6_pvpython.py_DIRECTORY_OF_FU_x_grad=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1/FU_x_grad.csv
-
-
-#Путь к исходному CSV-файлу поверхности, из которой нужно сделать графики сечений (числ)
-6_pvpython.py_DIRECTORY_OF_FU_y_grad=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1/FU_y_grad.csv
-
-#------------------------------------------------------------------------------------------
-
-#начало для имени файла,который содержит данные сечения вида 1 (поверхность U_)
-CSV_U_FILENAME_1=Grid_Dig
-
-#начало для имени файла,который содержит данные сечения вида 2 (поверхность U_)
-CSV_U_FILENAME_2=Grid_Analyic
-
-#------------------------------------------------------------------------------------------
-
 #Интервалы для построения графиков в gnuplot
 3.interval_UP___tau_xx_when_x=0.04
 3.interval_DOWN_tau_xx_when_x=-0.04
@@ -186,50 +163,6 @@ CSV_U_FILENAME_2=Grid_Analyic
 
 3.interval_UP___tau_zz_when_y=6.5
 3.interval_DOWN_tau_zz_when_y=-6.5
-
-#------------------------------------------------------------------------------------------
-
-#Интервалы для построения графиков в gnuplot
-8.interval_UP___U_x_when_x=0.04
-8.interval_DOWN_U_x_when_x=-0.04
-
-8.interval_UP___U_x_when_y=0.04
-8.interval_DOWN_U_x_when_y=-0.04
-
-
-8.interval_UP___U_x_gradX_when_x=0.04
-8.interval_DOWN_U_x_gradX_when_x=-0.04
-
-8.interval_UP___U_x_gradX_when_y=0.04
-8.interval_DOWN_U_x_gradX_when_y=-0.04
-
-
-8.interval_UP___U_x_gradY_when_x=0.04
-8.interval_DOWN_U_x_gradY_when_x=-0.04
-
-8.interval_UP___U_x_gradY_when_y=0.04
-8.interval_DOWN_U_x_gradY_when_y=-0.04
-
-
-8.interval_UP___U_y_when_x=0.04
-8.interval_DOWN_U_y_when_x=-0.04
-
-8.interval_UP___U_y_when_y=0.04
-8.interval_DOWN_U_y_when_y=-0.04
-
-
-8.interval_UP___U_y_gradX_when_x=0.04
-8.interval_DOWN_U_y_gradX_when_x=-0.04
-
-8.interval_UP___U_y_gradX_when_y=0.04
-8.interval_DOWN_U_y_gradX_when_y=-0.04
-
-
-8.interval_UP___U_y_gradY_when_x=0.04
-8.interval_DOWN_U_y_gradY_when_x=-0.04
-
-8.interval_UP___U_y_gradY_when_y=0.04
-8.interval_DOWN_U_y_gradY_when_y=-0.04
 
 #------------------------------------------------------------------------------------------
 
