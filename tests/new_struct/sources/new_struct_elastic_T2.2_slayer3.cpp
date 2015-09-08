@@ -685,6 +685,8 @@ namespace NEW_STRUCT_ELASTIC_T2_2
 													U_x, U_y,
 													U_x_gradX, U_x_gradY,
 													U_y_gradX, U_y_gradY, N);
+                                
+				std::cout << "CONTROL  \n";
 	//------------------------------------------------------------------------------
 			    
 
@@ -713,6 +715,14 @@ namespace NEW_STRUCT_ELASTIC_T2_2
 					point(0) = x_coordinate_of_vertex(i);
 					point(1) = y_coordinate_of_vertex(i);
 
+                                        std::cout << "point(0) = " << point(0) << "\n";
+                                        std::cout << "point(1) = " << point(1) << "\n";
+                                        std::cout << "h = " << h << "\n";
+                                        std::cout << "AU_x(i) = " << AU_x(i) << "\n";
+                                        std::cout << "Puasson1 = " << Puasson1 << "\n";
+                                        std::cout << "Puasson2 = " << Puasson2 << "\n";
+                                        std::cout << "Puasson3 = " << Puasson3 << "\n";
+                                        std::cout << "c0 = " << c0 << "\n";
 	//-------------------------------------			//INPUT
 
 					if(point(0) < h)
@@ -727,12 +737,16 @@ namespace NEW_STRUCT_ELASTIC_T2_2
 					{
 						AU_x(i) = -Puasson3 * (point(0) - c0);
 					}
+                                            std::cout << "\tCONTROL 1 \n";
 					fprintf( FAU_x, "%8d\t\t%5.35f\t\t%5.35f\t\t%5.35f\r\n", i, point(0), point(1), AU_x(i) );
+                                            std::cout << "\tCONTROL 2 \n";
+                                        
 
 				}
 	//==============================================================================
 	//==============================================================================
 
+				std::cout << "CONTROL 1 \n";
 
 	//------------------------------------------------------------------------------
 	//Вычисление интеграла
@@ -755,6 +769,7 @@ namespace NEW_STRUCT_ELASTIC_T2_2
 	//------------------------------------------------------------------------------
 
 
+				std::cout << "CONTROL 2 \n";
 
 
 

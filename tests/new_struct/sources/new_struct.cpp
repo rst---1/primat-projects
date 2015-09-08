@@ -158,6 +158,7 @@ int main1(	int RefineNum, const string Task, const double bb, const double Yleft
 	}
 //end of TEMPERATURE BLOCK
 
+	std::cout << "CONTROL MESSAGE 1\n";
 
 	if ((Task == "T1.1")or(Task == "T1.2"))									//INPUT
 	{
@@ -167,6 +168,7 @@ int main1(	int RefineNum, const string Task, const double bb, const double Yleft
 			fclose(Ftau_zy);
         }
                         
+	std::cout << "CONTROL MESSAGE 2\n";
 
 
 
@@ -179,6 +181,7 @@ int main1(	int RefineNum, const string Task, const double bb, const double Yleft
 //end of ELASTIC BLOCK
 
                         
+	std::cout << "CONTROL MESSAGE 3\n";
 
 //ELASTIC BLOCK
 	if (Task == "T2.2")									//INPUT
@@ -188,6 +191,7 @@ int main1(	int RefineNum, const string Task, const double bb, const double Yleft
 //end of ELASTIC BLOCK
 
                         
+	std::cout << "CONTROL MESSAGE 4\n";
 
 			fclose(FU_x);
 			fclose(FU_y);
@@ -257,7 +261,7 @@ void main2( double Yung1,  double Yung2,  double Yung3)
 					bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;
 					main1( 3, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
-
+/*
 					STRBEGIN1 = "out/";
 					STRBEGIN2 = "T2.2/";							//INPUT
 					STRBEGIN3 = "1x5/";
@@ -282,7 +286,7 @@ void main2( double Yung1,  double Yung2,  double Yung3)
 					Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
 					bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-5;							//INPUT
 					main1( 3, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
-
+*/
 
 
 
@@ -1117,6 +1121,8 @@ void main2( double Yung1,  double Yung2,  double Yung3)
 
 int main()
 {
+	std::cout << "CONTROL MESSAGE Begin\n";
+        
 	double Yung1		= 0.0;
 	double Yung2		= 0.0;
 	double Yung3		= 0.0;
@@ -1150,6 +1156,7 @@ int main()
 	main2(Yung1, Yung2, Yung3);
 
 
+	std::cout << "CONTROL MESSAGE End\n";
 }
 
 
