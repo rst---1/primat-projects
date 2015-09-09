@@ -12,13 +12,13 @@ with open (SETTINGS_FILE) as fd:					#open file
 			Slice_y_.append( line[8:] )
 		if (line[:16] == "DIRECTORY_OF_OUT"):
 			DIRECTORY_OF_OUT = line[17:]
-		if (line[:20] == "1_pvpython.py_DIRECTORY_OF_Ftau_xx"):
+		if (line[:20] == "DIRECTORY_OF_Ftau_xx"):
 			DIRECTORY_OF_IN_XX = line[21:]
-		if (line[:20] == "1_pvpython.py_DIRECTORY_OF_Ftau_yy"):
+		if (line[:20] == "DIRECTORY_OF_Ftau_yy"):
 			DIRECTORY_OF_IN_YY = line[21:]
-		if (line[:20] == "1_pvpython.py_DIRECTORY_OF_Ftau_xy"):
+		if (line[:20] == "DIRECTORY_OF_Ftau_xy"):
 			DIRECTORY_OF_IN_XY = line[21:]
-		if (line[:20] == "1_pvpython.py_DIRECTORY_OF_Ftau_zz"):
+		if (line[:20] == "DIRECTORY_OF_Ftau_zz"):
 			DIRECTORY_OF_IN_ZZ = line[21:]
 		if (line[:14] == "CSV_FILENAME_1"):
 			CSV_FILENAME_1 = line[15:]

@@ -118,16 +118,7 @@ DIRECTORY_OF_Ftau_zz=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2
 CSV_FILENAME_1=Grid_Dig
 
 
-#------------------------------------------------------------------------------------------
 
-#начало для имени 1го файла для сравнения (должна быть такой же как и CSV_FILENAME_№) (Box)
-4_tau_zx_x.py_ComparingFile_1=Grid_Dig
-
-#начало для имени 2го файла для сравнения (должна быть такой же как и CSV_FILENAME_№) (Curve) (отверстия)
-4_tau_zx_x.py_ComparingFile_2=Grid_Analyic
-
-#начало для имени файла для сохранения результата сравнения
-4_tau_zx_x.py_ComparingFile_OUT=Precision
 
 #------------------------------------------------------------------------------------------
 

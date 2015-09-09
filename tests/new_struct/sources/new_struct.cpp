@@ -252,21 +252,9 @@ void main2(double Yung1, double Yung2, double Yung3) {
     strcat(FILEBEGIN, STRBEGIN2); //Запись пути файла
     strcat(FILEBEGIN, STRBEGIN3); //Запись пути файла
     Task = "T2.2";
-    Yung1 = 1.0;
-    Yung2 = 1.0;
-    Yung3 = 1.0;
-    Puasson1 = 0.4;
-    Puasson2 = 0.1;
-    Puasson3 = 0.4;
-    bb = 1.0;
-    Yleft = -0.5;
-    Yright = 0.5;
-    Xdown = 0.0;
-    Xup = 1.0;
-    FileOfGrid = "net/1x1_slayer3.msh";
-    c0 = 0.5;
-    C0 = 0.0;
-    eps = 1e-12;
+    Yung1 = 1.0;    Yung2 = 1.0;    Yung3 = 1.0;
+    Puasson1 = 0.4;    Puasson2 = 0.1;    Puasson3 = 0.4;
+    bb = 1.0;    Yleft = -0.5;    Yright = 0.5;    Xdown = 0.0;    Xup = 1.0;    FileOfGrid = "net/1x1_slayer3.msh";    c0 = 0.5;    C0 = 0.0;    eps = 1e-12;
     main1(3, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN);
 
     /*
