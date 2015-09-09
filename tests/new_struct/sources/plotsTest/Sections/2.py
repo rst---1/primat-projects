@@ -8,19 +8,14 @@ DIRECTORY = sys.path[0]
 with open (DIRECTORY + "/0SETTINGS.txt") as fd:		#open file
 	t = fd.read()									#read file
 	for line in t.splitlines():						#read each line
-		if (line[:30] == "1_pvpython.py_DIRECTORY_OF_OUT"):
-			NEWDIRECTORY = line[31:]
+		if (line[:16] == "DIRECTORY_OF_OUT"):
+			NEWDIRECTORY = line[17:]
 			print NEWDIRECTORY
 		if (line[:14] == "CSV_FILENAME_1"):
 			CSV_FILENAME_1 = line[15:]
 			LENGTH_OF_CSV_FILENAME_1 = len(CSV_FILENAME_1) + 5
 			print CSV_FILENAME_1
 			print "LENGTH_OF_CSV_FILENAME_1 = " + str(LENGTH_OF_CSV_FILENAME_1)
-		if (line[:14] == "CSV_FILENAME_2"):
-			CSV_FILENAME_2 = line[15:]
-			LENGTH_OF_CSV_FILENAME_2 = len(CSV_FILENAME_2) + 5
-			print CSV_FILENAME_2
-			print "LENGTH_OF_CSV_FILENAME_2 = " + str(LENGTH_OF_CSV_FILENAME_2)
 
 #============delete fist string of file========================================
 print '.	.	.	.	.	.	delete fist string of file . .'
@@ -41,7 +36,7 @@ os.chdir(NEWDIRECTORY)
 #------------------------------------------------------------------------------
 
 for filename in os.listdir("."):					#view each file in directory
-	if (((filename[-4:] == '.csv') and (filename[:LENGTH_OF_CSV_FILENAME_1] == CSV_FILENAME_1 + " tau_")) or ((filename[-4:] == '.csv') and (filename[:LENGTH_OF_CSV_FILENAME_2] == CSV_FILENAME_2 + " tau_"))):
+	if ((filename[-4:] == '.csv') and (filename[:LENGTH_OF_CSV_FILENAME_1] == CSV_FILENAME_1 + " tau_")):
 		print filename
 		with open (filename) as fd:					#open file
 			t = fd.read()							#read the file
@@ -62,7 +57,7 @@ print '.	.	.	.	.	.	replacement commas by tabs . .'
 
 rst = []
 for filename in os.listdir("."):					#view each file in directory
-	if (((filename[-4:] == '.csv') and (filename[:LENGTH_OF_CSV_FILENAME_1] == CSV_FILENAME_1 + " tau_")) or ((filename[-4:] == '.csv') and (filename[:LENGTH_OF_CSV_FILENAME_2] == CSV_FILENAME_2 + " tau_"))):
+	if ((filename[-4:] == '.csv') and (filename[:LENGTH_OF_CSV_FILENAME_1] == CSV_FILENAME_1 + " tau_")):
 		print filename
 		with open (filename) as fd:					#open file
 			t = fd.read()							#read the file
@@ -82,7 +77,7 @@ print '.	.	.	.	.	.	SUCCESS!'
 print '.	.	.	.	.	.	rename a file extension . .'
 
 for filename in os.listdir("."):
-	if (((filename[-4:] == '.csv') and (filename[:LENGTH_OF_CSV_FILENAME_1] == CSV_FILENAME_1 + " tau_")) or ((filename[-4:] == '.csv') and (filename[:LENGTH_OF_CSV_FILENAME_2] == CSV_FILENAME_2 + " tau_"))):
+	if ((filename[-4:] == '.csv') and (filename[:LENGTH_OF_CSV_FILENAME_1] == CSV_FILENAME_1 + " tau_")):
 		os.rename(filename, filename[:-6] + ".gpl")
 
 print '.	.	.	.	.	.	SUCCESS!'

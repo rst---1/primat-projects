@@ -93,34 +93,29 @@ Slice_y=0.481
 
 #------------------------------------------------------------------------------------------
 #показывает путь, куда поместить файлы сечений
-1_pvpython.py_DIRECTORY_OF_OUT=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1
-
-#показывает точность построениея триангуляции
-1_pvpython.py_TOLERANCE_OF_DELAUNAY2D=0.0
-
-#Путь к исходному CSV-файлу поверхности, из которой нужно сделать графики сечений (числ)
-1_pvpython.py_DIRECTORY_OF_Ftau_xx=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1/Ftau_xx.csv
+DIRECTORY_OF_OUT=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1
 
 
 #Путь к исходному CSV-файлу поверхности, из которой нужно сделать графики сечений (числ)
-1_pvpython.py_DIRECTORY_OF_Ftau_yy=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1/Ftau_yy.csv
+DIRECTORY_OF_Ftau_xx=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1/Ftau_xx.csv
 
 
 #Путь к исходному CSV-файлу поверхности, из которой нужно сделать графики сечений (числ)
-1_pvpython.py_DIRECTORY_OF_Ftau_xy=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1/Ftau_xy.csv
+DIRECTORY_OF_Ftau_yy=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1/Ftau_yy.csv
 
 
 #Путь к исходному CSV-файлу поверхности, из которой нужно сделать графики сечений (числ)
-1_pvpython.py_DIRECTORY_OF_Ftau_zz=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1/Ftau_zz.csv
+DIRECTORY_OF_Ftau_xy=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1/Ftau_xy.csv
+
+
+#Путь к исходному CSV-файлу поверхности, из которой нужно сделать графики сечений (числ)
+DIRECTORY_OF_Ftau_zz=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1/Ftau_zz.csv
 
 
 #------------------------------------------------------------------------------------------
 
 #начало для имени файла,который содержит данные сечения вида 1 (поверхность tau)
 CSV_FILENAME_1=Grid_Dig
-
-#начало для имени файла,который содержит данные сечения вида 2 (поверхность tau)
-CSV_FILENAME_2=Grid_Analyic
 
 
 #------------------------------------------------------------------------------------------

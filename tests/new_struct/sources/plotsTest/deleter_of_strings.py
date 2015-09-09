@@ -7,8 +7,8 @@ DIRECTORY = sys.path[0]
 with open (DIRECTORY + "/Sections/0SETTINGS.txt") as fd:		#open file
 	t = fd.read()									#read file
 	for line in t.splitlines():						#read each line
-		if (line[:30] == "1_pvpython.py_DIRECTORY_OF_OUT"):
-			NEWDIRECTORY = line[31:]
+		if (line[:16] == "DIRECTORY_OF_OUT"):
+			NEWDIRECTORY = line[17:]
 			print NEWDIRECTORY
 #---------------------------------------------------------
 

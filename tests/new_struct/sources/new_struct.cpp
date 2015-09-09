@@ -59,361 +59,369 @@
 //#include "new_struct_temperature_T1.1.cpp"
 //#include "new_struct_temperature_T1.2.cpp"
 
+int main1(int RefineNum, const string Task, const double bb, const double Yleft, const double Yright,
+        const double Xdown, const double Xup, const string FileOfGrid,
+        const double Yung1, const double Yung2, const double Yung3,
+        const double Puasson1, const double Puasson2, const double Puasson3,
+        const double c0, const double C0, const double eps, const char* FILEBEGIN) {
 
-int main1(	int RefineNum, const string Task, const double bb, const double Yleft, const double Yright,
-			const double Xdown, const double Xup, const string FileOfGrid,
-			const double Yung1, const double Yung2, const double Yung3,
-			const double Puasson1, const double Puasson2, const double Puasson3,
-			const double c0, const double C0, const double eps, const char* FILEBEGIN )
-{
-	enum {x, y, z};
-	std::cout << "\n\n================================================================================\n";
-	std::cout << "================================================================================\n";
+    enum {
+        x, y, z
+    };
+    std::cout << "\n\n================================================================================\n";
+    std::cout << "================================================================================\n";
 
-//		const double Puasson1	= 0.4;		//nu									//INPUT
-//		const double Puasson2	= 0.1;		//nu									//INPUT
-//		const double Puasson3	= 0.4;		//nu									//INPUT
+    //		const double Puasson1	= 0.4;		//nu									//INPUT
+    //		const double Puasson2	= 0.1;		//nu									//INPUT
+    //		const double Puasson3	= 0.4;		//nu									//INPUT
 
-	    const double mu1 = Yung1 / ( 2.0 * ( 1.0 + Puasson1 ) );
-	    const double mu2 = Yung2 / ( 2.0 * ( 1.0 + Puasson2 ) );
-	    const double mu3 = Yung3 / ( 2.0 * ( 1.0 + Puasson3 ) );
-	    const double h = 0.33;				//толщина слоя							//INPUT
+    const double mu1 = Yung1 / (2.0 * (1.0 + Puasson1));
+    const double mu2 = Yung2 / (2.0 * (1.0 + Puasson2));
+    const double mu3 = Yung3 / (2.0 * (1.0 + Puasson3));
+    const double h = 0.33; //толщина слоя							//INPUT
 
-		double IntegralCoefficient = 0.0;										//На сколько приподнять функцию U_z
-
-
-
-		char* FILENAME = new char[150];				//содержит начальное имя файла
-		strcpy(FILENAME, FILEBEGIN);
-		strcat(FILENAME, "FU_x.gpl");
-//		std::cout << "\tFILENAME = " << FILENAME << "\n";
-
-
-		FILE *FU_x;			strcpy(FILENAME, FILEBEGIN);		strcat(FILENAME, "FU_x.gpl");							FU_x = fopen (FILENAME, "w+");					//U_x
-		FILE *FU_y;			strcpy(FILENAME, FILEBEGIN);		strcat(FILENAME, "FU_y.gpl");							FU_y = fopen (FILENAME, "w+");					//U_y
-		FILE *FU_z;			strcpy(FILENAME, FILEBEGIN);		strcat(FILENAME, "FU_z.gpl");							FU_z = fopen (FILENAME, "w+");					//U_z
-		FILE *FU_x_grad;			strcpy(FILENAME, FILEBEGIN);		strcat(FILENAME, "FU_x_grad.gpl");							FU_x_grad = fopen (FILENAME, "w+");					//U_x_grad
-		FILE *FU_y_grad;			strcpy(FILENAME, FILEBEGIN);		strcat(FILENAME, "FU_y_grad.gpl");							FU_y_grad = fopen (FILENAME, "w+");					//U_y_grad
-		FILE *FU_z_grad;			strcpy(FILENAME, FILEBEGIN);		strcat(FILENAME, "FU_z_grad.gpl");							FU_z_grad = fopen (FILENAME, "w+");					//U_z_grad
-		FILE *Ftau_xx;			strcpy(FILENAME, FILEBEGIN);		strcat(FILENAME, "Ftau_xx.gpl");							Ftau_xx = fopen (FILENAME, "w+");					//tau_xx
-		FILE *Ftau_yy;			strcpy(FILENAME, FILEBEGIN);		strcat(FILENAME, "Ftau_yy.gpl");							Ftau_yy = fopen (FILENAME, "w+");					//tau_yy
-		FILE *Ftau_xy;			strcpy(FILENAME, FILEBEGIN);		strcat(FILENAME, "Ftau_xy.gpl");							Ftau_xy = fopen (FILENAME, "w+");					//tau_xy
-		FILE *Ftau_zz;			strcpy(FILENAME, FILEBEGIN);		strcat(FILENAME, "Ftau_zz.gpl");							Ftau_zz = fopen (FILENAME, "w+");					//tau_zz
-		FILE *Ftau_zx;			strcpy(FILENAME, FILEBEGIN);		strcat(FILENAME, "Ftau_zx.gpl");							Ftau_zx = fopen (FILENAME, "w+");					//tau_zx
-		FILE *Ftau_zy;			strcpy(FILENAME, FILEBEGIN);		strcat(FILENAME, "Ftau_zy.gpl");							Ftau_zy = fopen (FILENAME, "w+");					//tau_zy
-
-		FILE *Fvtk;				strcpy(FILENAME, FILEBEGIN);		strcat(FILENAME, "Fvtk.vtk");								Fvtk = fopen (FILENAME, "w+");						//Fvtk
-		FILE *Fsigma;			strcpy(FILENAME, FILEBEGIN);		strcat(FILENAME, "Fsigma.gpl");								Fsigma = fopen (FILENAME, "w+");					//Fsigma
-		FILE *Fcsv;				strcpy(FILENAME, FILEBEGIN);		strcat(FILENAME, "Fcsv.csv");								Fcsv = fopen (FILENAME, "w+");						//Fcsv
-		char * F0filename = new char[150];		strcpy(FILENAME, FILEBEGIN);		strcat(FILENAME, "F0.txt");		F0filename = FILENAME;		//F0
-
-/*
-		FILE *FU_x;				FU_x = fopen ("out/FU_x.gpl", "w+");					//U_y
-		FILE *FU_y;				FU_y = fopen ("out/FU_y.gpl", "w+");					//U_y
-		FILE *FU_z;				FU_z = fopen ("out/FU_z.gpl", "w+");					//U_z
-		FILE *FU_x_grad;		FU_x_grad = fopen ("out/FU_x_grad.gpl", "w+");		//U_x_grad
-		FILE *FU_y_grad;		FU_y_grad = fopen ("out/FU_y_grad.gpl", "w+");		//U_y_grad
-		FILE *FU_z_grad;		FU_z_grad = fopen ("out/FU_z_grad.gpl", "w+");		//U_z_grad
-		FILE *Ftau_xx;			Ftau_xx = fopen ("out/Ftau_xx.gpl", "w+");			//tau_xx
-		FILE *Ftau_yy;			Ftau_yy = fopen ("out/Ftau_yy.gpl", "w+");			//tau_yy
-		FILE *Ftau_xy;			Ftau_xy = fopen ("out/Ftau_xy.gpl", "w+");			//tau_xy
-		FILE *Ftau_zz;			Ftau_zz = fopen ("out/Ftau_zz.gpl", "w+");			//tau_zz
-		FILE *Ftau_zx;			Ftau_zx = fopen ("out/Ftau_zx.gpl", "w+");			//tau_zx
-		FILE *Ftau_zy;			Ftau_zy = fopen ("out/Ftau_zy.gpl", "w+");			//tau_zy
-*/
-				FILE *FAU_x;			FAU_x = fopen ("out_analytic/FAU_x.gpl", "w+");					//U_x
-				FILE *FAU_y;			FAU_y = fopen ("out_analytic/FAU_y.gpl", "w+");					//U_y
-				FILE *FAU_z;			FAU_z = fopen ("out_analytic/FAU_z.gpl", "w+");					//U_z
-				FILE *FAU_x_grad;		FAU_x_grad = fopen ("out_analytic/FAU_x_grad.gpl", "w+");		//U_x_grad
-				FILE *FAU_y_grad;		FAU_y_grad = fopen ("out_analytic/FAU_y_grad.gpl", "w+");		//U_y_grad
-				FILE *FAU_z_grad;		FAU_z_grad = fopen ("out_analytic/FAU_z_grad.gpl", "w+");		//U_z_grad
-				FILE *FAtau_xx;			FAtau_xx = fopen ("out_analytic/FAtau_xx.gpl", "w+");			//tau_xx
-				FILE *FAtau_yy;			FAtau_yy = fopen ("out_analytic/FAtau_yy.gpl", "w+");			//tau_yy
-				FILE *FAtau_xy;			FAtau_xy = fopen ("out_analytic/FAtau_xy.gpl", "w+");			//tau_xy
-				FILE *FAtau_zz;			FAtau_zz = fopen ("out_analytic/FAtau_zz.gpl", "w+");			//tau_zz
-				FILE *FAtau_zx;			FAtau_zx = fopen ("out_analytic/FAtau_zx.gpl", "w+");			//tau_zx
-				FILE *FAtau_zy;			FAtau_zy = fopen ("out_analytic/FAtau_zy.gpl", "w+");			//tau_zy
-
-		FILE *FILES[] = {FU_x, FU_y, FU_z, FU_x_grad, FU_y_grad, FU_z_grad,
-						Ftau_xx, Ftau_yy, Ftau_xy, Ftau_zz, Ftau_zx, Ftau_zy,
-						FAU_x, FAU_y, FAU_z, FAU_x_grad, FAU_y_grad, FAU_z_grad,
-						FAtau_xx, FAtau_yy, FAtau_xy, FAtau_zz, FAtau_zx, FAtau_zy, Fvtk, Fsigma, Fcsv};
+    double IntegralCoefficient = 0.0; //На сколько приподнять функцию U_z
 
 
 
-//TEMPERATURE BLOCK
-	if (Task == "T1.1")									//INPUT
-	{
-		//Зададим пока что функции U[][] и tau[][] через формулы, а не через файлы
-//		NEW_STRUCT_TEMPERATURE_T1_1::main(Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, bb, mu1, mu2, mu3, h, FileOfGrid, Yleft, Yright, Xup, Xdown, RefineNum, IntegralCoefficient, eps, FILES);
-	}
-//end of TEMPERATURE BLOCK
+    char* FILENAME = new char[150]; //содержит начальное имя файла
+    strcpy(FILENAME, FILEBEGIN);
+    strcat(FILENAME, "FU_x.gpl");
+    //		std::cout << "\tFILENAME = " << FILENAME << "\n";
 
 
-//TEMPERATURE BLOCK
-	if (Task == "T1.2")									//INPUT
-	{
-		//Зададим пока что функции U[][] и tau[][] через формулы, а не через файлы
-//		NEW_STRUCT_TEMPERATURE_T1_2::main(Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, bb, mu1, mu2, mu3, h, FileOfGrid, Yleft, Yright, Xup, Xdown, RefineNum, IntegralCoefficient, eps, FILES);
-	}
-//end of TEMPERATURE BLOCK
+    FILE *FU_x;    strcpy(FILENAME, FILEBEGIN);    strcat(FILENAME, "FU_x.gpl");    FU_x = fopen(FILENAME, "w+"); //U_x
+    FILE *FU_y;    strcpy(FILENAME, FILEBEGIN);    strcat(FILENAME, "FU_y.gpl");    FU_y = fopen(FILENAME, "w+"); //U_y
+    FILE *FU_z;    strcpy(FILENAME, FILEBEGIN);    strcat(FILENAME, "FU_z.gpl");    FU_z = fopen(FILENAME, "w+"); //U_z
+    FILE *FU_x_grad;    strcpy(FILENAME, FILEBEGIN);    strcat(FILENAME, "FU_x_grad.gpl");    FU_x_grad = fopen(FILENAME, "w+"); //U_x_grad
+    FILE *FU_y_grad;    strcpy(FILENAME, FILEBEGIN);    strcat(FILENAME, "FU_y_grad.gpl");    FU_y_grad = fopen(FILENAME, "w+"); //U_y_grad
+    FILE *FU_z_grad;    strcpy(FILENAME, FILEBEGIN);    strcat(FILENAME, "FU_z_grad.gpl");    FU_z_grad = fopen(FILENAME, "w+"); //U_z_grad
+    FILE *Ftau_xx;    strcpy(FILENAME, FILEBEGIN);    strcat(FILENAME, "Ftau_xx.gpl");    Ftau_xx = fopen(FILENAME, "w+"); //tau_xx
+    FILE *Ftau_yy;    strcpy(FILENAME, FILEBEGIN);    strcat(FILENAME, "Ftau_yy.gpl");    Ftau_yy = fopen(FILENAME, "w+"); //tau_yy
+    FILE *Ftau_xy;    strcpy(FILENAME, FILEBEGIN);    strcat(FILENAME, "Ftau_xy.gpl");    Ftau_xy = fopen(FILENAME, "w+"); //tau_xy
+    FILE *Ftau_zz;    strcpy(FILENAME, FILEBEGIN);    strcat(FILENAME, "Ftau_zz.gpl");    Ftau_zz = fopen(FILENAME, "w+"); //tau_zz
+    FILE *Ftau_zx;    strcpy(FILENAME, FILEBEGIN);    strcat(FILENAME, "Ftau_zx.gpl");    Ftau_zx = fopen(FILENAME, "w+"); //tau_zx
+    FILE *Ftau_zy;    strcpy(FILENAME, FILEBEGIN);    strcat(FILENAME, "Ftau_zy.gpl");    Ftau_zy = fopen(FILENAME, "w+"); //tau_zy
 
-	std::cout << "CONTROL MESSAGE 1\n";
+    FILE *Fvtk;    strcpy(FILENAME, FILEBEGIN);    strcat(FILENAME, "Fvtk.vtk");    Fvtk = fopen(FILENAME, "w+"); //Fvtk
+    FILE *Fsigma;    strcpy(FILENAME, FILEBEGIN);    strcat(FILENAME, "Fsigma.gpl");    Fsigma = fopen(FILENAME, "w+"); //Fsigma
+    FILE *Fcsv;    strcpy(FILENAME, FILEBEGIN);    strcat(FILENAME, "Fcsv.csv");    Fcsv = fopen(FILENAME, "w+"); //Fcsv
+    char * F0filename = new char[150];    strcpy(FILENAME, FILEBEGIN);    strcat(FILENAME, "F0.txt");    F0filename = FILENAME; //F0
 
-	if ((Task == "T1.1")or(Task == "T1.2"))									//INPUT
-	{
-//Нужно закрыть следующие файлы, чтобы можно было корректно из них читать данные
-			fclose(FU_z);
-			fclose(Ftau_zx);
-			fclose(Ftau_zy);
-        }
-                        
-	std::cout << "CONTROL MESSAGE 2\n";
+    /*
+                    FILE *FU_x;				FU_x = fopen ("out/FU_x.gpl", "w+");					//U_y
+                    FILE *FU_y;				FU_y = fopen ("out/FU_y.gpl", "w+");					//U_y
+                    FILE *FU_z;				FU_z = fopen ("out/FU_z.gpl", "w+");					//U_z
+                    FILE *FU_x_grad;		FU_x_grad = fopen ("out/FU_x_grad.gpl", "w+");		//U_x_grad
+                    FILE *FU_y_grad;		FU_y_grad = fopen ("out/FU_y_grad.gpl", "w+");		//U_y_grad
+                    FILE *FU_z_grad;		FU_z_grad = fopen ("out/FU_z_grad.gpl", "w+");		//U_z_grad
+                    FILE *Ftau_xx;			Ftau_xx = fopen ("out/Ftau_xx.gpl", "w+");			//tau_xx
+                    FILE *Ftau_yy;			Ftau_yy = fopen ("out/Ftau_yy.gpl", "w+");			//tau_yy
+                    FILE *Ftau_xy;			Ftau_xy = fopen ("out/Ftau_xy.gpl", "w+");			//tau_xy
+                    FILE *Ftau_zz;			Ftau_zz = fopen ("out/Ftau_zz.gpl", "w+");			//tau_zz
+                    FILE *Ftau_zx;			Ftau_zx = fopen ("out/Ftau_zx.gpl", "w+");			//tau_zx
+                    FILE *Ftau_zy;			Ftau_zy = fopen ("out/Ftau_zy.gpl", "w+");			//tau_zy
+     */
+    FILE *FAU_x;    FAU_x = fopen("out_analytic/FAU_x.gpl", "w+"); //U_x
+    FILE *FAU_y;    FAU_y = fopen("out_analytic/FAU_y.gpl", "w+"); //U_y
+    FILE *FAU_z;    FAU_z = fopen("out_analytic/FAU_z.gpl", "w+"); //U_z
+    FILE *FAU_x_grad;    FAU_x_grad = fopen("out_analytic/FAU_x_grad.gpl", "w+"); //U_x_grad
+    FILE *FAU_y_grad;    FAU_y_grad = fopen("out_analytic/FAU_y_grad.gpl", "w+"); //U_y_grad
+    FILE *FAU_z_grad;    FAU_z_grad = fopen("out_analytic/FAU_z_grad.gpl", "w+"); //U_z_grad
+    FILE *FAtau_xx;    FAtau_xx = fopen("out_analytic/FAtau_xx.gpl", "w+"); //tau_xx
+    FILE *FAtau_yy;    FAtau_yy = fopen("out_analytic/FAtau_yy.gpl", "w+"); //tau_yy
+    FILE *FAtau_xy;    FAtau_xy = fopen("out_analytic/FAtau_xy.gpl", "w+"); //tau_xy
+    FILE *FAtau_zz;    FAtau_zz = fopen("out_analytic/FAtau_zz.gpl", "w+"); //tau_zz
+    FILE *FAtau_zx;    FAtau_zx = fopen("out_analytic/FAtau_zx.gpl", "w+"); //tau_zx
+    FILE *FAtau_zy;    FAtau_zy = fopen("out_analytic/FAtau_zy.gpl", "w+"); //tau_zy
+
+    FILE * FILES[] = {FU_x, FU_y, FU_z, FU_x_grad, FU_y_grad, FU_z_grad,
+        Ftau_xx, Ftau_yy, Ftau_xy, Ftau_zz, Ftau_zx, Ftau_zy,
+        FAU_x, FAU_y, FAU_z, FAU_x_grad, FAU_y_grad, FAU_z_grad,
+        FAtau_xx, FAtau_yy, FAtau_xy, FAtau_zz, FAtau_zx, FAtau_zy, Fvtk, Fsigma, Fcsv};
+
+
+
+    //TEMPERATURE BLOCK
+    if (Task == "T1.1") //INPUT
+    {
+        //Зададим пока что функции U[][] и tau[][] через формулы, а не через файлы
+        //		NEW_STRUCT_TEMPERATURE_T1_1::main(Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, bb, mu1, mu2, mu3, h, FileOfGrid, Yleft, Yright, Xup, Xdown, RefineNum, IntegralCoefficient, eps, FILES);
+    }
+    //end of TEMPERATURE BLOCK
+
+
+    //TEMPERATURE BLOCK
+    if (Task == "T1.2") //INPUT
+    {
+        //Зададим пока что функции U[][] и tau[][] через формулы, а не через файлы
+        //		NEW_STRUCT_TEMPERATURE_T1_2::main(Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, bb, mu1, mu2, mu3, h, FileOfGrid, Yleft, Yright, Xup, Xdown, RefineNum, IntegralCoefficient, eps, FILES);
+    }
+    //end of TEMPERATURE BLOCK
+
+
+    if ((Task == "T1.1")or(Task == "T1.2")) //INPUT
+    {
+        //Нужно закрыть следующие файлы, чтобы можно было корректно из них читать данные
+        fclose(FU_z);
+        fclose(Ftau_zx);
+        fclose(Ftau_zy);
+    }
 
 
 
 
-//ELASTIC BLOCK
-	if (Task == "T2.1")									//INPUT
-	{
-//		NEW_STRUCT_ELASTIC_T2_1::main(Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, bb, mu1, mu2, mu3, h, FileOfGrid, Yleft, Yright, Xup, Xdown, RefineNum, IntegralCoefficient, eps, FILES);
-	}
-//end of ELASTIC BLOCK
 
-                        
-	std::cout << "CONTROL MESSAGE 3\n";
+    //ELASTIC BLOCK
+    if (Task == "T2.1") //INPUT
+    {
+        //		NEW_STRUCT_ELASTIC_T2_1::main(Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, bb, mu1, mu2, mu3, h, FileOfGrid, Yleft, Yright, Xup, Xdown, RefineNum, IntegralCoefficient, eps, FILES);
+    }
+    //end of ELASTIC BLOCK
 
-//ELASTIC BLOCK
-	if (Task == "T2.2")									//INPUT
-	{
-		NEW_STRUCT_ELASTIC_T2_2::main(Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, bb, mu1, mu2, mu3, h, FileOfGrid, Yleft, Yright, Xup, Xdown, RefineNum, IntegralCoefficient, eps, FILES, F0filename);
-	}
-//end of ELASTIC BLOCK
 
-                        
-	std::cout << "CONTROL MESSAGE 4\n";
 
-			fclose(FU_x);
-			fclose(FU_y);
-//			fclose(FU_z);
-			fclose(FU_x_grad);
-			fclose(FU_y_grad);
-			fclose(FU_z_grad);
-			fclose(Ftau_xx);
-			fclose(Ftau_yy);
-			fclose(Ftau_xy);
-			fclose(Ftau_zz);
-//			fclose(Ftau_zx);
-//			fclose(Ftau_zy);
-			fclose(Fvtk);
-			fclose(Fsigma);
-			fclose(Fcsv);
-				fclose(FAU_x);
-				fclose(FAU_y);
-				fclose(FAU_z);
-				fclose(FAU_x_grad);
-				fclose(FAU_y_grad);
-				fclose(FAU_z_grad);
-				fclose(FAtau_xx);
-				fclose(FAtau_yy);
-				fclose(FAtau_xy);
-				fclose(FAtau_zz);
-				fclose(FAtau_zx);
-				fclose(FAtau_zy);
+    //ELASTIC BLOCK
+    if (Task == "T2.2") //INPUT
+    {
+        NEW_STRUCT_ELASTIC_T2_2::main(Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, bb, mu1, mu2, mu3, h, FileOfGrid, Yleft, Yright, Xup, Xdown, RefineNum, IntegralCoefficient, eps, FILES, F0filename);
+    }
+    //end of ELASTIC BLOCK
 
-	
-	std::cout << "\n\n================================================================================\n";
-	std::cout << "================================================================================\n";
-	return EXIT_SUCCESS;
+
+
+    fclose(FU_x);
+    fclose(FU_y);
+    //			fclose(FU_z);
+    fclose(FU_x_grad);
+    fclose(FU_y_grad);
+    fclose(FU_z_grad);
+    fclose(Ftau_xx);
+    fclose(Ftau_yy);
+    fclose(Ftau_xy);
+    fclose(Ftau_zz);
+    //			fclose(Ftau_zx);
+    //			fclose(Ftau_zy);
+    fclose(Fvtk);
+    fclose(Fsigma);
+    fclose(Fcsv);
+    fclose(FAU_x);
+    fclose(FAU_y);
+    fclose(FAU_z);
+    fclose(FAU_x_grad);
+    fclose(FAU_y_grad);
+    fclose(FAU_z_grad);
+    fclose(FAtau_xx);
+    fclose(FAtau_yy);
+    fclose(FAtau_xy);
+    fclose(FAtau_zz);
+    fclose(FAtau_zx);
+    fclose(FAtau_zy);
+
+
+    std::cout << "\n\n================================================================================\n";
+    std::cout << "================================================================================\n";
+    return EXIT_SUCCESS;
 }
 
-void main2( double Yung1,  double Yung2,  double Yung3)
-{
-	double bb;
-	double Yleft;
-	double Yright;
-	double Xdown;
-	double Xup;
-	string FileOfGrid;
-	string Task;
-	double c0;
-	double C0;
-	double eps;
-		char *FILEBEGIN = new char[100];
-		char *STRBEGIN1;
-		char *STRBEGIN2;
-		char *STRBEGIN3;
-
-		double Puasson1	= 0.0;
-		double Puasson2	= 0.0;
-		double Puasson3	= 0.0;
-
-
-					STRBEGIN1 = "out/";
-					STRBEGIN2 = "T2.2/";							//INPUT
-					STRBEGIN3 = "1x1/";
-					strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-					strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-					strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-					Task = "T2.2";
-					Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-					Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-					bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;
-					main1( 3, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
-
-/*
-					STRBEGIN1 = "out/";
-					STRBEGIN2 = "T2.2/";							//INPUT
-					STRBEGIN3 = "1x5/";
-					strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-					strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-					strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-					Task = "T2.2";
-					Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-					Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-					bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-					main1( 3, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
-
-
-					STRBEGIN1 = "out/";
-					STRBEGIN2 = "T2.2/";							//INPUT
-					STRBEGIN3 = "1x10/";
-					strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-					strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-					strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-					Task = "T2.2";
-					Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-					Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-					bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-5;							//INPUT
-					main1( 3, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
-*/
-
-
-
-/*
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.2/";							//INPUT
-	STRBEGIN3 = "1x1_slayer3_curve_A0.1_T1/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Task = "T2.2";
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_curve_A0.1_T1___.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;
-	main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
-
-
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.2/";							//INPUT
-	STRBEGIN3 = "1x1_slayer3_curve_A0.1_T2/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Task = "T2.2";
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_curve_A0.1_T2___.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-3;
-	main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
-
-
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.2/";							//INPUT
-	STRBEGIN3 = "1x1_slayer3_curve_A0.1_T3/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Task = "T2.2";
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_curve_A0.1_T3___.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;
-	main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+void main2(double Yung1, double Yung2, double Yung3) {
+    double bb;
+    double Yleft;
+    double Yright;
+    double Xdown;
+    double Xup;
+    string FileOfGrid;
+    string Task;
+    double c0;
+    double C0;
+    double eps;
+    char *FILEBEGIN = new char[100];
+    char *STRBEGIN1;
+    char *STRBEGIN2;
+    char *STRBEGIN3;
+
+    double Puasson1 = 0.0;
+    double Puasson2 = 0.0;
+    double Puasson3 = 0.0;
+
+
+    STRBEGIN1 = "out/";
+    STRBEGIN2 = "T2.2/"; //INPUT
+    STRBEGIN3 = "1x1/";
+    strcpy(FILEBEGIN, STRBEGIN1); //Запись пути файла
+    strcat(FILEBEGIN, STRBEGIN2); //Запись пути файла
+    strcat(FILEBEGIN, STRBEGIN3); //Запись пути файла
+    Task = "T2.2";
+    Yung1 = 1.0;
+    Yung2 = 1.0;
+    Yung3 = 1.0;
+    Puasson1 = 0.4;
+    Puasson2 = 0.1;
+    Puasson3 = 0.4;
+    bb = 1.0;
+    Yleft = -0.5;
+    Yright = 0.5;
+    Xdown = 0.0;
+    Xup = 1.0;
+    FileOfGrid = "net/1x1_slayer3.msh";
+    c0 = 0.5;
+    C0 = 0.0;
+    eps = 1e-12;
+    main1(3, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN);
+
+    /*
+                                            STRBEGIN1 = "out/";
+                                            STRBEGIN2 = "T2.2/";							//INPUT
+                                            STRBEGIN3 = "1x5/";
+                                            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+                                            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+                                            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+                                            Task = "T2.2";
+                                            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+                                            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+                                            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+                                            main1( 3, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+
+
+                                            STRBEGIN1 = "out/";
+                                            STRBEGIN2 = "T2.2/";							//INPUT
+                                            STRBEGIN3 = "1x10/";
+                                            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+                                            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+                                            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+                                            Task = "T2.2";
+                                            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+                                            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+                                            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-5;							//INPUT
+                                            main1( 3, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+     */
+
+
+
+    /*
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.2/";							//INPUT
+            STRBEGIN3 = "1x1_slayer3_curve_A0.1_T1/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Task = "T2.2";
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_curve_A0.1_T1___.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;
+            main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+
+
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.2/";							//INPUT
+            STRBEGIN3 = "1x1_slayer3_curve_A0.1_T2/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Task = "T2.2";
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_curve_A0.1_T2___.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-3;
+            main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+
+
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.2/";							//INPUT
+            STRBEGIN3 = "1x1_slayer3_curve_A0.1_T3/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Task = "T2.2";
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_curve_A0.1_T3___.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;
+            main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
 
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.2/";							//INPUT
-	STRBEGIN3 = "1x5_slayer3_curve_A0.1_T1/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Task = "T2.2";
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_curve_A0.1_T1___.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.2/";							//INPUT
+            STRBEGIN3 = "1x5_slayer3_curve_A0.1_T1/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Task = "T2.2";
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_curve_A0.1_T1___.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.2/";							//INPUT
-	STRBEGIN3 = "1x5_slayer3_curve_A0.1_T2/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Task = "T2.2";
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_curve_A0.1_T2___.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.2/";							//INPUT
+            STRBEGIN3 = "1x5_slayer3_curve_A0.1_T2/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Task = "T2.2";
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_curve_A0.1_T2___.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.2/";							//INPUT
-	STRBEGIN3 = "1x5_slayer3_curve_A0.1_T3/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Task = "T2.2";
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_curve_A0.1_T3___.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.2/";							//INPUT
+            STRBEGIN3 = "1x5_slayer3_curve_A0.1_T3/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Task = "T2.2";
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_curve_A0.1_T3___.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
 
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.2/";							//INPUT
-	STRBEGIN3 = "1x10_slayer3_curve_A0.1_T1/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Task = "T2.2";
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_curve_A0.1_T1___.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-5;							//INPUT
-	main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.2/";							//INPUT
+            STRBEGIN3 = "1x10_slayer3_curve_A0.1_T1/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Task = "T2.2";
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_curve_A0.1_T1___.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-5;							//INPUT
+            main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.2/";							//INPUT
-	STRBEGIN3 = "1x10_slayer3_curve_A0.1_T2/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Task = "T2.2";
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_curve_A0.1_T2___.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-5;							//INPUT
-	main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.2/";							//INPUT
+            STRBEGIN3 = "1x10_slayer3_curve_A0.1_T2/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Task = "T2.2";
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_curve_A0.1_T2___.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-5;							//INPUT
+            main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.2/";							//INPUT
-	STRBEGIN3 = "1x10_slayer3_curve_A0.1_T3/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Task = "T2.2";
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_curve_A0.1_T3___.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-5;							//INPUT
-	main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.2/";							//INPUT
+            STRBEGIN3 = "1x10_slayer3_curve_A0.1_T3/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Task = "T2.2";
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_curve_A0.1_T3___.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-5;							//INPUT
+            main1( 0, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
-*/
+     */
 
 
 
@@ -428,118 +436,120 @@ void main2( double Yung1,  double Yung2,  double Yung3)
 
 
 
-/*
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.2_curve/";							//INPUT
-	STRBEGIN3 = "1x10_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+    /*
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.2_curve/";							//INPUT
+            STRBEGIN3 = "1x10_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+
+
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.2_curve/";							//INPUT
+            STRBEGIN3 = "1x5_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.2_curve/";							//INPUT
-	STRBEGIN3 = "1x5_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.2_curve/";							//INPUT
+            STRBEGIN3 = "1x1_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.2_curve/";							//INPUT
-	STRBEGIN3 = "1x1_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
 
 
 
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.2/";							//INPUT
+            STRBEGIN3 = "1x10_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.2/";							//INPUT
-	STRBEGIN3 = "1x10_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.2/";							//INPUT
+            STRBEGIN3 = "1x5_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.2/";							//INPUT
-	STRBEGIN3 = "1x5_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.2/";							//INPUT
+            STRBEGIN3 = "1x1_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.2/";							//INPUT
-	STRBEGIN3 = "1x1_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.2/";							//INPUT
+            STRBEGIN3 = "1x10/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//14
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.2/";							//INPUT
-	STRBEGIN3 = "1x10/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//14
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.2/";							//INPUT
+            STRBEGIN3 = "1x5/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//10
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.2/";							//INPUT
-	STRBEGIN3 = "1x5/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//10
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.2/";							//INPUT
+            STRBEGIN3 = "1x1/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//5
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.2/";							//INPUT
-	STRBEGIN3 = "1x1/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//5
 
 
 
@@ -553,119 +563,119 @@ void main2( double Yung1,  double Yung2,  double Yung3)
 
 
 
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1_curve/";							//INPUT
+            STRBEGIN3 = "1x10_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1_curve/";							//INPUT
-	STRBEGIN3 = "1x10_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1_curve/";							//INPUT
+            STRBEGIN3 = "1x5_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1_curve/";							//INPUT
-	STRBEGIN3 = "1x5_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1_curve/";							//INPUT
+            STRBEGIN3 = "1x1_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1_curve/";							//INPUT
-	STRBEGIN3 = "1x1_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
 
 
 
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1/";							//INPUT
+            STRBEGIN3 = "1x10_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1/";							//INPUT
-	STRBEGIN3 = "1x10_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1/";							//INPUT
+            STRBEGIN3 = "1x5_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1/";							//INPUT
-	STRBEGIN3 = "1x5_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1/";							//INPUT
+            STRBEGIN3 = "1x1_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1/";							//INPUT
-	STRBEGIN3 = "1x1_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1/";							//INPUT
+            STRBEGIN3 = "1x10/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//14
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1/";							//INPUT
-	STRBEGIN3 = "1x10/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//14
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1/";							//INPUT
+            STRBEGIN3 = "1x5/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//10
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1/";							//INPUT
-	STRBEGIN3 = "1x5/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//10
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1/";							//INPUT
+            STRBEGIN3 = "1x1/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//5
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1/";							//INPUT
-	STRBEGIN3 = "1x1/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//5
 
 
 
@@ -685,119 +695,119 @@ void main2( double Yung1,  double Yung2,  double Yung3)
 
 
 
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.1_curve/";							//INPUT
+            STRBEGIN3 = "1x10_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.1_curve/";							//INPUT
-	STRBEGIN3 = "1x10_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.1_curve/";							//INPUT
+            STRBEGIN3 = "1x5_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.1_curve/";							//INPUT
-	STRBEGIN3 = "1x5_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.1_curve/";							//INPUT
+            STRBEGIN3 = "1x1_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.1_curve/";							//INPUT
-	STRBEGIN3 = "1x1_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
 
 
 
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.1/";							//INPUT
+            STRBEGIN3 = "1x10_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.1/";							//INPUT
-	STRBEGIN3 = "1x10_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.1/";							//INPUT
+            STRBEGIN3 = "1x5_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.1/";							//INPUT
-	STRBEGIN3 = "1x5_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.1/";							//INPUT
+            STRBEGIN3 = "1x1_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.1/";							//INPUT
-	STRBEGIN3 = "1x1_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.1/";							//INPUT
+            STRBEGIN3 = "1x10/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//14
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.1/";							//INPUT
-	STRBEGIN3 = "1x10/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//14
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.1/";							//INPUT
+            STRBEGIN3 = "1x5/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//10
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.1/";							//INPUT
-	STRBEGIN3 = "1x5/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//10
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.1/";							//INPUT
+            STRBEGIN3 = "1x1/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//5
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.1/";							//INPUT
-	STRBEGIN3 = "1x1/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//5
 
 
 
@@ -811,119 +821,119 @@ void main2( double Yung1,  double Yung2,  double Yung3)
 
 
 
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1_curve/";							//INPUT
+            STRBEGIN3 = "1x10_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1_curve/";							//INPUT
-	STRBEGIN3 = "1x10_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1_curve/";							//INPUT
+            STRBEGIN3 = "1x5_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1_curve/";							//INPUT
-	STRBEGIN3 = "1x5_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1_curve/";							//INPUT
+            STRBEGIN3 = "1x1_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1_curve/";							//INPUT
-	STRBEGIN3 = "1x1_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
 
 
 
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1/";							//INPUT
+            STRBEGIN3 = "1x10_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1/";							//INPUT
-	STRBEGIN3 = "1x10_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1/";							//INPUT
+            STRBEGIN3 = "1x5_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1/";							//INPUT
-	STRBEGIN3 = "1x5_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1/";							//INPUT
+            STRBEGIN3 = "1x1_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1/";							//INPUT
-	STRBEGIN3 = "1x1_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1/";							//INPUT
+            STRBEGIN3 = "1x10/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//14
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1/";							//INPUT
-	STRBEGIN3 = "1x10/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//14
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1/";							//INPUT
+            STRBEGIN3 = "1x5/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//10
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1/";							//INPUT
-	STRBEGIN3 = "1x5/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//10
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "T2.1/";							//INPUT
+            STRBEGIN3 = "1x1/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//5
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "T2.1/";							//INPUT
-	STRBEGIN3 = "1x1/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.25;	Puasson2 = 0.25;	Puasson3 = 0.25;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//5
 
 
 
@@ -943,220 +953,214 @@ void main2( double Yung1,  double Yung2,  double Yung3)
 
 
 
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.2_curve/";							//INPUT
+            STRBEGIN3 = "1x10_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.2_curve/";							//INPUT
-	STRBEGIN3 = "1x10_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.2_curve/";							//INPUT
+            STRBEGIN3 = "1x5_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.2_curve/";							//INPUT
-	STRBEGIN3 = "1x5_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.2_curve/";							//INPUT
+            STRBEGIN3 = "1x1_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.2_curve/";							//INPUT
-	STRBEGIN3 = "1x1_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_curve_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
 
 
 
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.2/";							//INPUT
+            STRBEGIN3 = "1x10_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.2/";							//INPUT
-	STRBEGIN3 = "1x10_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.2/";							//INPUT
+            STRBEGIN3 = "1x5_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.2/";							//INPUT
-	STRBEGIN3 = "1x5_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.2/";							//INPUT
+            STRBEGIN3 = "1x1_unregular/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.2/";							//INPUT
-	STRBEGIN3 = "1x1_unregular/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.2/";							//INPUT
+            STRBEGIN3 = "1x10/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//14
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.2/";							//INPUT
-	STRBEGIN3 = "1x10/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//14
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.2/";							//INPUT
+            STRBEGIN3 = "1x5/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//10
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.2/";							//INPUT
-	STRBEGIN3 = "1x5/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//10
+            STRBEGIN1 = "out/";
+            STRBEGIN2 = "nui_T2.2/";							//INPUT
+            STRBEGIN3 = "1x1/";
+            strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
+            strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
+            Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
+            Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//5
+     */
 
 
-	STRBEGIN1 = "out/";
-	STRBEGIN2 = "nui_T2.2/";							//INPUT
-	STRBEGIN3 = "1x1/";
-	strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
-	strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
-	Yung1 = 1.0;	Yung2 = 1.0;	Yung3 = 1.0;
-	Puasson1 = 0.4;	Puasson2 = 0.1;	Puasson3 = 0.4;
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );		//5
-*/
 
 
+    /*
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
 
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
 
-/*
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
 
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
 
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//14
 
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//10
 
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//14
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//5
+     */
 
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//10
+    /*
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
+            main1( 2, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
+            main1( 4, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//5
 
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//5
-*/
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
+            main1( 2, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
+            main1( 4, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//10
 
-/*
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
-	main1( 2, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
-	main1( 4, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//5
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
+            main1( 2, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
+            main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//14
 
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
-	main1( 2, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
-	main1( 4, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//10
 
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
-	main1( 2, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
-	main1( 3, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//14
+            bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//16
 
+            bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//18
 
-	bb = 10.0;	Yleft = -5.0; Yright = 5.0; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x10_slayer3_unregular.msh"; c0 = 0.5; C0 = 4.325; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//16
-
-	bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3_unregular.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//18
-
-	bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
-	main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
-	main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//20
-*/
+            bb = 1.0;	Yleft = -0.5; Yright = 0.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x1_slayer3_unregular.msh"; c0 = 0.5; C0 = 0.0; eps = 1e-12;							//INPUT
+            main1( 1, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );
+            main1( 0, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, c0, C0, eps );		//20
+     */
 }
 
+int main() {
 
-int main()
-{
-	std::cout << "CONTROL MESSAGE Begin\n";
-        
-	double Yung1		= 0.0;
-	double Yung2		= 0.0;
-	double Yung3		= 0.0;
+    double Yung1 = 0.0;
+    double Yung2 = 0.0;
+    double Yung3 = 0.0;
 
 
-/*
-	Yung1		= 12.2;							//INPUT
-	Yung2		= 1.2;							//INPUT
-	Yung3		= 12.2;							//INPUT
-	main2(Yung1, Yung2, Yung3);
+    /*
+            Yung1		= 12.2;							//INPUT
+            Yung2		= 1.2;							//INPUT
+            Yung3		= 12.2;							//INPUT
+            main2(Yung1, Yung2, Yung3);
 
-	Yung1		= 8.8;							//INPUT
-	Yung2		= 1.0;							//INPUT
-	Yung3		= 10.2;							//INPUT
-	main2(Yung1, Yung2, Yung3);
+            Yung1		= 8.8;							//INPUT
+            Yung2		= 1.0;							//INPUT
+            Yung3		= 10.2;							//INPUT
+            main2(Yung1, Yung2, Yung3);
 
- 	Yung1		= 3.3;							//INPUT
-	Yung2		= 12.3;							//INPUT
-	Yung3		= 6.1;							//INPUT
-	main2(Yung1, Yung2, Yung3);
+            Yung1		= 3.3;							//INPUT
+            Yung2		= 12.3;							//INPUT
+            Yung3		= 6.1;							//INPUT
+            main2(Yung1, Yung2, Yung3);
 
-	Yung1		= 7.8;							//INPUT
-	Yung2		= 3.6;							//INPUT
-	Yung3		= 1.2;							//INPUT
-	main2(Yung1, Yung2, Yung3);
-*/
+            Yung1		= 7.8;							//INPUT
+            Yung2		= 3.6;							//INPUT
+            Yung3		= 1.2;							//INPUT
+            main2(Yung1, Yung2, Yung3);
+     */
 
-	Yung1		= 1.0;							//INPUT
-	Yung2		= 1.0;							//INPUT
-	Yung3		= 1.0;							//INPUT
-	main2(Yung1, Yung2, Yung3);
+    Yung1 = 1.0; //INPUT
+    Yung2 = 1.0; //INPUT
+    Yung3 = 1.0; //INPUT
+    main2(Yung1, Yung2, Yung3);
 
 
-	std::cout << "CONTROL MESSAGE End\n";
 }
 
 

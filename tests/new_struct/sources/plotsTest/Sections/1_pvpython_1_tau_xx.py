@@ -10,22 +10,18 @@ with open (SETTINGS_FILE) as fd:					#open file
 			Slice_x_.append( line[8:] )
 		if (line[:7] == "Slice_y"):
 			Slice_y_.append( line[8:] )
-		if (line[:30] == "1_pvpython.py_DIRECTORY_OF_OUT"):
-			DIRECTORY_OF_OUT = line[31:]
-		if (line[:37] == "1_pvpython.py_TOLERANCE_OF_DELAUNAY2D"):
-			TOLERANCE_OF_DELAUNAY2D = float(line[38:])
-		if (line[:34] == "1_pvpython.py_DIRECTORY_OF_Ftau_xx"):
-			DIRECTORY_OF_IN_XX = line[35:]
-		if (line[:34] == "1_pvpython.py_DIRECTORY_OF_Ftau_yy"):
-			DIRECTORY_OF_IN_YY = line[35:]
-		if (line[:34] == "1_pvpython.py_DIRECTORY_OF_Ftau_xy"):
-			DIRECTORY_OF_IN_XY = line[35:]
-		if (line[:34] == "1_pvpython.py_DIRECTORY_OF_Ftau_zz"):
-			DIRECTORY_OF_IN_ZZ = line[35:]
+		if (line[:16] == "DIRECTORY_OF_OUT"):
+			DIRECTORY_OF_OUT = line[17:]
+		if (line[:20] == "1_pvpython.py_DIRECTORY_OF_Ftau_xx"):
+			DIRECTORY_OF_IN_XX = line[21:]
+		if (line[:20] == "1_pvpython.py_DIRECTORY_OF_Ftau_yy"):
+			DIRECTORY_OF_IN_YY = line[21:]
+		if (line[:20] == "1_pvpython.py_DIRECTORY_OF_Ftau_xy"):
+			DIRECTORY_OF_IN_XY = line[21:]
+		if (line[:20] == "1_pvpython.py_DIRECTORY_OF_Ftau_zz"):
+			DIRECTORY_OF_IN_ZZ = line[21:]
 		if (line[:14] == "CSV_FILENAME_1"):
 			CSV_FILENAME_1 = line[15:]
-		if (line[:14] == "CSV_FILENAME_2"):
-			CSV_FILENAME_2 = line[15:]
 #---------------------------------------------------------
 
 #open file
@@ -43,7 +39,7 @@ Render()
 #filter "Delaunay2D"
 SetActiveSource(TableToPoints_1)
 Delaunay2D_1 = Delaunay2D()
-Delaunay2D_1.Tolerance = TOLERANCE_OF_DELAUNAY2D
+Delaunay2D_1.Tolerance = 0.0
 Delaunay2D_1.ProjectionPlaneMode = "Best-Fitting Plane"
 #Show()
 #Render()

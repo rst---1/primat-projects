@@ -8,9 +8,9 @@ DIRECTORY=`dirname "$ABSOLUTE_FILENAME"`
 while read myline
 do
 #-----------------------------------------------------Find Directory
-	if [ "${myline:0:30}" = "1_pvpython.py_DIRECTORY_OF_OUT" ]
+	if [ "${myline:0:16}" = "DIRECTORY_OF_OUT" ]
 	then
-		NEWDIRECTORY="${myline:31:100}"
+		NEWDIRECTORY="${myline:17:100}"
 	fi
 #-----------------------------------------------------
 done < "$DIRECTORY/0SETTINGS.txt"

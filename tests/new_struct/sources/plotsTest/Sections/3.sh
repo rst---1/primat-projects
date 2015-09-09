@@ -22,19 +22,14 @@ do
 		let "number_y += 1"
 	fi
 #-----------------------------------------------------Find Directory
-	if [ "${myline:0:30}" = "1_pvpython.py_DIRECTORY_OF_OUT" ]
+	if [ "${myline:0:16}" = "DIRECTORY_OF_OUT" ]
 	then
-		NEWDIRECTORY="${myline:31:100}"
+		NEWDIRECTORY="${myline:17:100}"
 	fi
 #-----------------------------------------------------Find Name of files
 	if [ "${myline:0:14}" = "CSV_FILENAME_1" ]
 	then
 		CSV_FILENAME_1="${myline:15:50}"
-	fi
-#-----------------------------------------------------Find Name of files
-	if [ "${myline:0:14}" = "CSV_FILENAME_2" ]
-	then
-		CSV_FILENAME_2="${myline:15:50}"
 	fi
 #-----------------------------------------------------intervals
 	if [ "${myline:0:29}" = "3.interval_UP___tau_xx_when_x" ]
@@ -116,7 +111,6 @@ done < "$DIRECTORY/0SETTINGS.txt"
 echo "number_x = "$number_x
 echo "number_y = "$number_y
 echo "CSV_FILENAME_1 = "$CSV_FILENAME_1
-echo "CSV_FILENAME_2 = "$CSV_FILENAME_2
 echo "NEWDIRECTORY = "$NEWDIRECTORY
 
 #=========================================================================================
@@ -127,7 +121,6 @@ number=0
 while (let "number<number_x")
 do
 	A_Tau_xx_x_[$number]="$CSV_FILENAME_1 tau_xx when x(${Slice_x_[$number]})"
-	D_Tau_xx_x_[$number]="$CSV_FILENAME_2 tau_xx when x(${Slice_x_[$number]})"
 	let "number += 1"
 done
 
@@ -136,7 +129,6 @@ number=0
 while (let "number<number_y")
 do
 	A_Tau_xx_y_[$number]="$CSV_FILENAME_1 tau_xx when y(${Slice_y_[$number]})"
-	D_Tau_xx_y_[$number]="$CSV_FILENAME_2 tau_xx when y(${Slice_y_[$number]})"
 	let "number += 1"
 done
 
@@ -147,7 +139,6 @@ number=0
 while (let "number<number_x")
 do
 	A_Tau_yy_x_[$number]="$CSV_FILENAME_1 tau_yy when x(${Slice_x_[$number]})"
-	D_Tau_yy_x_[$number]="$CSV_FILENAME_2 tau_yy when x(${Slice_x_[$number]})"
 	let "number += 1"
 done
 
@@ -156,7 +147,6 @@ number=0
 while (let "number<number_y")
 do
 	A_Tau_yy_y_[$number]="$CSV_FILENAME_1 tau_yy when y(${Slice_y_[$number]})"
-	D_Tau_yy_y_[$number]="$CSV_FILENAME_2 tau_yy when y(${Slice_y_[$number]})"
 	let "number += 1"
 done
 
@@ -167,7 +157,6 @@ number=0
 while (let "number<number_x")
 do
 	A_Tau_xy_x_[$number]="$CSV_FILENAME_1 tau_xy when x(${Slice_x_[$number]})"
-	D_Tau_xy_x_[$number]="$CSV_FILENAME_2 tau_xy when x(${Slice_x_[$number]})"
 	let "number += 1"
 done
 
@@ -176,7 +165,6 @@ number=0
 while (let "number<number_y")
 do
 	A_Tau_xy_y_[$number]="$CSV_FILENAME_1 tau_xy when y(${Slice_y_[$number]})"
-	D_Tau_xy_y_[$number]="$CSV_FILENAME_2 tau_xy when y(${Slice_y_[$number]})"
 	let "number += 1"
 done
 
@@ -187,7 +175,6 @@ number=0
 while (let "number<number_x")
 do
 	A_Tau_zz_x_[$number]="$CSV_FILENAME_1 tau_zz when x(${Slice_x_[$number]})"
-	D_Tau_zz_x_[$number]="$CSV_FILENAME_2 tau_zz when x(${Slice_x_[$number]})"
 	let "number += 1"
 done
 
@@ -196,7 +183,6 @@ number=0
 while (let "number<number_y")
 do
 	A_Tau_zz_y_[$number]="$CSV_FILENAME_1 tau_zz when y(${Slice_y_[$number]})"
-	D_Tau_zz_y_[$number]="$CSV_FILENAME_2 tau_zz when y(${Slice_y_[$number]})"
 	let "number += 1"
 done
 
