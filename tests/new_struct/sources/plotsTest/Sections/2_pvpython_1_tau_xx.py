@@ -26,62 +26,56 @@ with open (SETTINGS_FILE) as fd:					#open file
 
 #open file
 from paraview.simple import *
-reader_3 = CSVReader(FileName = [DIRECTORY_OF_IN_YY])
+reader_1 = CSVReader(FileName = [DIRECTORY_OF_IN_XX])
 
 #filter "Table To Points"
-TableToPoints_3 = TableToPoints()
-TableToPoints_3.XColumn = "Points:1"
-TableToPoints_3.YColumn = "Points:2"
-TableToPoints_3.ZColumn = "Points:3"
+TableToPoints_1 = TableToPoints()
+TableToPoints_1.XColumn = "Points:1"
+TableToPoints_1.YColumn = "Points:2"
+TableToPoints_1.ZColumn = "Points:3"
 #Render()
 
 #filter "Delaunay2D"
-SetActiveSource(TableToPoints_3)
-Delaunay2D_3 = Delaunay2D()
-Delaunay2D_3.Tolerance = 0.0
-Delaunay2D_3.ProjectionPlaneMode = "Best-Fitting Plane"
+SetActiveSource(TableToPoints_1)
+Delaunay2D_1 = Delaunay2D()
+Delaunay2D_1.Tolerance = 0.0
+Delaunay2D_1.ProjectionPlaneMode = "Best-Fitting Plane"
 #Show()
 #Render()
 
-#=======================================================================
+#===============================================================================
 
 
 #filter "Slice"
-sliceFilter_3 = Slice()
-Show(sliceFilter_3)
+sliceFilter_1 = Slice()
+Show(sliceFilter_1)
 #Render()
 
 #---------------------------------------------------------
 for i_Files in range(len(Slice_x_)):
-	sliceFilter_3.SliceType.Origin = [float(Slice_x_[i_Files]),0.0,0.0]
-	sliceFilter_3.SliceType.Normal = [1.0,0.0,0.0]
+	sliceFilter_1.SliceType.Origin = [float(Slice_x_[i_Files]),0.0,0.0]
+	sliceFilter_1.SliceType.Normal = [1.0,0.0,0.0]
 #	Render()
-	writer = CreateWriter(DIRECTORY_OF_OUT + "/" + CSV_FILENAME_1 + " tau_yy when x("+str(Slice_x_[i_Files])+").csv")
+	writer = CreateWriter(DIRECTORY_OF_OUT + "/" + CSV_FILENAME_1 + " tau_xx when x("+str(Slice_x_[i_Files])+").csv")
 	writer.WriteAllTimeSteps = 1
 	writer.FieldAssociation = "Points"
 	writer.UpdatePipeline()
 #---------------------------------------------------------
 for i_Files in range(len(Slice_y_)):
-	sliceFilter_3.SliceType.Origin = [0.0,float(Slice_y_[i_Files]),0.0]
-	sliceFilter_3.SliceType.Normal = [0.0,1.0,0.0]
+	sliceFilter_1.SliceType.Origin = [0.0,float(Slice_y_[i_Files]),0.0]
+	sliceFilter_1.SliceType.Normal = [0.0,1.0,0.0]
 	Render()
-	writer = CreateWriter(DIRECTORY_OF_OUT + "/" + CSV_FILENAME_1 + " tau_yy when y("+str(Slice_y_[i_Files])+").csv")
+	writer = CreateWriter(DIRECTORY_OF_OUT + "/" + CSV_FILENAME_1 + " tau_xx when y("+str(Slice_y_[i_Files])+").csv")
 	writer.WriteAllTimeSteps = 1
 	writer.FieldAssociation = "Points"
 	writer.UpdatePipeline()
 #---------------------------------------------------------
-#Delete filters5
-Delete(sliceFilter_3)
-Delete(Delaunay2D_3)
-Delete(TableToPoints_3)
-Delete(reader_3)
-
-
-
-
-
-
-
+#Delete filters1
+Delete(sliceFilter_1)
+#Delete(ClipFilter_1)
+Delete(Delaunay2D_1)
+Delete(TableToPoints_1)
+Delete(reader_1)
 
 
 

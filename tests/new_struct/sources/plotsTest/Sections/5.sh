@@ -202,31 +202,31 @@ done
 #			параметр4 = передаёт координату по которой строится сечение
 
 
-"$DIRECTORY/3_.sh" "1" "${A_Tau_xx_x_[0]}" "${A_Tau_xx_x_[1]}" "${A_Tau_xx_x_[2]}" "${A_Tau_xx_x_[3]}" "${A_Tau_xx_x_[4]}"
+"$DIRECTORY/5_.sh" "1" "${A_Tau_xx_x_[0]}" "${A_Tau_xx_x_[1]}" "${A_Tau_xx_x_[2]}" "${A_Tau_xx_x_[3]}" "${A_Tau_xx_x_[4]}"
 
-"$DIRECTORY/3_.sh" "2" "${A_Tau_xx_y_[0]}" "${A_Tau_xx_y_[1]}" "${A_Tau_xx_y_[2]}" "${A_Tau_xx_y_[3]}" "${A_Tau_xx_y_[4]}"
-
-
-
-"$DIRECTORY/3_.sh" "3" "${A_Tau_yy_x_[0]}" "${A_Tau_yy_x_[1]}" "${A_Tau_yy_x_[2]}" "${A_Tau_yy_x_[3]}" "${A_Tau_yy_x_[4]}"
-
-"$DIRECTORY/3_.sh" "4" "${A_Tau_yy_y_[0]}" "${A_Tau_yy_y_[1]}" "${A_Tau_yy_y_[2]}" "${A_Tau_yy_y_[3]}" "${A_Tau_yy_y_[4]}"
+"$DIRECTORY/5_.sh" "2" "${A_Tau_xx_y_[0]}" "${A_Tau_xx_y_[1]}" "${A_Tau_xx_y_[2]}" "${A_Tau_xx_y_[3]}" "${A_Tau_xx_y_[4]}"
 
 
+
+"$DIRECTORY/5_.sh" "3" "${A_Tau_yy_x_[0]}" "${A_Tau_yy_x_[1]}" "${A_Tau_yy_x_[2]}" "${A_Tau_yy_x_[3]}" "${A_Tau_yy_x_[4]}"
+
+"$DIRECTORY/5_.sh" "4" "${A_Tau_yy_y_[0]}" "${A_Tau_yy_y_[1]}" "${A_Tau_yy_y_[2]}" "${A_Tau_yy_y_[3]}" "${A_Tau_yy_y_[4]}"
 
 
 
 
 
-"$DIRECTORY/3_.sh" "1" "${A_Tau_xy_x_[0]}" "${A_Tau_xy_x_[1]}" "${A_Tau_xy_x_[2]}" "${A_Tau_xy_x_[3]}" "${A_Tau_xy_x_[4]}"
-
-"$DIRECTORY/3_.sh" "2" "${A_Tau_xy_y_[0]}" "${A_Tau_xy_y_[1]}" "${A_Tau_xy_y_[2]}" "${A_Tau_xy_y_[3]}" "${A_Tau_xy_y_[4]}"
 
 
+"$DIRECTORY/5_.sh" "1" "${A_Tau_xy_x_[0]}" "${A_Tau_xy_x_[1]}" "${A_Tau_xy_x_[2]}" "${A_Tau_xy_x_[3]}" "${A_Tau_xy_x_[4]}"
 
-"$DIRECTORY/3_.sh" "3" "${A_Tau_zz_x_[0]}" "${A_Tau_zz_x_[1]}" "${A_Tau_zz_x_[2]}" "${A_Tau_zz_x_[3]}" "${A_Tau_zz_x_[4]}"
+"$DIRECTORY/5_.sh" "2" "${A_Tau_xy_y_[0]}" "${A_Tau_xy_y_[1]}" "${A_Tau_xy_y_[2]}" "${A_Tau_xy_y_[3]}" "${A_Tau_xy_y_[4]}"
 
-"$DIRECTORY/3_.sh" "4" "${A_Tau_zz_y_[0]}" "${A_Tau_zz_y_[1]}" "${A_Tau_zz_y_[2]}" "${A_Tau_zz_y_[3]}" "${A_Tau_zz_y_[4]}"
+
+
+"$DIRECTORY/5_.sh" "3" "${A_Tau_zz_x_[0]}" "${A_Tau_zz_x_[1]}" "${A_Tau_zz_x_[2]}" "${A_Tau_zz_x_[3]}" "${A_Tau_zz_x_[4]}"
+
+"$DIRECTORY/5_.sh" "4" "${A_Tau_zz_y_[0]}" "${A_Tau_zz_y_[1]}" "${A_Tau_zz_y_[2]}" "${A_Tau_zz_y_[3]}" "${A_Tau_zz_y_[4]}"
 
 
 

@@ -6,7 +6,8 @@ ABSOLUTE_FILENAME=`readlink -e "$0"`
 DIRECTORY=`dirname "$ABSOLUTE_FILENAME"`
 
 
-"$DIRECTORY/Sections/7.py"
-echo "7.py - done========================================="
-"$DIRECTORY/Sections/8.sh"
-echo "8.sh - done========================================="
+"$DIRECTORY/Sections/4.py"
+echo "4.py - done========================================="
+"$DIRECTORY/Sections/5.sh"
+echo "5.sh - done========================================="
+

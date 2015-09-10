@@ -112,6 +112,11 @@ DIRECTORY_OF_Ftau_xy=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2
 DIRECTORY_OF_Ftau_zz=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1/Ftau_zz.csv
 
 
+#Путь к файлам функций
+DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1/Ftau_xx.csv
+DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1/Ftau_yy.csv
+DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1/Ftau_xy.csv
+DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/T2.2/1x1/Ftau_zz.csv
 #------------------------------------------------------------------------------------------
 
 #начало для имени файла,который содержит данные сечения вида 1 (поверхность tau)
