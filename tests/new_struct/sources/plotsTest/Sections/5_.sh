@@ -10,7 +10,7 @@ do
 #-----------------------------------------------------Find Directory
 	if [ "${myline:0:16}" = "DIRECTORY_OF_OUT" ]
 	then
-		NEWDIRECTORY="${myline:17:100}"
+		NEWDIRECTORY="${myline:17:150}"
 	fi
 #-----------------------------------------------------
 done < "$DIRECTORY/0SETTINGS.txt"

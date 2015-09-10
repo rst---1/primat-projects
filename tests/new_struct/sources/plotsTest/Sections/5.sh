@@ -24,7 +24,7 @@ do
 #-----------------------------------------------------Find Directory
 	if [ "${myline:0:16}" = "DIRECTORY_OF_OUT" ]
 	then
-		NEWDIRECTORY="${myline:17:100}"
+		NEWDIRECTORY="${myline:17:150}"
 	fi
 #-----------------------------------------------------Find Name of files
 	if [ "${myline:0:14}" = "CSV_FILENAME_1" ]

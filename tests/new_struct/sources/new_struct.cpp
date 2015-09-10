@@ -246,8 +246,8 @@ void main2(double Yung1, double Yung2, double Yung3) {
 
 
     STRBEGIN1 = "out/";
-    STRBEGIN2 = "T2.2/"; //INPUT
-    STRBEGIN3 = "1x1/";
+    STRBEGIN2 = "___________T2.2/"; //INPUT
+    STRBEGIN3 = "1x1___________________________/";
     strcpy(FILEBEGIN, STRBEGIN1); //Запись пути файла
     strcat(FILEBEGIN, STRBEGIN2); //Запись пути файла
     strcat(FILEBEGIN, STRBEGIN3); //Запись пути файла
@@ -257,10 +257,10 @@ void main2(double Yung1, double Yung2, double Yung3) {
     bb = 1.0;    Yleft = -0.5;    Yright = 0.5;    Xdown = 0.0;    Xup = 1.0;    FileOfGrid = "net/1x1_slayer3.msh";    c0 = 0.5;    C0 = 0.0;    eps = 1e-12;
     main1(3, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN);
 
-    /*
+    
                                             STRBEGIN1 = "out/";
-                                            STRBEGIN2 = "T2.2/";							//INPUT
-                                            STRBEGIN3 = "1x5/";
+                                            STRBEGIN2 = "___________T2.2/"; //INPUT
+                                            STRBEGIN3 = "1x5___________________________/";
                                             strcpy(FILEBEGIN, STRBEGIN1);					//Запись пути файла
                                             strcat(FILEBEGIN, STRBEGIN2);					//Запись пути файла
                                             strcat(FILEBEGIN, STRBEGIN3);					//Запись пути файла
@@ -270,7 +270,7 @@ void main2(double Yung1, double Yung2, double Yung3) {
                                             bb = 5.0;	Yleft = -2.5; Yright = 2.5; Xdown = 0.0; Xup = 1.0; FileOfGrid = "net/1x5_slayer3.msh"; c0 = 0.5; C0 = 263.0/240.0; eps = 1e-12;							//INPUT
                                             main1( 3, Task, bb, Yleft, Yright, Xdown, Xup, FileOfGrid, Yung1, Yung2, Yung3, Puasson1, Puasson2, Puasson3, c0, C0, eps, FILEBEGIN );
 
-
+/*
                                             STRBEGIN1 = "out/";
                                             STRBEGIN2 = "T2.2/";							//INPUT
                                             STRBEGIN3 = "1x10/";
