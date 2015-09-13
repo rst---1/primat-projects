@@ -4,14 +4,12 @@ import sys
 DIRECTORY = sys.path[0]
 
 #---------------------------------------------------------
-with open (DIRECTORY + "/Sections/0SETTINGS.txt") as fd:		#open file
-	t = fd.read()									#read file
-	for line in t.splitlines():						#read each line
-		if (line[:16] == "DIRECTORY_OF_OUT"):
-			NEWDIRECTORY = line[17:]
-			print NEWDIRECTORY
+#with open (DIRECTORY + "/Sections/0SETTINGS.txt") as fd:		#open file
+#	t = fd.read()									#read file
+#	for line in t.splitlines():						#read each line
+#		if (line[:16] == "DIRECTORY_OF_OUT"):
+#			NEWDIRECTORY = line[17:]
 #---------------------------------------------------------
-
 
 FileName = sys.argv[1]
 String1 = "0.330000"
@@ -21,7 +19,8 @@ String2 = "0.660000"
 print '.	.	.	.	.	.	delete strings of file . .'
 
 rst = []
-with open (NEWDIRECTORY + "/" + FileName) as fd:					#open file
+#with open (NEWDIRECTORY + "/" + FileName) as fd:					#open file
+with open (FileName) as fd:					#open file
 	t = fd.read()							#read the file
 	for line in t.splitlines():				#read each line
 		subline = line.split()
@@ -32,7 +31,8 @@ with open (NEWDIRECTORY + "/" + FileName) as fd:					#open file
 			line1 = ""
 			line1 = "    " + subline[0] + "\t\t" + subline[1] + "\t\t" + subline[2] + "\t\t" + "0.0"
 			rst.append(line1)
-with open(NEWDIRECTORY + "/" + FileName, 'w') as fd:
+#with open(NEWDIRECTORY + "/" + FileName, 'w') as fd:
+with open(FileName, 'w') as fd:
 	fd.write('\n'.join(rst))
 rst = []
 

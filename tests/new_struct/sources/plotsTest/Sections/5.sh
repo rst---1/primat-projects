@@ -121,6 +121,7 @@ number=0
 while (let "number<number_x")
 do
 	A_Tau_xx_x_[$number]="$CSV_FILENAME_1 tau_xx when x(${Slice_x_[$number]})"
+	echo A_Tau_xx_x_[$number] = ${A_Tau_xx_x_[$number]}
 	let "number += 1"
 done
 

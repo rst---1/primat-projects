@@ -97,17 +97,17 @@ DIRECTORY_OF_OUT=/home/rst/primat-projects/tests/new_struct/sources/out/________
 
 
 #Путь к файлам функций
-DIRECTORY_OF_MOUTTTTT=/home/rst/primat-projects/tests/new_struct/sources/out/___________T2.2
+DIRECTORY_OF_MOUTTTTT=/home/rst/primat-projects/tests/new_struct/sources/out
 
-DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/___________T2.2/1x1___________________________/Ftau_xx.csv
-DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/___________T2.2/1x1___________________________/Ftau_yy.csv
-DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/___________T2.2/1x1___________________________/Ftau_xy.csv
-DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/___________T2.2/1x1___________________________/Ftau_zz.csv
+#DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/___________T2.2/1x1___________________________/Ftau_xx.csv
+#DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/___________T2.2/1x1___________________________/Ftau_yy.csv
+#DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/___________T2.2/1x1___________________________/Ftau_xy.csv
+#DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/___________T2.2/1x1___________________________/Ftau_zz.csv
 
-DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/___________T2.2/1x5___________________________/Ftau_xx.csv
-DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/___________T2.2/1x5___________________________/Ftau_yy.csv
-DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/___________T2.2/1x5___________________________/Ftau_xy.csv
-DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/___________T2.2/1x5___________________________/Ftau_zz.csv
+#DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/___________T2.2/1x5___________________________/Ftau_xx.csv
+#DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/___________T2.2/1x5___________________________/Ftau_yy.csv
+#DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/___________T2.2/1x5___________________________/Ftau_xy.csv
+#DIRECTORY_OF_FUNCTION=/home/rst/primat-projects/tests/new_struct/sources/out/___________T2.2/1x5___________________________/Ftau_zz.csv
 #------------------------------------------------------------------------------------------
 
 #начало для имени файла,который содержит данные сечения вида 1 (поверхность tau)

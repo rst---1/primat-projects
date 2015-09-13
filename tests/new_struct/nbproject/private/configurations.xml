@@ -8463,76 +8463,8 @@
       </df>
     </df>
     <df root="." name="1">
-      <df name="obj">
-      </df>
-      <df name="release">
-      </df>
       <df name="sources">
-        <df name="ekaterinburg_2014">
-        </df>
-        <df name="gnuplot">
-        </df>
-        <df name="isotropic">
-        </df>
-        <df name="mean_test">
-        </df>
-        <df name="net">
-        </df>
-        <df name="out">
-          <df name="___________T2.2">
-            <df name="1x10__________________________">
-            </df>
-            <df name="1x1___________________________">
-            </df>
-            <df name="1x5___________________________">
-            </df>
-          </df>
-        </df>
-        <df name="out_analytic">
-        </df>
-        <df name="out_errors">
-        </df>
-        <df name="plots1">
-          <df name="Sections">
-          </df>
-        </df>
-        <df name="plots2">
-          <df name="Sections">
-          </df>
-        </df>
-        <df name="plotsTest">
-          <df name="Sections">
-          </df>
-        </df>
-        <df name="tests">
-          <df name="тестирование базовых задач на различных сетках">
-            <in>new_struct_T1.1.cpp</in>
-            <in>new_struct_T1.2__1x1.cpp</in>
-            <in>new_struct_T1.2__1x2.cpp</in>
-            <in>new_struct_T1.2__1x3.cpp</in>
-            <in>new_struct_T2.1__1x1.cpp</in>
-          </df>
-        </df>
-        <in>gradient.h</in>
         <in>new_struct.cpp</in>
-        <in>new_struct_elastic.cpp</in>
-        <in>new_struct_elastic_T2.1.cpp</in>
-        <in>new_struct_elastic_T2.1_slayer3.cpp</in>
-        <in>new_struct_elastic_T2.2.cpp</in>
-        <in>new_struct_elastic_T2.2_slayer3.cpp</in>
-        <in>new_struct_slayer1.cpp</in>
-        <in>new_struct_slayer3.cpp</in>
-        <in>new_struct_slayer3_T1.1.cpp</in>
-        <in>new_struct_slayer3_T1.2.cpp</in>
-        <in>new_struct_slayer3_T2.1.cpp</in>
-        <in>new_struct_slayer3_T2.2.cpp</in>
-        <in>new_struct_temperature.cpp</in>
-        <in>new_struct_temperature_T1.1.cpp</in>
-        <in>new_struct_temperature_T1.1_slayer3.cpp</in>
-        <in>new_struct_temperature_T1.2.cpp</in>
-        <in>new_struct_temperature_T1.2_slayer3.cpp</in>
-        <in>nikola_elastic_problem_tools.h</in>
-        <in>read_file_to_array.h</in>
       </df>
     </df>
   </logicalFolder>

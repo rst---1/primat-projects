@@ -1,51 +1,31 @@
 #!/usr/bin/python
-SETTINGS_FILE = "/home/rst/primat-projects/tests/new_struct/sources/plotsTest/Sections/0SETTINGS.txt"
-#---------------------------------------------------------
-Slice_x_ = []										#SLICES
-Slice_y_ = []
-DIRECTORY_OF_FUNCTION = []
-NAME_OF_FUNCTION = []
-NAME_OF_MESH = []
-with open (SETTINGS_FILE) as fd:					#open file
-	t = fd.read()									#read file
-	for line in t.splitlines():						#read each line
-		if (line[:7] == "Slice_x"):
-			Slice_x_.append( line[8:] )
-		if (line[:7] == "Slice_y"):
-			Slice_y_.append( line[8:] )
-		if (line[:16] == "DIRECTORY_OF_OUT"):
-			DIRECTORY_OF_OUT = line[17:]
-		if (line[:20] == "DIRECTORY_OF_Ftau_xx"):
-			DIRECTORY_OF_IN_XX = line[21:]
-		if (line[:20] == "DIRECTORY_OF_Ftau_yy"):
-			DIRECTORY_OF_IN_YY = line[21:]
-		if (line[:20] == "DIRECTORY_OF_Ftau_xy"):
-			DIRECTORY_OF_IN_XY = line[21:]
-		if (line[:20] == "DIRECTORY_OF_Ftau_zz"):
-			DIRECTORY_OF_IN_ZZ = line[21:]
-		if (line[:14] == "CSV_FILENAME_1"):
-			CSV_FILENAME_1 = line[15:]
 
-		if (line[:21] == "DIRECTORY_OF_MOUTTTTT"):
-			DIRECTORY_OF_MOUTTTTT = line[22:]
-		if (line[:21] == "DIRECTORY_OF_FUNCTION"):
-			DIRECTORY_OF_FUNCTION.append( line[22:] )
-			NAME_OF_FUNCTION.append( line[-10:-4] )
-			NAME_OF_MESH.append( line[-41:-12] )
-#			NAME_OF_PROBLEM.append( line[-57:-43] )
+Line1 = "FU_x_grad.csv"
+Line2 = "FAU_x_grad.csv"
+Line3 = "Ftau_xx.csv"
+Line4 = "FAtau_xx.csv"
 
+Line11 = "wwwwwwwwwwwwwwwFU_x_grad.csv"
+Line22 = "wwwwwwwwwwwwwwwFAU_x_grad.csv"
+Line33 = "wwwwwwwwwwwwwwwFtau_xx.csv"
+Line44 = "wwwwwwwwwwwwwwwFAtau_xx.csv"
 
-
+print Line1
+print Line2
+print Line3
+print Line4
 print
+print Line1[:9]
+print Line2[:10]
+print Line3[:5]
+print Line4[:6]
 print
-
-print 
-print NAME_OF_FUNCTION
-
+print Line11[-16:-4]
+print Line22[-16:-4]
+print Line33[-16:-6]
+print Line44[-16:-6]
 print
-print NAME_OF_MESH
-
-
-
-
-
+print Line11[-13:-4]
+print Line22[-14:-4]
+print Line33[-11:-6]
+print Line44[-12:-6]

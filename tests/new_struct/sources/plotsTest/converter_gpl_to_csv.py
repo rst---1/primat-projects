@@ -4,17 +4,15 @@ import sys
 DIRECTORY = sys.path[0]
 
 #---------------------------------------------------------
-
-with open (DIRECTORY + "/Sections/0SETTINGS.txt") as fd:		#open file
-	t = fd.read()									#read file
-	for line in t.splitlines():						#read each line
-		if (line[:16] == "DIRECTORY_OF_OUT"):
-			NEWDIRECTORY = line[17:]
-			print NEWDIRECTORY
-
+#with open (DIRECTORY + "/Sections/0SETTINGS.txt") as fd:		#open file
+#	t = fd.read()									#read file
+#	for line in t.splitlines():						#read each line
+#		if (line[:16] == "DIRECTORY_OF_OUT"):
+#			NEWDIRECTORY = line[17:]
+#			print NEWDIRECTORY
 #---------------------------------------------------------
 
-FileName_gpl = NEWDIRECTORY + "/" + sys.argv[1]
+FileName_gpl = sys.argv[1]
 FileName_csv = FileName_gpl[:-4] + ".csv"
 
 import os
@@ -22,21 +20,21 @@ os.rename(FileName_gpl, FileName_csv)
 
 rst = []
 rst_line = ''
-if (sys.argv[1][:9] == 'FU_x_grad'):
+if (sys.argv[1][-13:-4] == 'FU_x_grad'):
 	FirstString = '"Points:0","Points:1","Points:2","Points:3","Points:4","Points:5"\n'
-elif (sys.argv[1][:9] == 'FU_y_grad'):
+elif (sys.argv[1][-13:-4] == 'FU_y_grad'):
 	FirstString = '"Points:0","Points:1","Points:2","Points:3","Points:4","Points:5"\n'
-elif (sys.argv[1][:9] == 'FU_z_grad'):
+elif (sys.argv[1][-13:-4] == 'FU_z_grad'):
 	FirstString = '"Points:0","Points:1","Points:2","Points:3","Points:4","Points:5"\n'
-elif (sys.argv[1][:10] == 'FAU_x_grad'):
+elif (sys.argv[1][-14:-4] == 'FAU_x_grad'):
 	FirstString = '"Points:0","Points:1","Points:2","Points:3","Points:4","Points:5"\n'
-elif (sys.argv[1][:10] == 'FAU_y_grad'):
+elif (sys.argv[1][-14:-4] == 'FAU_y_grad'):
 	FirstString = '"Points:0","Points:1","Points:2","Points:3","Points:4","Points:5"\n'
-elif (sys.argv[1][:10] == 'FAU_z_grad'):
+elif (sys.argv[1][-14:-4] == 'FAU_z_grad'):
 	FirstString = '"Points:0","Points:1","Points:2","Points:3","Points:4","Points:5"\n'
-elif (sys.argv[1][:5] == 'Ftau_'):
+elif (sys.argv[1][-11:-6] == 'Ftau_'):
 	FirstString = '"Points:0","Points:1","Points:2","Points:3"\n'
-elif (sys.argv[1][:6] == 'FAtau_'):
+elif (sys.argv[1][-12:-6] == 'FAtau_'):
 	FirstString = '"Points:0","Points:1","Points:2","Points:3"\n'
 FlagOfTab = 0
 FlagOfNan = 0
